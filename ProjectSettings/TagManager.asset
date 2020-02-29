@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Obstacles Upper
+    uniqueID: 1249114635
+    locked: 0
