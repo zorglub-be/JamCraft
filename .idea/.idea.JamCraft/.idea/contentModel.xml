@@ -24,6 +24,9 @@
             </e>
           </e>
         </e>
+        <e p="Scripts" t="Include">
+          <e p="LightFlicker2D.cs" t="Include" />
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
             <e p="Fonts" t="Include">

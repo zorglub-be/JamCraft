@@ -38,9 +38,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 853559971
+    locked: 0
+  - name: Floor Deco
+    uniqueID: 4181412363
+    locked: 0
+  - name: Walls
+    uniqueID: 3026478147
+    locked: 0
+  - name: Wall Deco
+    uniqueID: 3093245727
+    locked: 0
+  - name: Doors
+    uniqueID: 1471641885
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1967520431
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Obstacles Upper
     uniqueID: 1249114635
+    locked: 0
+  - name: Light Shafts
+    uniqueID: 3971102683
     locked: 0

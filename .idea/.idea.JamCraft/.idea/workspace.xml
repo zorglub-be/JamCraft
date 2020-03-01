@@ -12,8 +12,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/2D Customizable Characters/Characters/Male/Editor/CharacterSetupEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LightFlicker2D.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/2DLightFlicker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LightFlicker2D.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1YV3vPBqVDYTFoFkSh2CxWG9llw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -50,6 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1583014173242</updated>
       <workItem from="1583014195923" duration="640000" />
+      <workItem from="1583036913383" duration="26000" />
+      <workItem from="1583037000126" duration="4210000" />
     </task>
     <servers />
   </component>
@@ -60,20 +72,27 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="183" key="#Notifications" timestamp="1583014665287">
+    <state x="552" y="183" key="#Notifications" timestamp="1583037163923">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="183" key="#Notifications/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1583014665287" />
-    <state x="491" y="167" key="SettingsEditor" timestamp="1583014655861">
+    <state x="552" y="183" key="#Notifications/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1583037163923" />
+    <state x="626" y="155" width="938" height="709" key="SettingsEditor" timestamp="1583037177247">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="491" y="167" key="SettingsEditor/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1583014655861" />
+    <state x="626" y="155" width="938" height="709" key="SettingsEditor/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1583037177247" />
   </component>
 </project>
