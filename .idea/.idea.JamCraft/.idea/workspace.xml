@@ -13,6 +13,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/RecipesIndex.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/IItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/SoundEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/Testing/CraftTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/GameState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/IGameEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/RecipeBook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/GameEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crafting/Recipe.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -20,6 +29,11 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingIngredient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/Ingredient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/RecipeBook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/Testing/CraftTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/RecipesIndex.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/GameEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/SoundEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Crafting/Recipe.cs" />
       </list>
     </option>
@@ -70,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583000944374</updated>
       <workItem from="1583000946588" duration="5129000" />
-      <workItem from="1583146239984" duration="6243000" />
+      <workItem from="1583146239984" duration="10529000" />
     </task>
     <servers />
   </component>
@@ -102,6 +116,19 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Crafting/GameEffect.cs</url>
+          <line>11</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Crafting/GameEffect.cs" initialLine="11">
+            <startOffsets>
+              <option value="259" />
+            </startOffsets>
+            <endOffsets>
+              <option value="301" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
