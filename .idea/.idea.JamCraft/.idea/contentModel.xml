@@ -26,7 +26,18 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Crafting" t="Include">
+            <e p="GameEffect.cs" t="Include" />
+            <e p="GameState.cs" t="Include" />
+            <e p="IGameEffect.cs" t="Include" />
+            <e p="IItem.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
             <e p="Recipe.cs" t="Include" />
+            <e p="RecipeBook.cs" t="Include" />
+            <e p="RecipesIndex.cs" t="Include" />
+            <e p="SoundEffect.cs" t="Include" />
+            <e p="Testing" t="Include">
+              <e p="CraftTest.cs" t="Include" />
+            </e>
           </e>
           <e p="LightFlicker2D.cs" t="Include" />
         </e>
