@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\waltd\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\waltd\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_JamCraft.-274370.00" t="ExcludeRecursive" />
-    <e p="E:\GitHub\JamCraft" t="IncludeRecursive">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_JamCraft.2072135594.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -26,22 +26,28 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Crafting" t="Include">
-            <e p="GameEffect.cs" t="Include" />
             <e p="GameState.cs" t="Include" />
-            <e p="IGameEffect.cs" t="Include" />
             <e p="IItem.cs" t="Include" />
             <e p="Item.cs" t="Include" />
             <e p="Recipe.cs" t="Include" />
             <e p="RecipeBook.cs" t="Include" />
             <e p="RecipesIndex.cs" t="Include" />
-            <e p="SoundEffect.cs" t="Include" />
             <e p="Testing" t="Include">
               <e p="CraftTest.cs" t="Include" />
             </e>
           </e>
+          <e p="Game Effects" t="Include">
+            <e p="AbilityEffect.cs" t="Include" />
+            <e p="GameEffect.cs" t="Include" />
+            <e p="IGameEffect.cs" t="Include" />
+            <e p="SoundEffect.cs" t="Include" />
+          </e>
           <e p="Interactions.cs" t="Include" />
           <e p="LightFlicker2D.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="Singleton" t="Include">
+            <e p="SingletonMB.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
@@ -117,7 +123,7 @@
       <e p="JamCraft.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

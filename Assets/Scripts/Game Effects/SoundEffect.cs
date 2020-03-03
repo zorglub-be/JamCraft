@@ -7,7 +7,6 @@ public class SoundEffect : GameEffect
 
     public override void Execute()
     {
-        LoadGameState();
-        gameState.AudioSource.PlayOneShot(_audioClip);
+        GameState.Instance.AudioSource.PlayOneShot(_audioClip);
     }
 }

@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: TestGangsta1
+  m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
+  m_Name: Split Strike Ability
   m_EditorClassIdentifier: 
-  _name: TestGangsta1
-  _icon: {fileID: 0}
-  _sprite: {fileID: 0}

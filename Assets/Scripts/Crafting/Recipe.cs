@@ -20,6 +20,8 @@ public class Recipe : ScriptableObject
     private void OnValidate()
     {
         _id = IdFromIngredients(_ingredients);
+        if (_name.Length == 0)
+            _name = name; //set the name by default to be the name of the scriptable object instance
     }
 
     /// <summary>
@@ -29,11 +31,11 @@ public class Recipe : ScriptableObject
     /// <returns></returns>
     public static string IdFromIngredients(Item[] ingredients)
     {
-        Array.Sort(ingredients, new Comparison<Item>((i1, i2) => String.Compare(i1.Name, i2.Name, StringComparison.Ordinal)));
+        Array.Sort(ingredients, new Comparison<Item>((i1, i2) => String.Compare(i1?.Name, i2?.Name, StringComparison.Ordinal)));
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ingredients.Length; i++)
         {
-            sb.Append(ingredients[i].Name);
+            sb.Append(ingredients[i]?.Name);
         }
         return sb.ToString();
     }

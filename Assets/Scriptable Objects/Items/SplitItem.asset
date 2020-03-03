@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: TestGangsta2
+  m_Name: SplitItem
   m_EditorClassIdentifier: 
-  _name: TestGangsta2
+  _name: Split
   _icon: {fileID: 0}
   _sprite: {fileID: 0}
