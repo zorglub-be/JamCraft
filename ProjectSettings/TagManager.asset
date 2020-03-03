@@ -65,3 +65,6 @@ TagManager:
   - name: Light Shafts
     uniqueID: 3971102683
     locked: 0
+  - name: Interactions
+    uniqueID: 2856395103
+    locked: 0
