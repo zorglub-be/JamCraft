@@ -28,7 +28,10 @@
           <e p="Crafting" t="Include">
             <e p="GameState.cs" t="Include" />
             <e p="IItem.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
             <e p="Item.cs" t="Include" />
+            <e p="ItemScript.cs" t="Include" />
+            <e p="ItemStack.cs" t="Include" />
             <e p="Recipe.cs" t="Include" />
             <e p="RecipeBook.cs" t="Include" />
             <e p="RecipesIndex.cs" t="Include" />

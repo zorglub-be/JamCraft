@@ -4,6 +4,7 @@ public class GameState: SingletonMB<GameState>
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Inventory _inventory;
 
     public AudioSource AudioSource
     {
@@ -11,4 +12,5 @@ public class GameState: SingletonMB<GameState>
         set => _audioSource = value;
     }
     public GameObject Player => _player;
+    public Inventory Inventory => _inventory;
 }
