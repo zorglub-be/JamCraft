@@ -68,3 +68,9 @@ TagManager:
   - name: Interactions
     uniqueID: 2856395103
     locked: 0
+  - name: HUD
+    uniqueID: 1188973311
+    locked: 0
+  - name: Inventory
+    uniqueID: 295483877
+    locked: 0
