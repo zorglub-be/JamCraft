@@ -16,7 +16,7 @@ public class ItemStack
     public ItemStack(Item item, int count)
     {
         _item = item;
-        if (count <= item.MaxStack && count < 0)
+        if (count <= item.MaxStack && count >= 0)
         {
             _count = count;
         }

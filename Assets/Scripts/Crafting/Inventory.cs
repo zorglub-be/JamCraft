@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Crafting/Inventory")]
 public class Inventory : ScriptableObject, IEnumerable
 {
     // Inspector
@@ -31,6 +32,7 @@ public class Inventory : ScriptableObject, IEnumerable
     
     private void OnEnable()
     {
+        Clear();
         _count = 0;
         for (int i = 0; i < _items.Length; i++)
         {
@@ -165,9 +167,8 @@ public class Inventory : ScriptableObject, IEnumerable
         for (int i = 0; i < _items.Length; i++)
         {
             var currentStack = _items[i];
-            if (currentStack == null)
+            if (currentStack == null || currentStack.Item == null)
             {
-                //we remember this for later   
                 continue;
             }
             if (ReferenceEquals(currentStack.Item, item))
@@ -194,7 +195,7 @@ public class Inventory : ScriptableObject, IEnumerable
         {
             for (int i = 0; i < _items.Length; i++)
             {
-                if (_items[i] == null)
+                if (_items[i] == null || _items[i].Item == null)
                 {
                     var itemsToAdd = Mathf.Min(delta - changedItems, item.MaxStack);
                     _items[i] = new ItemStack(item, itemsToAdd);
