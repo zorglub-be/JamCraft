@@ -10,46 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 295510fd9fef40d9aa636130d8b5f60a, type: 3}
-  m_Name: New Inventory
+  m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   _items:
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
-  - _count: 0
-    _item: {fileID: 0}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - _count: 5
+    _item: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}

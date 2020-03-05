@@ -15,3 +15,4 @@ MonoBehaviour:
   _name: Split
   _icon: {fileID: 0}
   _sprite: {fileID: 0}
+  _maxStack: 1

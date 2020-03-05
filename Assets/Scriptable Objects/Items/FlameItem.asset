@@ -15,3 +15,4 @@ MonoBehaviour:
   _name: Flame
   _icon: {fileID: 21300010, guid: dfc11891530e9be43b998555296cf145, type: 3}
   _sprite: {fileID: 21300010, guid: dfc11891530e9be43b998555296cf145, type: 3}
+  _maxStack: 1

@@ -15,3 +15,4 @@ MonoBehaviour:
   _name: Bow
   _icon: {fileID: 21300962, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
   _sprite: {fileID: 21300962, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
+  _maxStack: 5
