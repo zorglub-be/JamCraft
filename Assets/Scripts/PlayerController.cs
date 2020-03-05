@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject rightObject;
     [SerializeField] private GameObject downObject;
     [SerializeField] private bool allowDiagonalMovement = true;
-    [SerializeField] private bool lookAtMouse = false;
     private Vector2 movementDirection;
     private Rigidbody2D _rigidbody2D;
     private Animator currentAnimator;
@@ -69,48 +68,33 @@ public class PlayerController : MonoBehaviour
 
         // Find out which direction to face and do what is appropiate
         //
+             //Only update angle of direction if input axises are pressed
+        if (!(axisVector.x == 0 && axisVector.y == 0))
+        {
+            // Find out what direction angle based on input axises
+            angle = Mathf.Atan2(axisVector.x, axisVector.y) * Mathf.Rad2Deg;
 
-        
-        if (lookAtMouse)
+            // Round out to prevent jittery direction changes.
+            angle = Mathf.RoundToInt(angle);
+        }
+        if (angle > -45 && angle < 45)  // UP
+        {
+            currentDirection = Direction.Up;
+        }
+
+        else if (angle < -135 || angle > 135) // DOWN
         {
             currentDirection = Direction.Down;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 facingDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg + 90;
-        transform.eulerAngles = new Vector3(0, 0, angle);
         }
-        else
+
+        else if (angle >= 45 && angle <= 135) // RIGHT
         {
-            transform.eulerAngles = Vector3.zero;
-            //Debug.Log(axisVector);
-             //Only update angle of direction if input axises are pressed
-            if (!(axisVector.x == 0 && axisVector.y == 0))
-            {
-                // Find out what direction angle based on input axises
-                angle = Mathf.Atan2(axisVector.x, axisVector.y) * Mathf.Rad2Deg;
+            currentDirection = Direction.Right;
+        }
 
-                // Round out to prevent jittery direction changes.
-                angle = Mathf.RoundToInt(angle);
-            }
-            if (angle > -45 && angle < 45)  // UP
-            {
-                currentDirection = Direction.Up;
-            }
-
-            else if (angle < -135 || angle > 135) // DOWN
-            {
-                currentDirection = Direction.Down;
-            }
-
-            else if (angle >= 45 && angle <= 135) // RIGHT
-            {
-                currentDirection = Direction.Right;
-            }
-
-            else if (angle <= -45 && angle >= -135)  // LEFT
-            {
-                currentDirection = Direction.Left;
-            }
+        else if (angle <= -45 && angle >= -135)  // LEFT
+        {
+            currentDirection = Direction.Left;
         }
         // Did direction change?
         if (previousDirection != currentDirection)
@@ -175,18 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         // Move our character
         Move();
-        //TurnTowardsMouse();
     }
-
-    private void TurnTowardsMouse()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 facingDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg + 90;
-        transform.eulerAngles = new Vector3(0, 0, angle);
-
-    }
-
 
     public void Move()
     {
@@ -230,6 +203,5 @@ public class PlayerController : MonoBehaviour
 
         // Smoothing out the movement
         _rigidbody2D.velocity = Vector3.SmoothDamp(_rigidbody2D.velocity, targetVelocity, ref currentVelocity, m_MovementSmoothing);
-        //_rigidbody2D.velocity = movementDirection * moveSpeed * Time.deltaTime;
     }
 }
