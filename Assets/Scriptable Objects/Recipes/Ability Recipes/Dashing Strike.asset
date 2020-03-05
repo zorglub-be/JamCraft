@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
   m_Name: Dashing Strike
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Dashing Strike
   _icon: {fileID: 0}
-  _ingredients: []
-  _effects: []
+  _ingredients:
+  - {fileID: 11400000, guid: dc54cd618b62446a99957333653e8c10, type: 2}
+  - {fileID: 11400000, guid: 9cb013822ef3f437883e7dd7905b8666, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: bf107fa3c143c4710ac16d444b9cd999, type: 2}

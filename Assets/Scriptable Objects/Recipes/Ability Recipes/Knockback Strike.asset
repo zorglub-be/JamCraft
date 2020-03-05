@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
-  m_Name: Dashing Strike 6
+  m_Name: Knockback Strike
   m_EditorClassIdentifier: 
-  _name: Dashing Strike
+  _name: Knockback Strike
   _icon: {fileID: 0}
-  _ingredients: []
-  _effects: []
+  _ingredients:
+  - {fileID: 11400000, guid: 98362903ecadb418388a9190ce4494ea, type: 2}
+  - {fileID: 11400000, guid: 9cb013822ef3f437883e7dd7905b8666, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: f12525cc4ddb64429b656d1413d69ade, type: 2}

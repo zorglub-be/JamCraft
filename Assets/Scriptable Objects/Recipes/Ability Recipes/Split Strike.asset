@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
-  m_Name: Dashing Strike 1
+  m_Name: Split Strike
   m_EditorClassIdentifier: 
-  _name: Dashing Strike
+  _name: Split Strike
   _icon: {fileID: 0}
-  _ingredients: []
-  _effects: []
+  _ingredients:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0037c92a51db64e0a8b6c3da5f13dfda, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: 18e04671d1a9545ea85a470960bc52a9, type: 2}

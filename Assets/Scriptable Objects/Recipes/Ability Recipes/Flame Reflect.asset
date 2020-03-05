@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
-  m_Name: Dashing Strike 4
+  m_Name: Flame Reflect
   m_EditorClassIdentifier: 
-  _name: Dashing Strike
-  _icon: {fileID: 0}
-  _ingredients: []
-  _effects: []
+  _name: Flame Reflect
+  _icon: {fileID: 21300000, guid: 4dc051a0301cecb4aa1a85036ace2a58, type: 3}
+  _ingredients:
+  - {fileID: 11400000, guid: 94a212598b7e24979954a8d0ff54c689, type: 2}
+  - {fileID: 11400000, guid: 98362903ecadb418388a9190ce4494ea, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: b639398efc62447fe95e5c81d848a5ac, type: 2}
