@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-
-    [SerializeField] private float moveSpeed = 70;
-    [SerializeField] private float m_MovementSmoothing = 0.1f;
+    [SerializeField] public float moveSpeed = 70;
+    [SerializeField] public float m_MovementSmoothing = 0.1f;
     [SerializeField] private bool normalizedMovement = true;
     [SerializeField] private GameObject upObject;
     [SerializeField] private GameObject leftObject;
     [SerializeField] private GameObject rightObject;
     [SerializeField] private GameObject downObject;
-    [SerializeField] private bool allowDiagonalMovement = true;
-    private Vector2 movementDirection;
+    
+    public IPlayerInput PlayerInput = new PlayerInput();
+    private IMover _mover;
+    
     private Rigidbody2D _rigidbody2D;
     private Animator currentAnimator;
 
@@ -25,10 +27,11 @@ public class PlayerController : MonoBehaviour
     private float speed;
 
     private Vector2 axisVector = Vector2.zero;
-    private Vector3 currentVelocity = Vector3.zero;
+    
 
-    void Start()
+    private void Awake()
     {
+        _mover = new Mover(this);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         upObject.SetActive(false);
         leftObject.SetActive(false);
@@ -36,25 +39,11 @@ public class PlayerController : MonoBehaviour
         downObject.SetActive(true);
 
         currentAnimator = downObject.GetComponent<Animator>();
+        
     }
-
+    
     void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            currentAnimator.Play("Swing", 0);
-        }
-
-        if (Input.GetButton("Fire2"))
-        {
-            currentAnimator.Play("Thrust", 0);
-        }
-
-        if (Input.GetButton("Fire3") || Input.GetButton("Fire1") && Input.GetButton("Fire2") )
-        {
-            currentAnimator.Play("Bow", 0);
-        }
-        // get speed from the rigid body to be used for animator parameter Speed
         speed = _rigidbody2D.velocity.magnitude;
 
         // Get input axises
@@ -66,9 +55,16 @@ public class PlayerController : MonoBehaviour
             axisVector.Normalize();
         }
 
+        GetDirection();
+        // Set speed parameter to the animator
+        currentAnimator.SetFloat("Speed", speed);
+    }
+
+    private void GetDirection()
+    {
         // Find out which direction to face and do what is appropiate
         //
-             //Only update angle of direction if input axises are pressed
+        //Only update angle of direction if input axises are pressed
         if (!(axisVector.x == 0 && axisVector.y == 0))
         {
             // Find out what direction angle based on input axises
@@ -77,7 +73,8 @@ public class PlayerController : MonoBehaviour
             // Round out to prevent jittery direction changes.
             angle = Mathf.RoundToInt(angle);
         }
-        if (angle > -45 && angle < 45)  // UP
+
+        if (angle > -45 && angle < 45) // UP
         {
             currentDirection = Direction.Up;
         }
@@ -92,14 +89,14 @@ public class PlayerController : MonoBehaviour
             currentDirection = Direction.Right;
         }
 
-        else if (angle <= -45 && angle >= -135)  // LEFT
+        else if (angle <= -45 && angle >= -135) // LEFT
         {
             currentDirection = Direction.Left;
         }
+
         // Did direction change?
         if (previousDirection != currentDirection)
         {
-
             if (currentDirection == Direction.Up)
             {
                 // Activate appropiate game object
@@ -143,65 +140,16 @@ public class PlayerController : MonoBehaviour
 
                 currentAnimator = leftObject.GetComponent<Animator>();
             }
-
         }
 
-        // Set speed parameter to the animator
-        currentAnimator.SetFloat("Speed", speed);
+        
 
         // Set current direction as previous
         previousDirection = currentDirection;
-
-
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        // Move our character
-        Move();
-    }
-
-    public void Move()
-    {
-        if (allowDiagonalMovement)
-        {
-            movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            //movementDirection.Normalize();
-        }
-        else
-        {
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                movementDirection = Vector2.up;
-                //return;
-            }
-
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                movementDirection = Vector2.right;
-                //return;
-            }
-
-            else if (Input.GetAxis("Vertical") < 0)
-            {
-                movementDirection = Vector2.down;
-                //return;
-            }
-
-            else if (Input.GetAxis("Horizontal") < 0)
-            {
-                movementDirection = Vector2.left;
-                //return;
-            }
-            else
-            {
-                movementDirection = Vector2.zero;
-            }
-        }
-        // Set target velocity to smooth towards
-        Vector2 targetVelocity = new Vector2(movementDirection.x * moveSpeed * 10f, movementDirection.y * moveSpeed * 10) * Time.fixedDeltaTime;
-
-        // Smoothing out the movement
-        _rigidbody2D.velocity = Vector3.SmoothDamp(_rigidbody2D.velocity, targetVelocity, ref currentVelocity, m_MovementSmoothing);
+        _mover.Tick();
     }
 }
