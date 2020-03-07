@@ -20175,6 +20175,7 @@ GameObject:
   - component: {fileID: 4233797571092855812}
   - component: {fileID: 4207779060183986362}
   - component: {fileID: 4471251910450645677}
+  - component: {fileID: 3058355641864053798}
   - component: {fileID: 5257482798675773224}
   m_Layer: 0
   m_Name: PlayerControllerTest
@@ -20249,6 +20250,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3058355641864053798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239984171301387984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2e12e8bff3e445cb930b1bbbe20456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _currentHealth: 10
+  _onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5257482798675773224
 MonoBehaviour:
   m_ObjectHideFlags: 0
