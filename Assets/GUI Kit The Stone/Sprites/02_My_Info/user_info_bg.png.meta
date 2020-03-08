@@ -43,9 +43,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -97,8 +97,8 @@ TextureImporter:
         width: 492
         height: 520
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 292, z: 0, w: 228}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 60, y: 100, z: 60, w: 145}
       outline: []
       physicsShape: []
       tessellationDetail: 0
