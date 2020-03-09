@@ -22,10 +22,10 @@ public class Keybindings : MonoBehaviour
             GameObject button = Instantiate(bindingPrefab, bindingPanel.transform);
 
             TMP_Text actionNameText = button.transform.Find("Action Text (TMP)").GetComponent<TMP_Text>();
-            actionNameText.text = name;
+            actionNameText.text = bn;
 
             TMP_Text keyboardButtonText = button.transform.Find("Keyboard Button").GetComponentInChildren<TMP_Text>();
-            keyboardButtonText.text = _inputManager.GetKeyNameForButton(name);
+            keyboardButtonText.text = _inputManager.GetKeyNameForButton(bn);
 
             Button keybindButton = button.transform.Find("Keyboard Button").GetComponent<Button>();
             keybindButton.onClick.AddListener(() => { StartRebindFor(bn); } );
@@ -39,7 +39,8 @@ public class Keybindings : MonoBehaviour
             if (Input.anyKeyDown) 
             // This is all necessary because Unity has no simple way to know *which* key was pressed
             {
-                //KeyCode[] keys = Enum.GetValues(typeof(KeyCode));
+                KeyCode[] keys = (KeyCode[]) Enum.GetValues(typeof(KeyCode));
+                _keyToRebind = null;
             }
         }
     }
