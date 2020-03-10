@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IGameEffect
 {
-    void Execute();
+    void Execute(GameObject source);
 }

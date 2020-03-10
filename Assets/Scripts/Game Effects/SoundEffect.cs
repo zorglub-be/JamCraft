@@ -5,7 +5,7 @@ public class SoundEffect : GameEffect
 {
     [SerializeField] private AudioClip _audioClip;
 
-    public override void Execute()
+    public override void Execute(GameObject user)
     {
         GameState.Instance.AudioSource.PlayOneShot(_audioClip);
     }

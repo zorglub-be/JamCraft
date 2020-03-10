@@ -3,7 +3,7 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 [CreateAssetMenu(menuName = "Item")]
-public abstract class Item : ScriptableObject, IItem
+public class Item : ScriptableObject, IItem
 {
     [SerializeField] private string _name = default;
     [SerializeField] private Sprite _icon = default;
@@ -11,6 +11,7 @@ public abstract class Item : ScriptableObject, IItem
     [SerializeField] private int _maxStack = default;
     [SerializeField] private int _useDelay = default;
     [SerializeField] private bool _isConsumable = default;
+    [SerializeField] private GameEffect _useEffect = default;
 
     //Properties
     public string Name => _name;
@@ -32,15 +33,10 @@ public abstract class Item : ScriptableObject, IItem
     {
         if (CanUse == false)
             return;
-        UseEffect(user);
+        _useEffect.Execute(user);
         _lastUseTime = Time.time;
         OnUse?.Invoke();
     }
-
-
-
-    protected abstract void UseEffect(GameObject user);
-
 
     private void OnValidate()
     {

@@ -45,7 +45,7 @@ public class Recipe : ScriptableObject
     {
         for (int i = 0; i < _effects.Length; i++)
         {
-                _effects[i].Execute();
+                _effects[i].Execute(null);
         }
     }
 }
