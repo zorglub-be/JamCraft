@@ -41,11 +41,11 @@ public class Recipe : ScriptableObject
         return sb.ToString();
     }
 
-    public void Execute()
+    public void Execute(GameObject source)
     {
         for (int i = 0; i < _effects.Length; i++)
         {
-                _effects[i].Execute(null);
+                _effects[i].Execute(source);
         }
     }
 }

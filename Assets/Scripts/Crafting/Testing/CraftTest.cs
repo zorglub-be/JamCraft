@@ -11,6 +11,6 @@ public class CraftTest : MonoBehaviour
     [ContextMenu("Craft")]
     public void Craft()
     {
-        _recipes.GetRecipe(_ingredients)?.Execute();
+        _recipes.GetRecipe(_ingredients)?.Execute(gameObject);
     }
 }

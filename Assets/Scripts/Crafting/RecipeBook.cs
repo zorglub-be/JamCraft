@@ -23,7 +23,7 @@ public class RecipeBook : MonoBehaviour
             _availableRecipes.Add(recipe);
     }
     
-    public Recipe GetRecipe(Item[] ingredients)
+    public Recipe GetRecipe(params Item[] ingredients)
     {
         return _recipesIndex.GetRecipe(ingredients);
     }
