@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -9,13 +10,20 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
     public Item Item { get; private set; }
     public bool IsEmpty => Item == null;
     private GameObject objectToDestroy;
-    
-   
+
+    private Image _slotImage;
+    private Sprite _defaultSprite;
+
+    public void Start()
+    {
+        _slotImage = GetComponentInChildren<Image>();
+        _defaultSprite = _slotImage?.sprite;
+    }
+
     public void SetItem(Item item)
     {
         Item = item;
-        this.GetComponentInChildren<Image>().sprite = item.Icon;
-
+        _slotImage.sprite = (item == null) ? _defaultSprite : item.Icon;
     }
 
     public void OnPointerClick(PointerEventData eventData)
