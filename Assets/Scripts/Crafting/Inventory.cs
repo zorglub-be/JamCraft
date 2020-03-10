@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Data.Common;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Crafting/Inventory")]
@@ -30,6 +31,14 @@ public class Inventory : ScriptableObject, IEnumerable
     /// </summary>
     public Action OnChange;
     
+    // Indexer
+    
+    /// <summary>
+    /// Indexer to access the Item at a specific position in the inventory. This is a read-only indexer.
+    /// </summary>
+    /// <param name="index"></param>
+    public Item this[int index] => _items[index].Item;
+
     private void OnEnable()
     {
         Clear();
@@ -40,6 +49,7 @@ public class Inventory : ScriptableObject, IEnumerable
                 _count++;
         }
     }
+
 
     /// <summary>
     ///tries to add an item to the inventory. Returns true if it was successfully added, else false
@@ -132,7 +142,40 @@ public class Inventory : ScriptableObject, IEnumerable
         _count--;
         OnChange?.Invoke();
     }
+    
+    /// <summary>
+    /// removes a number of items at index, returns the number of items actually removed.
+    /// </summary>
+    public int TryRemoveAt(int index, int nbToRemove)
+    {
+        return ModifyItemCountAt(index, -nbToRemove);
+    }
+    
+    /// <summary>
+    /// adds a number of items at index, returns the number of items actually added.
+    /// </summary>
+    public int TryAddAt(int index, int nbToAdd)
+    {
+        return ModifyItemCountAt(index, nbToAdd);
+    }
 
+    /// <summary>
+    /// splits a stack in half (rounded) and return the rounded up stack.
+    /// </summary>
+    public ItemStack SplitAt(int index)
+    {
+        if (_items[index] == null)
+            return null;
+        var count = _items[index].Count;
+        var item = _items[index].Item;
+        if (count == 0 || item == null)
+            return null;
+        var nbToRemove = count - count / 2;
+        TryRemoveAt(index, nbToRemove);
+        return new ItemStack(item, nbToRemove);
+    }
+    
+    
     public IEnumerator GetEnumerator()
     {
         return _items.GetEnumerator();
@@ -147,7 +190,7 @@ public class Inventory : ScriptableObject, IEnumerable
             return -1;
         for (int i = 0; i < Length; i++)
         {
-            if (_items[i] == null)
+            if (_items[i] == null || _items[i].Count == 0 || _items[i].Item == null)
             {
                 return i;
             }
@@ -166,22 +209,13 @@ public class Inventory : ScriptableObject, IEnumerable
         // first we see if there are any already existing stacks with the same item
         for (int i = 0; i < _items.Length; i++)
         {
-            var currentStack = _items[i];
-            if (currentStack == null || currentStack.Item == null)
+            if (_items[i] == null || _items[i].Item == null)
             {
                 continue;
             }
-            if (ReferenceEquals(currentStack.Item, item))
+            if (ReferenceEquals(_items[i].Item, item))
             {
-                while (changedItems <= Mathf.Abs(delta) && currentStack.Count < item.MaxStack)
-                {
-                    if (delta > 0)
-                        currentStack.Increment();
-                    else
-                        currentStack.Decrement();
-                    
-                    changedItems++;
-                }
+                changedItems += ModifyItemCountAt(i, delta);
                 if (changedItems == Mathf.Abs(delta))
                 {
                     OnChange?.Invoke();
@@ -189,13 +223,13 @@ public class Inventory : ScriptableObject, IEnumerable
                 }
             }
         }
-
-        // if we're adding stuff, we look for empty spaces
+        
+        // if we couldn't find enough room to add all items to existing stacks, we look for empty spaces
         if (delta > 0)
         {
             for (int i = 0; i < _items.Length; i++)
             {
-                if (_items[i] == null || _items[i].Item == null)
+                if (_items[i] == null || _items[i].Item == null || _items[i].Count == 0)
                 {
                     var itemsToAdd = Mathf.Min(delta - changedItems, item.MaxStack);
                     _items[i] = new ItemStack(item, itemsToAdd);
@@ -213,4 +247,32 @@ public class Inventory : ScriptableObject, IEnumerable
             OnChange?.Invoke();
         return changedItems;              
     }
+
+    /// <summary>
+    /// modifies the number of a specific item in the inventory, returns the number of items impacted
+    /// </summary>
+    private int ModifyItemCountAt(int index, int delta)
+    {
+        if (delta == 0)
+            return 0;
+        var stack = _items[index];
+        if (stack == null || stack.Item == null)
+        {
+            return 0;
+        }
+        var initialCount = stack.Count;
+        if (delta > 0)
+            stack.Increment(delta);
+        else
+            stack.Decrement(Mathf.Abs(delta));
+        var modifiedNb = Mathf.Abs(initialCount - stack.Count);
+        if (modifiedNb > 0)
+        {
+            if (stack.Count == 0)
+                ClearAt(index);
+            OnChange?.Invoke();
+        }
+        return modifiedNb;
+    }
+
 }

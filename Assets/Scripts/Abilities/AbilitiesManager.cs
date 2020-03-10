@@ -1,10 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class Loadout : MonoBehaviour
+public class AbilitiesManager : MonoBehaviour
 {
+    [SerializeField] private AbilitySlot[] _abilitySlots;
+
     private Item _primaryAbility;
     private Item _secondaryAbility;
     private Item _specialAbility;
+    
+    
+
+    public void SetAbility(Item ability, int index)
+    {
+        
+    }
 
     public void SetPrimary(Item ability)
     {
@@ -32,3 +42,5 @@ public class Loadout : MonoBehaviour
         if (ReferenceEquals(_specialAbility, null) == false) _specialAbility.Use(GameState.Instance.Player);
     }
 }
+
+
