@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
         _buttonKeys["Move Right"] = KeyCode.D;
         _buttonKeys["Move Up"] = KeyCode.W;
         _buttonKeys["Move Down"] = KeyCode.S;
+        _buttonKeys["Inventory"] = KeyCode.I;
+        _buttonKeys["Pause/Menu"] = KeyCode.Escape;
     }
 
     public bool GetButtonDown(string buttonName)
@@ -47,5 +49,10 @@ public class InputManager : MonoBehaviour
         }
 
         return _buttonKeys[buttonName].ToString();
+    }
+
+    public void SetButtonForAction(string buttonName, KeyCode keyCode)
+    {
+        _buttonKeys[buttonName] = keyCode;
     }
 }

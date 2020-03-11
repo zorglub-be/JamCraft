@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +10,14 @@ public class Keybindings : MonoBehaviour
     [SerializeField] private GameObject bindingPanel;
     
     private InputManager _inputManager;
-    private string _keyToRebind = null;
+    private string _buttonToRebind = null;
+    private Dictionary <string, TMP_Text> _buttonToLabel;
     
     void Start()
     {
         _inputManager = GameObject.FindObjectOfType<InputManager>();
         string[] buttonNames = _inputManager.GetButtonNames();
+        _buttonToLabel = new Dictionary<string, TMP_Text>();
 
         foreach (string buttonName in buttonNames)
         {
@@ -26,6 +29,7 @@ public class Keybindings : MonoBehaviour
 
             TMP_Text keyboardButtonText = button.transform.Find("Keyboard Button").GetComponentInChildren<TMP_Text>();
             keyboardButtonText.text = _inputManager.GetKeyNameForButton(bn);
+            _buttonToLabel[bn] = keyboardButtonText;
 
             Button keybindButton = button.transform.Find("Keyboard Button").GetComponent<Button>();
             keybindButton.onClick.AddListener(() => { StartRebindFor(bn); } );
@@ -34,19 +38,28 @@ public class Keybindings : MonoBehaviour
 
     private void Update()
     {
-        if (_keyToRebind != null)
+        if (_buttonToRebind != null)
         {
             if (Input.anyKeyDown) 
             // This is all necessary because Unity has no simple way to know *which* key was pressed
             {
-                KeyCode[] keys = (KeyCode[]) Enum.GetValues(typeof(KeyCode));
-                _keyToRebind = null;
+                // This is every possible key that could have been pressed
+                foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))
+                {
+                    if (Input.GetKeyDown(key))
+                    {
+                        _inputManager.SetButtonForAction(_buttonToRebind, key);
+                        _buttonToLabel[_buttonToRebind].text = key.ToString();
+                        _buttonToRebind = null;
+                        break;
+                    }
+                }
             }
         }
     }
 
     private void StartRebindFor(string buttonName)
     {
-        _keyToRebind = buttonName;
+        _buttonToRebind = buttonName;
     }
 }
