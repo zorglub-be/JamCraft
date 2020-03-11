@@ -42,7 +42,7 @@ public class AbilitiesManager : MonoBehaviour
         Array.Sort(_abilitySlots, (as1, as2) => as1.transform.GetSiblingIndex() - as2.transform.GetSiblingIndex());
         _primaryAbilityUI = GameObject.Find("Left Power Icon").GetComponent<Image>();
         _secondaryAbilityUI = GameObject.Find("Right Power Icon").GetComponent<Image>();
-        _specialAbilityUI = GameObject.Find("Power Centre").GetComponent<Image>();
+        _specialAbilityUI = GameObject.Find("Centre Power Icon").GetComponent<Image>();
         _defaultSpecialSprite = _specialAbilityUI.sprite;
         for (int i = 0; i < _abilitySlots.Length; i++)
         {
@@ -59,7 +59,7 @@ public class AbilitiesManager : MonoBehaviour
         {
             var abilityIndex = i % nbAbilities;
             var currentSlot = _abilitySlots[abilityIndex];
-            if (currentSlot.IsEmpty || currentSlot.Selected)
+            if (currentSlot.IsEmpty)
                 continue;
             abilitySetter?.Invoke(abilityIndex);
             break;
@@ -95,26 +95,25 @@ public class AbilitiesManager : MonoBehaviour
 
     public void SetPrimary(int newIndex)
     {
-        if (newIndex < 0)
-            return;
-        if(ReferenceEquals(_secondaryAbility, null) == false)
-            _abilitySlots[_selectedPrimaryIndex].Selected = false;
-        _selectedPrimaryIndex = newIndex;
-        _abilitySlots[newIndex].Selected = true;
-        _primaryAbility = _abilities[newIndex];
-        _primaryAbilityUI.sprite = _primaryAbility.Icon;
+        SetAbility(newIndex, ref _selectedPrimaryIndex, _selectedSecondaryIndex, ref _primaryAbility, ref _primaryAbilityUI);
     }
 
     public void SetSecondary(int newIndex)
     {
+        SetAbility(newIndex, ref _selectedSecondaryIndex, _selectedPrimaryIndex, ref _secondaryAbility, ref _secondaryAbilityUI);
+    }
+
+    public void SetAbility(int newIndex, ref int selectedIndex, int otherSelectedIndex, ref Item activeAbility,
+        ref Image abilityImage)
+    {
         if (newIndex < 0)
             return;
-        if(ReferenceEquals(_secondaryAbility, null) == false)
-            _abilitySlots[_selectedSecondaryIndex].Selected = false;
-        _selectedSecondaryIndex = newIndex;
+        if(otherSelectedIndex != selectedIndex && selectedIndex >= 0)
+            _abilitySlots[selectedIndex].Selected = false;
+        selectedIndex = newIndex;
         _abilitySlots[newIndex].Selected = true;
-        _secondaryAbility = _abilities[newIndex];
-        _secondaryAbilityUI.sprite = _secondaryAbility.Icon;
+        activeAbility = _abilities[newIndex];
+        abilityImage.sprite = activeAbility.Icon;
     }
     
     public void SetSpecial(Item ability)
