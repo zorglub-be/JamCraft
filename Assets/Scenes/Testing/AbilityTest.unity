@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947a7f1665a4c42e7b66b9169892dc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recipeBook: {fileID: 0}
+  _recipeBook: {fileID: 270088268}
   _abilitySlots: []
   _primaryAbilityUI: {fileID: 0}
   _secondaryAbilityUI: {fileID: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _availableRecipes:
-  - {fileID: 11400000, guid: 4feb0c083fc884b71ad492207b7aa23a, type: 2}
+  - {fileID: 11400000, guid: 9deb50237f76b4812af8880a0f426a2b, type: 2}
   - {fileID: 11400000, guid: 6ea86de890e5940dcb83ba226f51a3e5, type: 2}
 --- !u!1 &494839461 stripped
 GameObject:

@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
   m_Name: Flaming Arrow Ability
   m_EditorClassIdentifier: 
+  _newAbility: {fileID: 11400000, guid: 9e7e72e2c9d72438f998464c9adad317, type: 2}
+  _isSPecial: 1
+  _slotType: -1
