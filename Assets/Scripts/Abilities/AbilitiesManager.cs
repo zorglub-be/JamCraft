@@ -12,6 +12,7 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image _secondaryAbilityUI;
     [SerializeField] private Image _specialAbilityUI;
 
+    
     private int _selectedPrimaryIndex;
     private int _selectedSecondaryIndex;
 
@@ -19,76 +20,96 @@ public class AbilitiesManager : MonoBehaviour
     private Item _secondaryAbility;
     private Item _specialAbility;
 
-    private int AbilityIndex(Item ability)
+    private void Update()
     {
-        for (int i = 0; i < _abilitySlots.Length; i++)
-        {
-            if (ReferenceEquals(_abilitySlots[i].Item, ability))
-                return i;
-        }
-        return -1;
+        if (Input.GetKeyDown(KeyCode.A))
+            NextPrimary();
+        if (Input.GetKeyDown(KeyCode.E))
+            NextSecondary();
     }
 
-    private void NextAbility(Action<Item> abilitySetter)
+    //this is just for testing with InitReferences, will have to go away eventually
+    [SerializeField] private Item[] _abilities;
+    [ContextMenu("Initialize")]
+    public void InitReferences()
+    {
+        _abilitySlots = FindObjectsOfType<AbilitySlot>();
+        // we need to sort the array because Find does not guarantee hierarchical order
+        Array.Sort(_abilitySlots, (as1, as2) => as1.transform.GetSiblingIndex() - as2.transform.GetSiblingIndex());
+        _primaryAbilityUI = GameObject.Find("Left Power Icon").GetComponent<Image>();
+        _secondaryAbilityUI = GameObject.Find("Right Power Icon").GetComponent<Image>();
+        _specialAbilityUI = GameObject.Find("Power Centre").GetComponent<Image>();
+        for (int i = 0; i < _abilitySlots.Length; i++)
+        {
+            _abilitySlots[i].SetItem(_abilities[i]);
+        }
+        SetPrimary(0);
+        SetSecondary(1);
+    }
+
+    private void NextAbility(int currentIndex, Action<int> abilitySetter)
     {
         var nbAbilities = _abilitySlots.Length;
-        for (int i = 1; i < _abilitySlots.Length+1; i++)
+        for (int i = currentIndex+1; i < currentIndex + nbAbilities + 1; i++)
         {
-            var currentSlot = _abilitySlots[nbAbilities + i % nbAbilities];
+            var abilityIndex = i % nbAbilities;
+            var currentSlot = _abilitySlots[abilityIndex];
             if (currentSlot.IsEmpty || currentSlot.Selected)
                 continue;
-            abilitySetter?.Invoke(currentSlot.Item);
+            abilitySetter?.Invoke(abilityIndex);
+            break;
         }
 
         var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
         specialRecipe?.Execute(gameObject);
     }
 
-    public void Unlock(Item ability)
+    public void Unlock(Item ability, int index)
     {
-        for (int i = 0; i < _abilitySlots.Length; i++)
-        {
-            //we don't want to unlock an ability twice
-            if (ReferenceEquals(_abilitySlots[i].Item, ability))
-                return;
-            if (_abilitySlots[i].IsEmpty)
+            if (_abilitySlots[index].IsEmpty)
             {
-                _abilitySlots[i].SetItem(ability);   
+                _abilitySlots[index].SetItem(ability);
             }
-        }
     }
     
+    [ContextMenu("Next Primary")]
     public void NextPrimary()
     {
-        NextAbility(SetPrimary);
+        NextAbility(_selectedPrimaryIndex, SetPrimary);
     }
 
+    [ContextMenu("Next Secondary")]
     public void NextSecondary()
     {
-        NextAbility(SetSecondary);
-    }
-    public void SetPrimary(Item ability)
-    {
-        var newIndex = AbilityIndex(ability);
-        if (newIndex < 0)
-            return;
-        _abilitySlots[_selectedPrimaryIndex].Selected = false;
-        _selectedPrimaryIndex = newIndex;
-        _abilitySlots[newIndex].Selected = true;
-        _primaryAbility = ability;
-        _primaryAbilityUI.sprite = ability.Icon;
+        NextAbility(_selectedSecondaryIndex, SetSecondary);
     }
 
-    public void SetSecondary(Item ability)
+    public void SetAbility(int newIndex)
     {
-        var newIndex = AbilityIndex(ability);
+        
+    }
+    public void SetPrimary(int newIndex)
+    {
         if (newIndex < 0)
             return;
-        _abilitySlots[_selectedSecondaryIndex].Selected = false;
+        if(ReferenceEquals(_secondaryAbility, null) == false)
+            _abilitySlots[_selectedPrimaryIndex].Selected = false;
+        _selectedPrimaryIndex = newIndex;
+        _abilitySlots[newIndex].Selected = true;
+        _primaryAbility = _abilities[newIndex];
+        _primaryAbilityUI.sprite = _primaryAbility.Icon;
+    }
+
+    public void SetSecondary(int newIndex)
+    {
+        if (newIndex < 0)
+            return;
+        if(ReferenceEquals(_secondaryAbility, null) == false)
+            _abilitySlots[_selectedSecondaryIndex].Selected = false;
         _selectedSecondaryIndex = newIndex;
         _abilitySlots[newIndex].Selected = true;
-        _secondaryAbility = ability;
-        _secondaryAbilityUI.sprite = ability.Icon;
+        _secondaryAbility = _abilities[newIndex];
+        _secondaryAbilityUI.sprite = _secondaryAbility.Icon;
     }
     
     public void SetSpecial(Item ability)

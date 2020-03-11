@@ -10,6 +10,9 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
     [FormerlySerializedAs("AbilityPopupMenuPrefab")] 
     [SerializeField] private GameObject _abilityPopupMenuPrefab;
     [SerializeField] private bool _selected;
+    [SerializeField] private Image _slotHighlight;
+    [SerializeField] private Image _slotImage;
+    [SerializeField] private Sprite _defaultSprite;
     public Item Item { get; private set; }
     public bool IsEmpty => Item == null;
 
@@ -19,26 +22,26 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
         set
         {
             _selected = value;
-            _slotHighlight.enabled = _selected;
+            _slotHighlight.gameObject.SetActive(_selected);
         } 
     }
 
     private GameObject _objectToDestroy;
-    private Image _slotHighlight;
-    private Image _slotImage;
-    private Sprite _defaultSprite;
 
     public void Start()
     {
-        _slotImage = GetComponentInChildren<Image>();
+        if (ReferenceEquals(_slotImage, null))
+            _slotImage = GetComponentInChildren<Image>();
         _defaultSprite = _slotImage?.sprite;
-        _slotHighlight.enabled = _selected;
+        _slotHighlight.gameObject.SetActive(_selected);
     }
 
     public void SetItem(Item item)
     {
         Item = item;
         _slotImage.sprite = (item == null) ? _defaultSprite : item.Icon;
+        if (_slotImage.gameObject.activeSelf == false)
+            _slotImage.gameObject.SetActive(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)

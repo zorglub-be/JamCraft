@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SplitItem
   m_EditorClassIdentifier: 
   _name: Split
-  _icon: {fileID: 0}
-  _sprite: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 573813aefd7264e4284364b2138d2b06, type: 3}
+  _sprite: {fileID: 21300000, guid: 573813aefd7264e4284364b2138d2b06, type: 3}
   _maxStack: 1
+  _useDelay: 0
+  _isConsumable: 0
+  _useEffect: {fileID: 0}

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: FlameItem
   m_EditorClassIdentifier: 
   _name: Flame
-  _icon: {fileID: 21300010, guid: dfc11891530e9be43b998555296cf145, type: 3}
-  _sprite: {fileID: 21300010, guid: dfc11891530e9be43b998555296cf145, type: 3}
+  _icon: {fileID: 2427499001674924628, guid: 00aa19433142b4414892ce48d0e9ad0c, type: 3}
+  _sprite: {fileID: 2427499001674924628, guid: 00aa19433142b4414892ce48d0e9ad0c, type: 3}
   _maxStack: 1
+  _useDelay: 0
+  _isConsumable: 0
+  _useEffect: {fileID: 0}

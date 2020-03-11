@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: BowItem
   m_EditorClassIdentifier: 
   _name: Bow
-  _icon: {fileID: 21300962, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
-  _sprite: {fileID: 21300962, guid: 7f55fd39ae3f7b7449fa3d2c516cc700, type: 3}
+  _icon: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
+  _sprite: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
   _maxStack: 5
+  _useDelay: 0
+  _isConsumable: 0
+  _useEffect: {fileID: 0}

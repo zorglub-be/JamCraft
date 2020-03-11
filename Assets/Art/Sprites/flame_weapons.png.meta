@@ -1,0 +1,955 @@
+fileFormatVersion: 2
+guid: ad00624eff63c4cbfa85a998da91ad17
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3889770158326348363
+    second: flame_weapons_0
+  - first:
+      213: 1505489712699716220
+    second: flame_weapons_1
+  - first:
+      213: -4854659793988355251
+    second: flame_weapons_2
+  - first:
+      213: 6751720123593552093
+    second: flame_weapons_3
+  - first:
+      213: 2962013787476429700
+    second: flame_weapons_4
+  - first:
+      213: -5987138958489769251
+    second: flame_weapons_5
+  - first:
+      213: -8872327184804035555
+    second: flame_weapons_6
+  - first:
+      213: -5671491452010036795
+    second: flame_weapons_7
+  - first:
+      213: 3477746726827208316
+    second: flame_weapons_8
+  - first:
+      213: 3721644733912090905
+    second: flame_weapons_9
+  - first:
+      213: -4519059200820328347
+    second: flame_weapons_10
+  - first:
+      213: -5391768946115888931
+    second: flame_weapons_11
+  - first:
+      213: 8003057091060271234
+    second: flame_weapons_12
+  - first:
+      213: -1884236250836407479
+    second: flame_weapons_13
+  - first:
+      213: -4840127157908800579
+    second: flame_weapons_14
+  - first:
+      213: -4400209701889945493
+    second: flame_weapons_15
+  - first:
+      213: 7378735245533161550
+    second: flame_weapons_16
+  - first:
+      213: -1599973627601268604
+    second: flame_weapons_17
+  - first:
+      213: -9146919724741951425
+    second: flame_weapons_18
+  - first:
+      213: -4444084464193623469
+    second: flame_weapons_19
+  - first:
+      213: -8203312019589127456
+    second: flame_weapons_20
+  - first:
+      213: 98339839287274665
+    second: flame_weapons_21
+  - first:
+      213: 2619290973830302176
+    second: flame_weapons_22
+  - first:
+      213: -6233744933377028145
+    second: flame_weapons_23
+  - first:
+      213: -7327885970819720286
+    second: flame_weapons_24
+  - first:
+      213: 3067890239429624084
+    second: flame_weapons_25
+  - first:
+      213: -5138198757349083795
+    second: flame_weapons_26
+  - first:
+      213: 5067549613508139945
+    second: flame_weapons_27
+  - first:
+      213: -5632114465531796018
+    second: flame_weapons_28
+  - first:
+      213: 6696501708327650392
+    second: flame_weapons_29
+  - first:
+      213: -1951446562505527459
+    second: flame_weapons_30
+  - first:
+      213: 3709779207107654938
+    second: flame_weapons_31
+  - first:
+      213: -3640438255314681536
+    second: flame_weapons_32
+  - first:
+      213: -4643719456060729995
+    second: flame_weapons_33
+  - first:
+      213: -6676762506533960477
+    second: flame_weapons_34
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flame_weapons_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 334
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b50b0f56a2c40ac0800000000000000
+      internalID: -3889770158326348363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 326
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72b872dae294e410800000000000000
+      internalID: 1505489712699716220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 326
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4bf3f173a8c0acb0800000000000000
+      internalID: -4854659793988355251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 318
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd076a52eade2bd50800000000000000
+      internalID: 6751720123593552093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 318
+        width: 17
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b8756a8df2b1920800000000000000
+      internalID: 2962013787476429700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 318
+        width: 17
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaa056a6d869eca0800000000000000
+      internalID: -5987138958489769251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_6
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 261
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14c6bade692fd480800000000000000
+      internalID: -8872327184804035555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_7
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 261
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c10740c290da41b0800000000000000
+      internalID: -5671491452010036795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_8
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 261
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e205fd830734030800000000000000
+      internalID: 3477746726827208316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 270
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9198809da20f5a330800000000000000
+      internalID: 3721644733912090905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_10
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 270
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568c42099931941c0800000000000000
+      internalID: -4519059200820328347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_11
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 270
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8b7c7d5b69c25b0800000000000000
+      internalID: -5391768946115888931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 192
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28881d5b502901f60800000000000000
+      internalID: 8003057091060271234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 194
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b6bfbec19d9d5e0800000000000000
+      internalID: -1884236250836407479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_14
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 194
+        width: 51
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbff157ef964dcb0800000000000000
+      internalID: -4840127157908800579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_15
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 208
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b605f95e6905fe2c0800000000000000
+      internalID: -4400209701889945493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 208
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48a8a19c98866660800000000000000
+      internalID: 7378735245533161550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_17
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 208
+        width: 36
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48055d47670cbc9e0800000000000000
+      internalID: -1599973627601268604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_18
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 131
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f300eb909fc9f0180800000000000000
+      internalID: -9146919724741951425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 134
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a28efb9b07352c0800000000000000
+      internalID: -4444084464193623469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 134
+        width: 51
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2a2b26e2bf72e80800000000000000
+      internalID: -8203312019589127456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_21
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 142
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9acacf3109f5d5100800000000000000
+      internalID: 98339839287274665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_22
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 142
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9ca8a5347995420800000000000000
+      internalID: 2619290973830302176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_23
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 67
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfcba9c20a4d79a0800000000000000
+      internalID: -6233744933377028145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 70
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abd8bac88e1e4a90800000000000000
+      internalID: -7327885970819720286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 70
+        width: 51
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411471b1be5539a20800000000000000
+      internalID: 3067890239429624084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_26
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 77
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65bada147371b8b0800000000000000
+      internalID: -5138198757349083795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_27
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 77
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab12d2468d835640800000000000000
+      internalID: 5067549613508139945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_28
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 10
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec563abdbb5b6d1b0800000000000000
+      internalID: -5632114465531796018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_29
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 4
+        width: 39
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8548aaaf2d0ceec50800000000000000
+      internalID: 6696501708327650392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_30
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 4
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f63bbc0b11be4e0800000000000000
+      internalID: -1951446562505527459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_31
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 12
+        width: 67
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1538ca9888cb7330800000000000000
+      internalID: 3709779207107654938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_32
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 12
+        width: 67
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041c935d1b09a7dc0800000000000000
+      internalID: -3640438255314681536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_33
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 12
+        width: 67
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5751ee812c13e8fb0800000000000000
+      internalID: -4643719456060729995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_weapons_34
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 57
+        width: 52
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4856410ef5753a0800000000000000
+      internalID: -6676762506533960477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6a289b38a34bc45ea9868d6a17a7b41d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
