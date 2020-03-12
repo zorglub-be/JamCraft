@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using System.ComponentModel;
+using UnityEngine;
 
-public class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
+public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
 {
     private static T _instance;
     public static T Instance => GetInstance();
@@ -17,7 +19,18 @@ public class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
         }
         if (isPersistent)
             DontDestroyOnLoad(this);
+
+        Initialize();
     }
+
+    private void Update()
+    {
+        RunTick();
+    }
+
+    protected abstract void RunTick();
+
+    protected abstract void Initialize();
 
     private bool TryInitialize()
     {

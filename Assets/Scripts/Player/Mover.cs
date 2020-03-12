@@ -17,7 +17,7 @@ public class Mover : IMover
 
     public void Tick()
     {
-        var movementDirection = new Vector2(_player.PlayerInput.Horizontal, _player.PlayerInput.Vertical);
+        var movementDirection = new Vector2(PlayerInput.Instance.Horizontal, PlayerInput.Instance.Vertical);
         // Set target velocity to smooth towards
         Vector2 targetVelocity = new Vector2(movementDirection.x * _player.moveSpeed * 10f, movementDirection.y * _player.moveSpeed * 10) * Time.fixedDeltaTime;
 

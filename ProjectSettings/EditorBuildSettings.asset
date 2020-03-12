@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UI/HUD.unity
+    guid: e73a33f175287414288c00817e96387b
+  - enabled: 1
+    path: Assets/Scenes/UI/Inventory.unity
+    guid: 0986114bfe4cb674e8b2b48367cadfff
+  - enabled: 1
+    path: Assets/Scenes/UI/MainMenu.unity
+    guid: c9ec94655ed9b9b44bc75367aaf4b61a
+  - enabled: 1
+    path: Assets/Scenes/UI/PauseMenu.unity
+    guid: 4129e45384fb92b4381213223c6215a7
+  - enabled: 1
+    path: Assets/Scenes/UI/KeybindingsMenu.unity
+    guid: e6a46fba6c01aba468b910541f55bbc1
+  - enabled: 1
+    path: Assets/Scenes/UI/SettingsMenu.unity
+    guid: 3ea7cb1d65a655f4889672f194d69ca6
+  - enabled: 1
+    path: Assets/Scenes/Testing/PlayerControlTesting.unity
+    guid: c3dd3da61694f77489fb7b345cec366a
+  - enabled: 1
+    path: Assets/Scenes/PrisonCell.unity
+    guid: 74d9ad35c947f5745ae5907c4b164ac8
   m_configObjects: {}

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject rightObject;
     [SerializeField] private GameObject downObject;
     
-    public IPlayerInput PlayerInput = new PlayerInput();
+    //public IPlayerInput PlayerInput = new PlayerInput();
     private IMover _mover;
     
     private Rigidbody2D _rigidbody2D;
@@ -25,12 +25,13 @@ public class Player : MonoBehaviour
     private Direction previousDirection;
     private float angle = 180;
     private float speed;
-
+    public PlayerInput PlayerInput;
     private Vector2 axisVector = Vector2.zero;
     
 
     private void Awake()
     {
+     
         _mover = new Mover(this);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         upObject.SetActive(false);

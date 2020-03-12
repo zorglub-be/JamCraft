@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour, IPlayerInput
 {
-    public float Vertical => Input.GetAxis("Vertical");
+    public static IPlayerInput Instance { get; private set; }
+    public float Vertical =>  Input.GetAxis("Vertical");
     public float Horizontal => Input.GetAxis("Horizontal");
     
     public bool Attack1 => Input.GetButton("Fire1");
@@ -14,5 +15,10 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     public bool Interact => Input.GetButton("Submit");
 
     public bool PausePressed => Input.GetKeyDown(KeyCode.Escape);
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
     
 }
