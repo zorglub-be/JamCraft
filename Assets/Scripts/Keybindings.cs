@@ -40,8 +40,8 @@ public class Keybindings : MonoBehaviour
     {
         if (_buttonToRebind != null)
         {
-            if (Input.anyKeyDown) 
             // This is all necessary because Unity has no simple way to know *which* key was pressed
+            if (Input.anyKeyDown) 
             {
                 // This is every possible key that could have been pressed
                 foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))

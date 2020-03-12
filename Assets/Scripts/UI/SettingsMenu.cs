@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -38,22 +41,32 @@ public class SettingsMenu : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = _resolutions[resolutionIndex];
-        
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        PlayerPrefs.SetInt("resolution", resolutionIndex);
     }
 
     public void SetVolume(float volume)
     {
         mixer.SetFloat("MasterVolume", volume);
+        
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
     public void SetGraphicsQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("quality", qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        int fullscreenBool = isFullscreen ? 1 : 0;
+        PlayerPrefs.SetInt("fullscreen", fullscreenBool);
+    }
+
+    public void ReturnFromMenu()
+    {
+        SceneManager.UnloadSceneAsync("SettingsMenu");
     }
 }
