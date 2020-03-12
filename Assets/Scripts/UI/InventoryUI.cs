@@ -14,7 +14,6 @@ public class InventoryUI : MonoBehaviour
     {
         _inventory = GameState.Instance.Inventory;
         _inventory.OnChange += UpdateUI;
-
         _slots = _inventoryPanel.GetComponentsInChildren<InventorySlot>();
     }
 

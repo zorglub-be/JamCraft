@@ -4,25 +4,34 @@ using System.ComponentModel;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using AsyncOperation = UnityEngine.AsyncOperation;
 
 public class GameState: SingletonMB<GameState>
 {
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private GameObject _player;
+    // Inspector
     [SerializeField] private Inventory _inventory;
 
-    public AudioSource AudioSource
-    {
-        get => _audioSource;
-        set => _audioSource = value;
-    }
-    public GameObject Player => _player;
-    public Inventory Inventory => _inventory;
-
+    // Private fields
+    private AudioSource _audioSource;
+    private GameObject _player;
+    private GameObject _hudUI;
+    private GameObject _inventoryUI;
     private StateMachine _stateMachine;
+
+    // Events
     public static event Action<IState> OnGameStateChanged;
+    
+    // Properties
+    public Inventory Inventory => FindInventory();
+    public AudioSource AudioSource => FindAudioSource();
+    public GameObject Player => FindPlayer();
+    public GameObject InventoryUI => FindInventoryUI();
+    public GameObject HudUI => FindHudUI();
+    
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
+
+    // Overrides
     protected override void Initialize()
     {
         _stateMachine = new StateMachine();
@@ -42,13 +51,47 @@ public class GameState: SingletonMB<GameState>
         _stateMachine.AddStateChange(play, pause, ()=> PlayerInput.Instance.PausePressed);
         _stateMachine.AddStateChange(pause, play, ()=> PlayerInput.Instance.PausePressed);
         //_stateMachine.AddStateChange(pause, menu, ()=>RestartButton.Pressed);
-       
     }
-
-    protected override void RunTick()
+    
+    public void Update()
     {
         _stateMachine.Tick();
     }
+    
+    private GameObject FindPlayer()
+    {
+        if(ReferenceEquals(_player, null))
+            _player = GameObject.FindWithTag("Player");
+        return _player;
+    }
+    private GameObject FindHudUI()
+    {
+        if(ReferenceEquals(_hudUI, null))
+            _hudUI = GameObject.FindWithTag("Hud");
+        return _hudUI;
+    }
+    private GameObject FindInventoryUI()
+    {
+        if(ReferenceEquals(_inventoryUI, null))
+            _inventoryUI = GameObject.FindWithTag("Inventory");
+        return _inventoryUI;
+    }
+    private AudioSource FindAudioSource()
+    {
+        if(ReferenceEquals(_audioSource, null))
+            _audioSource = GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>();
+        return _audioSource;
+    }
+
+    private Inventory FindInventory()
+    {
+        if (ReferenceEquals(_inventory, null))
+            _inventory = ScriptableObject.CreateInstance<Inventory>();
+        return _inventory;
+    }
+
+    
+
 }
 
 public interface IState

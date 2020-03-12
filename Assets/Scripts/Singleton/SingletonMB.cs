@@ -23,13 +23,6 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
         Initialize();
     }
 
-    private void Update()
-    {
-        RunTick();
-    }
-
-    protected abstract void RunTick();
-
     protected abstract void Initialize();
 
     private bool TryInitialize()

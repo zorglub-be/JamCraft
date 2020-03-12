@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
@@ -18,7 +19,6 @@ public class InventorySlot : MonoBehaviour
         _icon.gameObject.SetActive(true);
         _text.text = count.ToString();
         _text.gameObject.SetActive(true);
-
     }
 
     public void ClearSlot()
