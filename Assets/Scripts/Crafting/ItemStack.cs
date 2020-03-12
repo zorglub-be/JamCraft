@@ -50,5 +50,13 @@ public class ItemStack
         _count = Mathf.Max(_count - delta, 0);
         OnCountChange?.Invoke();
     }
-    
+
+    public bool TryUse(GameObject user)
+    {
+        if (_count <= 0 || _item.TryUse(user) == false) 
+            return false;
+        if( _item.IsConsumable)
+            Decrement();
+        return true;
+    }
 }

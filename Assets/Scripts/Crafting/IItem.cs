@@ -7,9 +7,10 @@ public interface IItem
     string Name { get; }
     Sprite Icon { get; }
     Sprite Sprite { get; }
-    bool CanUse { get; }
-    void Use(GameObject user);
+    bool IsReady { get; }
+    bool TryUse(GameObject user);
     bool IsConsumable { get; }
+    bool IsUsable { get; }
     
     Action OnUse { get; }
 }

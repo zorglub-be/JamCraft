@@ -10,6 +10,8 @@ public class PlayLevel : MonoBehaviour
 
     private void Awake()
     {
+        var t = transform;
+
         GetComponent<Button>().onClick.AddListener(() => LevelToLoad = levelName);
     }
 }

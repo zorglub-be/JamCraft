@@ -145,7 +145,7 @@ public class AbilitiesManager : MonoBehaviour
 
     private void Use(Item ability)
     {
-        if (ReferenceEquals(ability, null) == false) ability.Use(GameState.Instance.Player);
+        if (ReferenceEquals(ability, null) == false) ability.TryUse(GameState.Instance.Player);
     }
 }
 

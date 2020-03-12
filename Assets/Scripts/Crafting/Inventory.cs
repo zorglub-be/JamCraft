@@ -1,14 +1,22 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Crafting/Inventory")]
-public class Inventory : ScriptableObject, IEnumerable
+public class Inventory : ScriptableObject, IEnumerable<ItemStack>
 {
     // Inspector
-    [SerializeField] private ItemStack[] _items = new ItemStack[20];
+    [SerializeField] private bool _clearOnAwake = true;
+    [SerializeField] private ItemStack[] _items = new ItemStack[12];
 
+    private void Awake()
+    {
+        if(_clearOnAwake)
+            Clear();
+    }
+    
     // Privates
     private int _count;
 
@@ -37,19 +45,7 @@ public class Inventory : ScriptableObject, IEnumerable
     /// Indexer to access the Item at a specific position in the inventory. This is a read-only indexer.
     /// </summary>
     /// <param name="index"></param>
-    public Item this[int index] => _items[index].Item;
-
-    private void OnEnable()
-    {
-        Clear();
-        _count = 0;
-        for (int i = 0; i < _items.Length; i++)
-        {
-            if (_items[i] != null)
-                _count++;
-        }
-    }
-
+    public ItemStack this[int index] => _items[index];
 
     /// <summary>
     ///tries to add an item to the inventory. Returns true if it was successfully added, else false
@@ -172,15 +168,29 @@ public class Inventory : ScriptableObject, IEnumerable
             return null;
         var nbToRemove = count - count / 2;
         TryRemoveAt(index, nbToRemove);
-        return new ItemStack(item, nbToRemove);
-    }
-    
-    
-    public IEnumerator GetEnumerator()
-    {
-        return _items.GetEnumerator();
+        var newStack =  new ItemStack(item, nbToRemove);
+        return newStack;
     }
 
+    private void CheckEmptyStack(int index)
+    {
+        if (_items[index].Count == 0)
+            ClearAt(index);
+    }
+
+
+    public IEnumerator<ItemStack> GetEnumerator()
+    {
+        return (IEnumerator<ItemStack>)_items.GetEnumerator();
+        
+    }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+    
+
+    
     /// <summary>
     /// returns the first index in the inventory where there is no item
     /// </summary>
@@ -233,6 +243,8 @@ public class Inventory : ScriptableObject, IEnumerable
                 {
                     var itemsToAdd = Mathf.Min(delta - changedItems, item.MaxStack);
                     _items[i] = new ItemStack(item, itemsToAdd);
+                    var stackIndex = i; //this is necessary to make sure the CheckEmptyStack call uses the right index
+                    _items[i].OnCountChange += () => { CheckEmptyStack(stackIndex); };
                     changedItems += itemsToAdd;
                     _count++;
                     if (changedItems == delta)
@@ -267,11 +279,7 @@ public class Inventory : ScriptableObject, IEnumerable
             stack.Decrement(Mathf.Abs(delta));
         var modifiedNb = Mathf.Abs(initialCount - stack.Count);
         if (modifiedNb > 0)
-        {
-            if (stack.Count == 0)
-                ClearAt(index);
             OnChange?.Invoke();
-        }
         return modifiedNb;
     }
 

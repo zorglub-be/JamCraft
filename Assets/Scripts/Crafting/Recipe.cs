@@ -14,7 +14,8 @@ public class Recipe : ScriptableObject
     
     //Publics
     public string Id => _id;
-    
+    public Sprite Icon => _icon;
+
     //Privates
     private string _id;
     

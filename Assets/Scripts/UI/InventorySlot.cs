@@ -1,33 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Text;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+    // Inspector
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _text;
-    private Item _item;
+    [SerializeField] private Image _hilight;
+    
+    // Public fields
+    [HideInInspector] public int slotIndex = -1;
+    
+    // Privates
+    private bool _selected;
 
-    public void AddItem(Item item, int count)
+    // Properties
+    public Item Item => GameState.Instance.Inventory[slotIndex].Item;
+    public int Count => GameState.Instance.Inventory[slotIndex].Count;
+
+    public bool Selected
     {
-        _item = item;
-        _icon.sprite = _item.Icon;
-        _icon.gameObject.SetActive(true);
-        _text.text = count.ToString();
-        _text.gameObject.SetActive(true);
+        get => _selected;
+        set
+        {
+            _selected = value;
+            _hilight.gameObject.SetActive(value);
+        }
     }
 
-    public void ClearSlot()
+    private void OnEnable()
     {
-        _item = null;
+        GameState.Instance.Inventory.OnChange += UpdateSlot;
+    }
+    
+    private void OnDisable()
+    {
+        GameState.Instance.Inventory.OnChange -= UpdateSlot;
+    }
 
-        _icon.sprite = null;
-        _icon.gameObject.SetActive(false);
-        _text.text = null;
-        _text.gameObject.SetActive(false);
+    public void UpdateSlot()
+    {
+        if (ReferenceEquals(Item, null))
+        {
+            _icon.sprite = null;
+            _icon.gameObject.SetActive(false);
+            _text.text = null;
+            _text.gameObject.SetActive(false);
+        }
+        _icon.sprite = Item.Icon;
+        _icon.gameObject.SetActive(true);
+        _text.text = Count.ToString();
+        _text.gameObject.SetActive(true);
+        
     }
 }

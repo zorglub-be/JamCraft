@@ -1,46 +1,127 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Data;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
+///Note from Zorglub:
+/// I changed this class heavily because I think it's better to move the responsibility of item and count tracking
+/// in InventorySlot. This class will be used for managing interactions with the InventoryUI instead.
+
+[RequireComponent(typeof(GridLayoutGroup))]
 public class InventoryUI : MonoBehaviour
 {
+    //Inspector
     [SerializeField] private Transform _inventoryPanel;
-    private Inventory _inventory;
+    [SerializeField] private int _columns = 4;
+    [SerializeField] private UnityEvent OnCursorMove;
+    [SerializeField] private CraftingUI _craftingUI;
+    
+    
+    //Privates
     private InventorySlot[] _slots;
-      
-    private void Awake()
-    {
-        _inventory = GameState.Instance.Inventory;
-        _inventory.OnChange += UpdateUI;
-        _slots = _inventoryPanel.GetComponentsInChildren<InventorySlot>();
-    }
+    private int _cursorIndex;
+    private GridLayoutGroup _gridLayoutGroup;
 
-    private void UpdateUI()
+    //Properties
+    private Inventory Inventory => GameState.Instance.Inventory;
+    private GameObject Player => GameState.Instance.Player;
+    
+    private void Start()
     {
-        List<ItemStack> items = new List<ItemStack>();
-        var enumerator = _inventory.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-            //Debug.Log(enumerator.Current);
-            items.Add((ItemStack) enumerator.Current);
-        }
-        //Item item;
-        //IEnumerator _items = _inventory.GetEnumerator();
-        
+        _gridLayoutGroup = GetComponent<GridLayoutGroup>();
+        _slots = _inventoryPanel.GetComponentsInChildren<InventorySlot>();
         for (int i = 0; i < _slots.Length; i++)
         {
-            if (i < _inventory.Length && items[i]?.Item)
-            {
-                _slots[i].AddItem(items[i].Item, items[i].Count); 
-            }
-            else
-            {
-                _slots[i].ClearSlot();
-            }
-            
+            _slots[i].slotIndex = i;
+            //We don't update in the slot's start method because we have to set the slot index first
+            _slots[i].UpdateSlot();
         }
-        Debug.Log("Update UI");
+    }
+
+    private void OnEnable()
+    {
+        if (_slots != null)
+        {
+            SetCursor(0);
+        }
+    }
+
+    public void MoveUp()
+    {
+        MoveCursor(Direction.Up);
+    }
+    public void MoveDown()
+    {
+        MoveCursor(Direction.Down);
+    }
+    public void MoveLeft()
+    {
+        MoveCursor(Direction.Left);
+    }
+    public void MoveRight()
+    {
+        MoveCursor(Direction.Right);
+    }
+
+    public void UseSelectedItem()
+    {
+        if (_cursorIndex >= 0)
+        {
+            if (Inventory[_cursorIndex].TryUse(Player) == false)
+            {
+                //TODO: We may want to handle when an item use fails                
+            }
+        }
+    }
+
+    public void SendSelectedItemToCraft()
+    {
+        if (_cursorIndex >= 0)
+        {
+            _craftingUI.AddItem(_cursorIndex);
+        }
+    }
+    
+    public void MoveCursor(Direction direction)
+    {
+        var index = _cursorIndex;
+        switch (direction)
+        {
+            case Direction.Right:
+                index++;
+                break;
+            case Direction.Left:
+                index--;
+                break;
+            case Direction.Down:
+                index += _columns;
+                break;
+            case Direction.Up:
+                index -= _columns;
+                break;
+        }
+        SetCursor((index + _slots.Length)% _slots.Length);
+    }
+
+    private void SetCursor(int newIndex)
+    {
+        _slots[_cursorIndex].Selected = false;
+        _cursorIndex = newIndex;
+        _slots[_cursorIndex].Selected = false;
+        OnCursorMove?.Invoke();
+    }
+
+    
+    // It is necessary to enforce constraints in the gridlayoutgroup so the cursor moves as expected
+    private void OnValidate()
+    {
+        if (_gridLayoutGroup.constraint != GridLayoutGroup.Constraint.FixedColumnCount 
+            || _gridLayoutGroup.constraintCount != _columns)
+        {
+            _gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            _gridLayoutGroup.constraintCount = _columns;
+            Debug.LogFormat("<b><color='red'>Warning!</color></b> Grid constraints not in line with expected configuration. \r\n " +
+                            "Automatically adjusted to {0} columnts", _columns);
+        }
     }
 }

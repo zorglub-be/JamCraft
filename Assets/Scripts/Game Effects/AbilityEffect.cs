@@ -27,3 +27,11 @@ public class AbilityEffect : GameEffect
     }
 }
 
+public class LootItemEffect : GameEffect
+{
+    [SerializeField] private Item _lootedItem;
+    public override void Execute(GameObject source)
+    {
+        GameState.Instance.Inventory.TryAdd(_lootedItem);
+    }
+}

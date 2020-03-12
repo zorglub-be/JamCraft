@@ -2,13 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Hosting;
 using UnityEngine;
+using UnityEngine.Events;
 
 //TODO: This should be a singleton and belong to the game state maybe?
 public class InputManager : MonoBehaviour
 {
     private Dictionary<string, KeyCode> _buttonKeys;
-
+    
     private void Awake()
     {
         _buttonKeys = new Dictionary<string, KeyCode>();
