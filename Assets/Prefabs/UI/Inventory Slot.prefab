@@ -218,6 +218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 2604220552426077987}
   _text: {fileID: 2604220551832471245}
+  _hilight: {fileID: 8897975794952958471}
+  slotIndex: -1
 --- !u!114 &2604220552128927693
 MonoBehaviour:
   m_ObjectHideFlags: 0

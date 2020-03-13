@@ -36,6 +36,7 @@ public class InventoryUI : MonoBehaviour
             //We don't update in the slot's start method because we have to set the slot index first
             _slots[i].UpdateSlot();
         }
+        SetCursor(0);
     }
 
     private void OnEnable()
@@ -107,7 +108,7 @@ public class InventoryUI : MonoBehaviour
     {
         _slots[_cursorIndex].Selected = false;
         _cursorIndex = newIndex;
-        _slots[_cursorIndex].Selected = false;
+        _slots[_cursorIndex].Selected = true;
         OnCursorMove?.Invoke();
     }
 
@@ -115,6 +116,8 @@ public class InventoryUI : MonoBehaviour
     // It is necessary to enforce constraints in the gridlayoutgroup so the cursor moves as expected
     private void OnValidate()
     {
+        if (_gridLayoutGroup == null)
+            _gridLayoutGroup = GetComponent<GridLayoutGroup>();
         if (_gridLayoutGroup.constraint != GridLayoutGroup.Constraint.FixedColumnCount 
             || _gridLayoutGroup.constraintCount != _columns)
         {

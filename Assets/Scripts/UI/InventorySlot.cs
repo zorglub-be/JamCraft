@@ -46,15 +46,15 @@ public class InventorySlot : MonoBehaviour
     {
         if (ReferenceEquals(Item, null))
         {
-            _icon.sprite = null;
             _icon.gameObject.SetActive(false);
-            _text.text = null;
             _text.gameObject.SetActive(false);
         }
-        _icon.sprite = Item.Icon;
-        _icon.gameObject.SetActive(true);
-        _text.text = Count.ToString();
-        _text.gameObject.SetActive(true);
-        
+        else
+        {
+            _icon.sprite = Item.Icon;
+            _icon.gameObject.SetActive(true);
+            _text.text = Count.ToString();
+            _text.gameObject.SetActive(true);
+        }
     }
 }
