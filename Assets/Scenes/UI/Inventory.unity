@@ -584,6 +584,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 203463561}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &305005039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9095307376250230055, guid: 4b3518989a9d37c48bcf739b2b0772c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069279833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357702790
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +814,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 502999957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &584556506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9095307376250230055, guid: 4b3518989a9d37c48bcf739b2b0772c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 967625837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614672374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,7 +1837,7 @@ PrefabInstance:
     - target: {fileID: 5726153894984227808, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6615572450567517448, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}
@@ -1984,6 +2008,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1015654219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1041257280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9095307376250230055, guid: 4b3518989a9d37c48bcf739b2b0772c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3539845068206982473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1111086238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2148,7 @@ MonoBehaviour:
   OnCursorMove:
     m_PersistentCalls:
       m_Calls: []
-  _craftingUI: {fileID: 0}
+  _craftingUI: {fileID: 2070640958}
 --- !u!1001 &1219707526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2519,7 +2555,18 @@ MonoBehaviour:
         m_CallState: 2
   OnFire2:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2070640958}
+        m_MethodName: Combine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnFire3:
     m_PersistentCalls:
       m_Calls: []
@@ -3848,7 +3895,7 @@ PrefabInstance:
     - target: {fileID: 5726153894984227808, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6615572450567517448, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}
@@ -3885,6 +3932,7 @@ GameObject:
   - component: {fileID: 2070640955}
   - component: {fileID: 2070640957}
   - component: {fileID: 2070640956}
+  - component: {fileID: 2070640958}
   m_Layer: 5
   m_Name: Crafting Panel
   m_TagString: Untagged
@@ -3952,6 +4000,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070640954}
   m_CullTransparentMesh: 0
+--- !u!114 &2070640958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070640954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f8df7d4472464b8456d42e70fe5781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftItemIcon: {fileID: 1041257280}
+  _rightItemIcon: {fileID: 305005039}
+  _activeRecipeIcon: {fileID: 584556506}
 --- !u!1001 &3539845068206982473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4067,7 +4130,7 @@ PrefabInstance:
     - target: {fileID: 5726153894984227808, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6615572450567517448, guid: 4b3518989a9d37c48bcf739b2b0772c4,
         type: 3}

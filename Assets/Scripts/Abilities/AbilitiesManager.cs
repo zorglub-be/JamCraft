@@ -12,7 +12,7 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image _secondaryAbilityUI;
     [SerializeField] private Image _specialAbilityUI;
 
-    
+
     private int _selectedPrimaryIndex = -1;
     private int _selectedSecondaryIndex = -1;
 
@@ -27,7 +27,11 @@ public class AbilitiesManager : MonoBehaviour
             NextPrimary();
         if (Input.GetKeyDown(KeyCode.E))
             NextSecondary();
-        
+    }
+
+    private void Start()
+    {
+        InitReferences();
     }
 
     //this is just for testing with InitReferences, will have to go away eventually
@@ -46,16 +50,20 @@ public class AbilitiesManager : MonoBehaviour
         _defaultSpecialSprite = _specialAbilityUI.sprite;
         for (int i = 0; i < _abilitySlots.Length; i++)
         {
-            _abilitySlots[i].SetItem(_abilities[i]);
+            if (_abilities[i] != null)
+                _abilitySlots[i].SetItem(_abilities[i]);
         }
-        SetPrimary(0);
-        SetSecondary(1);
+
+        if (_selectedPrimaryIndex >= 0)
+            SetPrimary(_selectedPrimaryIndex);
+        if (_selectedSecondaryIndex >= 0)
+            SetPrimary(_selectedSecondaryIndex);
     }
 
     private void NextAbility(int currentIndex, Action<int> abilitySetter)
     {
         var nbAbilities = _abilitySlots.Length;
-        for (int i = currentIndex+1; i < currentIndex + nbAbilities + 1; i++)
+        for (int i = currentIndex + 1; i < currentIndex + nbAbilities + 1; i++)
         {
             var abilityIndex = i % nbAbilities;
             var currentSlot = _abilitySlots[abilityIndex];
@@ -64,6 +72,7 @@ public class AbilitiesManager : MonoBehaviour
             abilitySetter?.Invoke(abilityIndex);
             break;
         }
+
         SetSpecial(null);
         var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
         specialRecipe?.Execute(gameObject);
@@ -71,16 +80,17 @@ public class AbilitiesManager : MonoBehaviour
 
     public void Unlock(Item ability, int index)
     {
-            if (_abilitySlots[index].IsEmpty)
-            {
-                _abilitySlots[index].SetItem(ability);
-            }
-            if (_selectedPrimaryIndex < 0)
-                SetPrimary(index);
-            else if (_selectedSecondaryIndex < 0)
-                SetSecondary(index);
+        if (_abilities[index] == null)
+        {
+            _abilities[index] = ability;
+            _abilitySlots[index].SetItem(ability);
+        }
+        if (_selectedPrimaryIndex < 0)
+            SetPrimary(index);
+        else if (_selectedSecondaryIndex < 0)
+            SetSecondary(index);
     }
-    
+
     [ContextMenu("Next Primary")]
     public void NextPrimary()
     {
@@ -95,12 +105,14 @@ public class AbilitiesManager : MonoBehaviour
 
     public void SetPrimary(int newIndex)
     {
-        SetAbility(newIndex, ref _selectedPrimaryIndex, _selectedSecondaryIndex, ref _primaryAbility, ref _primaryAbilityUI);
+        SetAbility(newIndex, ref _selectedPrimaryIndex, _selectedSecondaryIndex, ref _primaryAbility,
+            ref _primaryAbilityUI);
     }
 
     public void SetSecondary(int newIndex)
     {
-        SetAbility(newIndex, ref _selectedSecondaryIndex, _selectedPrimaryIndex, ref _secondaryAbility, ref _secondaryAbilityUI);
+        SetAbility(newIndex, ref _selectedSecondaryIndex, _selectedPrimaryIndex, ref _secondaryAbility,
+            ref _secondaryAbilityUI);
     }
 
     public void SetAbility(int newIndex, ref int selectedIndex, int otherSelectedIndex, ref Item activeAbility,
@@ -108,14 +120,14 @@ public class AbilitiesManager : MonoBehaviour
     {
         if (newIndex < 0)
             return;
-        if(otherSelectedIndex != selectedIndex && selectedIndex >= 0)
+        if (otherSelectedIndex != selectedIndex && selectedIndex >= 0)
             _abilitySlots[selectedIndex].Selected = false;
         selectedIndex = newIndex;
         _abilitySlots[newIndex].Selected = true;
         activeAbility = _abilities[newIndex];
         abilityImage.sprite = activeAbility.Icon;
     }
-    
+
     public void SetSpecial(Item ability)
     {
         if (ReferenceEquals(ability, null) == true)
@@ -129,15 +141,17 @@ public class AbilitiesManager : MonoBehaviour
             _specialAbilityUI.sprite = ability.Icon;
         }
     }
-    
+
     public void UsePrimary()
     {
         Use(_primaryAbility);
     }
+
     public void UseSecondary()
     {
         Use(_secondaryAbility);
     }
+
     public void UseSpecial()
     {
         Use(_specialAbility);
@@ -148,5 +162,3 @@ public class AbilitiesManager : MonoBehaviour
         if (ReferenceEquals(ability, null) == false) ability.TryUse(GameState.Instance.Player);
     }
 }
-
-

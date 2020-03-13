@@ -16,7 +16,18 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
         if(_clearOnAwake)
             Clear();
     }
-    
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i]?.Item == null)
+                continue;
+            var stackIndex = i;
+            _items[i].OnCountChange += () => { CheckEmptyStack(stackIndex); };
+        }
+    }
+
     // Privates
     private int _count;
 

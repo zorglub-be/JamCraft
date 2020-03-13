@@ -18,4 +18,5 @@ MonoBehaviour:
   _maxStack: 1
   _useDelay: 0
   _isConsumable: 0
+  _isUsable: 0
   _useEffect: {fileID: 0}

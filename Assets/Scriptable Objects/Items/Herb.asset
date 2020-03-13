@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: New Item
+  m_Name: Herb
   m_EditorClassIdentifier: 
-  _name: 
-  _icon: {fileID: 0}
-  _sprite: {fileID: 0}
-  _maxStack: 0
+  _name: Herb
+  _icon: {fileID: 21300000, guid: 9c445d0376ac74cd6af948f5ecb828e4, type: 3}
+  _sprite: {fileID: 21300000, guid: 9c445d0376ac74cd6af948f5ecb828e4, type: 3}
+  _maxStack: 5
   _useDelay: 0
-  _isConsumable: 0
+  _isConsumable: 1
   _isUsable: 0
   _useEffect: {fileID: 0}

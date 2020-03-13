@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 using TMPro;
 using UnityEditor;
@@ -19,8 +20,8 @@ public class InventorySlot : MonoBehaviour
     private bool _selected;
 
     // Properties
-    public Item Item => GameState.Instance.Inventory[slotIndex].Item;
-    public int Count => GameState.Instance.Inventory[slotIndex].Count;
+    public Item Item => GameState.Instance.Inventory[slotIndex]?.Item;
+    public int Count => GameState.Instance.Inventory[slotIndex] == null ? -1 : GameState.Instance.Inventory[slotIndex].Count;
 
     public bool Selected
     {

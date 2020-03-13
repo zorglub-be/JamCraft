@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
   m_Name: Empty Potion
   m_EditorClassIdentifier: 
-  _name: 
-  _icon: {fileID: 0}
-  _sprite: {fileID: 0}
-  _maxStack: 0
+  _name: Empty Potion
+  _icon: {fileID: 21300000, guid: 00f78f3b6fdb93541b1c23cb8eb300b7, type: 3}
+  _sprite: {fileID: 21300000, guid: 00f78f3b6fdb93541b1c23cb8eb300b7, type: 3}
+  _maxStack: 5
   _useDelay: 0
-  _isConsumable: 0
+  _isConsumable: 1
   _isUsable: 0
   _useEffect: {fileID: 0}

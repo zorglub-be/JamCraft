@@ -16,3 +16,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 87dc7d61d34144f469836708bc755685, type: 3}
   _sprite: {fileID: 21300000, guid: 87dc7d61d34144f469836708bc755685, type: 3}
   _maxStack: 1
+  _useDelay: 0
+  _isConsumable: 0
+  _isUsable: 0
+  _useEffect: {fileID: 0}
