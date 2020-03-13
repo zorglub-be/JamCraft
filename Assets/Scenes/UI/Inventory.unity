@@ -4147,6 +4147,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9095307376250230055, guid: 4b3518989a9d37c48bcf739b2b0772c4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00f78f3b6fdb93541b1c23cb8eb300b7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3518989a9d37c48bcf739b2b0772c4, type: 3}
 --- !u!224 &3539845068206982474 stripped
@@ -4272,6 +4278,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 2604220552426077987, guid: 210f23c156d294e45ad565bc8e8ea2ed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 890b23940e402423c8940bde76f2abf8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210f23c156d294e45ad565bc8e8ea2ed, type: 3}
 --- !u!224 &6028152183670741713 stripped
