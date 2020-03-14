@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: Empty Potion
+  m_Name: FlameAbility
   m_EditorClassIdentifier: 
-  _name: Empty Potion
-  _icon: {fileID: 21300000, guid: 00f78f3b6fdb93541b1c23cb8eb300b7, type: 3}
-  _sprite: {fileID: 21300000, guid: 00f78f3b6fdb93541b1c23cb8eb300b7, type: 3}
-  _maxStack: 5
+  _name: FlameAbility
+  _icon: {fileID: 2427499001674924628, guid: 00aa19433142b4414892ce48d0e9ad0c, type: 3}
+  _sprite: {fileID: 2427499001674924628, guid: 00aa19433142b4414892ce48d0e9ad0c, type: 3}
+  _maxStack: 1
   _useDelay: 0
-  _isConsumable: 1
+  _isConsumable: 0
   _isUsable: 0
   _useEffect: {fileID: 0}
-  _sound: {fileID: 8300000, guid: 60e457354d3544eccb67b64c31433d68, type: 3}
+  _sound: {fileID: 8300000, guid: c5acdc3766fd4422991e391d9a6aaaa6, type: 3}

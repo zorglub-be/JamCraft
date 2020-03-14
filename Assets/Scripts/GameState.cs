@@ -11,9 +11,9 @@ public class GameState: SingletonMB<GameState>
 {
     // Inspector
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private AudioSource _audioSource;
 
     // Private fields
-    private AudioSource _audioSource;
     private GameObject _player;
     private GameObject _hudUI;
     private GameObject _inventoryUI;
@@ -79,7 +79,7 @@ public class GameState: SingletonMB<GameState>
     private AudioSource FindAudioSource()
     {
         if(ReferenceEquals(_audioSource, null))
-            _audioSource = GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>();
+            _audioSource = FindObjectOfType<AudioSource>();
         return _audioSource;
     }
 

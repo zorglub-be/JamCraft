@@ -13,11 +13,14 @@ public class Item : ScriptableObject, IItem
     [SerializeField] private bool _isConsumable = default;
     [SerializeField] private bool _isUsable = default;
     [SerializeField] private GameEffect _useEffect = default;
+    [SerializeField] private AudioClip _sound;
 
+    
     //Properties
     public string Name => _name;
     public Sprite Icon => _icon;
     public Sprite Sprite => _sprite;
+    public AudioClip Sound => _sound;
     public bool IsReady => RemainingCooldown == 0f;
     public float RemainingCooldown => Mathf.Max(0f, (Time.time - _lastUseTime) - _useDelay);
     public float Cooldown => _useDelay;
@@ -30,7 +33,7 @@ public class Item : ScriptableObject, IItem
 
     // Privates
     private float _lastUseTime;
-    
+
     public bool TryUse(GameObject user)
     {
         if (IsUsable == false || IsReady == false)

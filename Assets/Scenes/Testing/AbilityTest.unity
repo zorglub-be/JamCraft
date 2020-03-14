@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistent: 1
   _inventory: {fileID: 11400000, guid: 079657080820e43368317bb068b931d8, type: 2}
+  _audioSource: {fileID: 90337798}
 --- !u!4 &90337800
 Transform:
   m_ObjectHideFlags: 0
@@ -270,16 +271,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilitySlots.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790516022377200249, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _abilities.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2733931154868198525, guid: 959f95c1c7b119f40989ea2a7050b91a,
         type: 3}
       propertyPath: _availableRecipes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2733931154868198525, guid: 959f95c1c7b119f40989ea2a7050b91a,
         type: 3}
       propertyPath: _availableRecipes.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 304e39fd100414565a3ab1c2de3e652f,
+        type: 2}
+    - target: {fileID: 2733931154868198525, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _availableRecipes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c8b2eed6180054bc7903b51789475bfc,
+        type: 2}
+    - target: {fileID: 2733931154868198525, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _availableRecipes.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: e59e303ba6a3a4aa88177aa805ffd674,
+        type: 2}
+    - target: {fileID: 2733931154868198525, guid: 959f95c1c7b119f40989ea2a7050b91a,
+        type: 3}
+      propertyPath: _availableRecipes.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c8b2eed6180054bc7903b51789475bfc,
         type: 2}
     - target: {fileID: 3149229306608585634, guid: 959f95c1c7b119f40989ea2a7050b91a,
         type: 3}

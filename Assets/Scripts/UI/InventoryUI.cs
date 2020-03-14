@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private int _columns = 4;
     [SerializeField] private UnityEvent OnCursorMove;
     [SerializeField] private CraftingUI _craftingUI;
-    
+    [SerializeField] private AudioClip _cursorSound;
     
     //Privates
     private InventorySlot[] _slots;
@@ -24,6 +24,7 @@ public class InventoryUI : MonoBehaviour
 
     //Properties
     private Inventory Inventory => GameState.Instance.Inventory;
+    private AudioSource AudioSource => GameState.Instance.AudioSource;
     private GameObject Player => GameState.Instance.Player;
     
     private void Start()
@@ -101,6 +102,7 @@ public class InventoryUI : MonoBehaviour
                 index -= _columns;
                 break;
         }
+        AudioSource.PlayOneShot(_cursorSound);
         SetCursor((index + _slots.Length)% _slots.Length);
     }
 

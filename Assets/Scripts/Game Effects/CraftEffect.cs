@@ -11,6 +11,8 @@ public class CraftEffect : GameEffect
 
     public override void Execute(GameObject source)
     {
+        if (_item.Sound != null)
+            GameState.Instance.AudioSource.PlayOneShot(_item.Sound);
         GameState.Instance.Inventory.TryAdd(_item);
     }
 }

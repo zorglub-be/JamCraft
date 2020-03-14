@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: DashItem
+  m_Name: Sword Blade
   m_EditorClassIdentifier: 
-  _name: Dash
-  _icon: {fileID: 21300000, guid: 87dc7d61d34144f469836708bc755685, type: 3}
-  _sprite: {fileID: 21300000, guid: 87dc7d61d34144f469836708bc755685, type: 3}
+  _name: Sword Blade
+  _icon: {fileID: 21300000, guid: c62b71488a1bc9d4fb2f861174fb1bd9, type: 3}
+  _sprite: {fileID: 21300000, guid: c62b71488a1bc9d4fb2f861174fb1bd9, type: 3}
   _maxStack: 1
   _useDelay: 0
-  _isConsumable: 0
+  _isConsumable: 1
   _isUsable: 0
   _useEffect: {fileID: 0}
+  _sound: {fileID: 8300000, guid: 6e5c86d97101f46bd9a4292b51be2a90, type: 3}

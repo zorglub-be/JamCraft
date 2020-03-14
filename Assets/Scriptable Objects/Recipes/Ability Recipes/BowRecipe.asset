@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
-  m_Name: Sword Recipe
+  m_Name: BowRecipe
   m_EditorClassIdentifier: 
-  _name: Sword Recipe
-  _icon: {fileID: 21300000, guid: 75440cffd4c314d3089a8134f3840aaa, type: 3}
+  _name: BowRecipe
+  _icon: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
   _ingredients:
-  - {fileID: 11400000, guid: 4f4f282a7b5494802b38c5b5a2344d76, type: 2}
-  - {fileID: 11400000, guid: 3688e7907848643d284ecd951333807f, type: 2}
+  - {fileID: 11400000, guid: 5142774f35d4345748613619065babf8, type: 2}
+  - {fileID: 11400000, guid: a012b95bbbf04439c8b73e0f65b95f01, type: 2}
   _effects:
-  - {fileID: 11400000, guid: 8ee909ca1dad046088ce7e6d59a9f966, type: 2}
+  - {fileID: 11400000, guid: 393fc5c1915d540f58b8d2d9ea6d51f0, type: 2}

@@ -10,7 +10,7 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
     // Inspector
     [SerializeField] private bool _clearOnAwake = true;
     [SerializeField] private ItemStack[] _items = new ItemStack[12];
-
+    
     private void Awake()
     {
         if(_clearOnAwake)

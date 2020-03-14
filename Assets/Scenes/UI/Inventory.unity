@@ -2149,6 +2149,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _craftingUI: {fileID: 2070640958}
+  _cursorSound: {fileID: 8300000, guid: 6beacc0d3f7db4c359b6f3677e8cb470, type: 3}
 --- !u!1001 &1219707526
 PrefabInstance:
   m_ObjectHideFlags: 0

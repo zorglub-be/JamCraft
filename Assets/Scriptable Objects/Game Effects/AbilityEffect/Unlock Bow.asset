@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
-  m_Name: Unlock Sword
+  m_Name: Unlock Bow
   m_EditorClassIdentifier: 
-  _newAbility: {fileID: 11400000, guid: 9cb013822ef3f437883e7dd7905b8666, type: 2}
+  _newAbility: {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
   _isSPecial: 0
-  _slotType: 0
+  _slotType: 1

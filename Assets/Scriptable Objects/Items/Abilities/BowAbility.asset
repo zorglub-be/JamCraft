@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: FlamingArrow
+  m_Name: BowAbility
   m_EditorClassIdentifier: 
-  _name: FlamingArrow
-  _icon: {fileID: 6751720123593552093, guid: ad00624eff63c4cbfa85a998da91ad17, type: 3}
-  _sprite: {fileID: 6751720123593552093, guid: ad00624eff63c4cbfa85a998da91ad17, type: 3}
-  _maxStack: 1
+  _name: 'BowAbility '
+  _icon: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
+  _sprite: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
+  _maxStack: 5
   _useDelay: 0
   _isConsumable: 0
   _isUsable: 0
   _useEffect: {fileID: 0}
+  _sound: {fileID: 8300000, guid: af7dabbfa34914af7a413179acf339cb, type: 3}

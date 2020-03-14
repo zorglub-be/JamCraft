@@ -10,6 +10,7 @@ public class CraftingUI: MonoBehaviour
     private int _leftItemIndex = -1;
     private int _rightItemIndex = -1;
     private RecipeBook RecipeBook => GameState.Instance.Player.GetComponentInChildren<RecipeBook>();
+    private AudioSource AudioSource => GameState.Instance.AudioSource;
     private Inventory Inventory => GameState.Instance.Inventory;
     private Recipe _activeRecipe;
 
@@ -35,6 +36,10 @@ public class CraftingUI: MonoBehaviour
         {
             _activeRecipe = RecipeBook?.GetRecipe(Inventory[_leftItemIndex].Item, Inventory[_rightItemIndex].Item);
         }
+
+        var sound = Inventory[itemIndex]?.Item?.Sound;
+        if ( sound != null)
+            AudioSource.PlayOneShot(sound);
         UpdateImages();
     }
     
@@ -58,9 +63,9 @@ public class CraftingUI: MonoBehaviour
     {
         if (_activeRecipe == null)
             return;
-        _activeRecipe.Execute(GameState.Instance.Player);
         Inventory.TryRemoveAt(_leftItemIndex, 1);
         Inventory.TryRemoveAt(_rightItemIndex, 1);
+        _activeRecipe.Execute(GameState.Instance.Player);
         Clear();
     }
 }
