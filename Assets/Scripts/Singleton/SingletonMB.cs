@@ -48,12 +48,13 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
     {
         if (TryInitialize() == false)
         {
-            Debug.LogErrorFormat(this, "An instance of <b><color=red>{0}</color></b> already exists on the scene.\r\n" +
-                                       "Please remove the superfluous instance", typeof(T));
+            Debug.LogErrorFormat(this, "An instance of <b><color=red>{0}</color></b> named <b><color=blue>{1}</color></b> already exists on scene <b><color=blue>{2}</color></b>.\r\n" +
+                                       "Superfluous instance <b><color=blue>{3}</color></b> on scene <b><color=blue>{4}</color></b>\r\n"+
+                                       "Please remove the superfluous instance", typeof(T), _instance.name, _instance.gameObject.scene.name, gameObject.name, gameObject.scene.name);
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (ReferenceEquals(this, _instance))
             _instance = null;

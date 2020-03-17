@@ -46,17 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recipeBook: {fileID: 2733931154868198525}
-  _abilitySlots: []
+  _abilitySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _primaryAbilityUI: {fileID: 0}
   _secondaryAbilityUI: {fileID: 0}
   _specialAbilityUI: {fileID: 0}
   _abilities:
-  - {fileID: 11400000, guid: 9cb013822ef3f437883e7dd7905b8666, type: 2}
-  - {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
-  - {fileID: 11400000, guid: dc54cd618b62446a99957333653e8c10, type: 2}
-  - {fileID: 11400000, guid: 94a212598b7e24979954a8d0ff54c689, type: 2}
-  - {fileID: 11400000, guid: 98362903ecadb418388a9190ce4494ea, type: 2}
-  - {fileID: 11400000, guid: 0037c92a51db64e0a8b6c3da5f13dfda, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2733931154868198525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,8 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _availableRecipes:
-  - {fileID: 11400000, guid: 9deb50237f76b4812af8880a0f426a2b, type: 2}
+  - {fileID: 11400000, guid: c8b2eed6180054bc7903b51789475bfc, type: 2}
   - {fileID: 11400000, guid: 6ea86de890e5940dcb83ba226f51a3e5, type: 2}
+  - {fileID: 11400000, guid: 304e39fd100414565a3ab1c2de3e652f, type: 2}
+  - {fileID: 11400000, guid: e59e303ba6a3a4aa88177aa805ffd674, type: 2}
 --- !u!1 &5974308072527026925
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +91,7 @@ GameObject:
   - component: {fileID: 5974308072527026926}
   - component: {fileID: 5974308072527026927}
   - component: {fileID: 5974308072527026924}
+  - component: {fileID: 494839462}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -132,7 +141,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 20
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -155,6 +164,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5974308072527026925}
   m_Enabled: 1
+--- !u!114 &494839462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974308072527026925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!58 &5974308072251881663
 CircleCollider2D:
   m_ObjectHideFlags: 0
