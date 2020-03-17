@@ -129,4 +129,16 @@ public class InventoryUI : MonoBehaviour
                             "Automatically adjusted to {0} columnts", _columns);
         }
     }
+
+
+    public void Craft()
+    {
+        _craftingUI.Combine();
+    }
+
+    public void Drop()
+    {
+        //Todo: create a drop prefab to instantiate and contain the item stack
+        throw new System.NotImplementedException();
+    }
 }

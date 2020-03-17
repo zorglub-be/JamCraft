@@ -283,7 +283,7 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
         if (delta == 0)
             return 0;
         var stack = _items[index];
-        if (stack == null || stack.Item == null)
+        if (ReferenceEquals(stack?.Item, null))
         {
             return 0;
         }

@@ -38,7 +38,7 @@ public class CraftingUI: MonoBehaviour
         }
 
         var sound = Inventory[itemIndex]?.Item?.Sound;
-        if ( sound != null)
+        if ( ReferenceEquals(sound, null) == false)
             AudioSource.PlayOneShot(sound);
         UpdateImages();
     }
@@ -47,7 +47,7 @@ public class CraftingUI: MonoBehaviour
     {
         _leftItemIcon.enabled = _leftItemIndex >= 0;
         _rightItemIcon.enabled = _rightItemIndex >= 0;
-        _activeRecipeIcon.enabled = _activeRecipe != null;
+        _activeRecipeIcon.enabled = ReferenceEquals(_activeRecipe, null) == false;
         
         if (_leftItemIcon.enabled)
             _leftItemIcon.sprite = Inventory[_leftItemIndex].Item.Icon;
@@ -61,11 +61,14 @@ public class CraftingUI: MonoBehaviour
 
     public void Combine()
     {
-        if (_activeRecipe == null)
-            return;
-        Inventory.TryRemoveAt(_leftItemIndex, 1);
-        Inventory.TryRemoveAt(_rightItemIndex, 1);
-        _activeRecipe.Execute(GameState.Instance.Player);
+        if (ReferenceEquals(_activeRecipe, null) == false)
+        {
+            if (Inventory[_leftItemIndex].Item.IsConsumable)
+                Inventory.TryRemoveAt(_leftItemIndex, 1);
+            if (Inventory[_rightItemIndex].Item.IsConsumable)
+                Inventory.TryRemoveAt(_rightItemIndex, 1);
+            _activeRecipe.Execute(GameState.Instance.Player);
+        }
         Clear();
     }
 }

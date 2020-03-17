@@ -161,4 +161,13 @@ public class AbilitiesManager : MonoBehaviour
     {
         if (ReferenceEquals(ability, null) == false) ability.TryUse(GameState.Instance.Player);
     }
+
+    public void PreviousPrimary()
+    {
+        throw new NotImplementedException();
+    }
+    public void PreviousSecondary()
+    {
+        throw new NotImplementedException();
+    }
 }

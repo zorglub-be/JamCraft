@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
     [SerializeField] public float moveSpeed = 70;
     [SerializeField] public float m_MovementSmoothing = 0.1f;
@@ -25,9 +25,11 @@ public class Player : MonoBehaviour
     private Direction previousDirection;
     private float angle = 180;
     private float speed;
-    public PlayerInput PlayerInput;
+//    public PlayerInput PlayerInput;  //commented by Zorglub: we don't need this anymore
     private Vector2 axisVector = Vector2.zero;
     
+    public float Horizontal { get; set; }
+    public float Vertical { get; set; }
 
     private void Awake()
     {
@@ -48,8 +50,15 @@ public class Player : MonoBehaviour
         speed = _rigidbody2D.velocity.magnitude;
 
         // Get input axises
-        axisVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+        
+        // Modified by Zorglub: we don't want to read directly from input, instead we allow external components to set
+        // the axis value. It's also bad for memory management to create a new vector every time, instead we update the
+        // existing one
+        
+//        axisVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        axisVector.x = Horizontal;
+        axisVector.y = Vertical;
+            
         //normalize it for good topdown diagonal movement
         if (normalizedMovement == true)
         {
@@ -61,6 +70,8 @@ public class Player : MonoBehaviour
         currentAnimator.SetFloat("Speed", speed);
     }
 
+
+
     private void GetDirection()
     {
         // Find out which direction to face and do what is appropiate
@@ -70,7 +81,6 @@ public class Player : MonoBehaviour
         {
             // Find out what direction angle based on input axises
             angle = Mathf.Atan2(axisVector.x, axisVector.y) * Mathf.Rad2Deg;
-
             // Round out to prevent jittery direction changes.
             angle = Mathf.RoundToInt(angle);
         }
@@ -106,7 +116,7 @@ public class Player : MonoBehaviour
                 leftObject.SetActive(false);
                 downObject.SetActive(false);
 
-                currentAnimator = upObject.GetComponent<Animator>();
+                currentAnimator = upObject.GetComponent<Animator>(); // note by Zorglub: we could cache the animator for better performance
             }
 
             else if (currentDirection == Direction.Down)
@@ -142,9 +152,6 @@ public class Player : MonoBehaviour
                 currentAnimator = leftObject.GetComponent<Animator>();
             }
         }
-
-        
-
         // Set current direction as previous
         previousDirection = currentDirection;
     }
