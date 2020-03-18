@@ -59,7 +59,4 @@ public class InventoryInputManager : MonoBehaviour
             _inventoryAnimator.SetBool("IsOpen", _isOpen);
         }
     }
-
-    //checks if an axis can be used
-
 }

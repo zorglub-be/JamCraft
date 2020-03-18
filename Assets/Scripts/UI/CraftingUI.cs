@@ -24,13 +24,16 @@ public class CraftingUI: MonoBehaviour
 
     public void AddItem(int itemIndex)
     {
+        var playSound = false;
         if (_leftItemIndex < 0)
         {
             _leftItemIndex = itemIndex;
+            playSound = true;
         }
         else if (_rightItemIndex < 0)
         {
             _rightItemIndex = itemIndex;
+            playSound = true;
         }
         if (_leftItemIndex >= 0 && _rightItemIndex >= 0)
         {
@@ -38,7 +41,7 @@ public class CraftingUI: MonoBehaviour
         }
 
         var sound = Inventory[itemIndex]?.Item?.Sound;
-        if ( ReferenceEquals(sound, null) == false)
+        if ( playSound && ReferenceEquals(sound, null) == false)
             AudioSource.PlayOneShot(sound);
         UpdateImages();
     }

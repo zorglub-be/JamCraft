@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Game Effects/Ability Effect")]
-public class AbilityEffect : GameEffect
+[CreateAssetMenu(menuName = "Game Effects/Ability Gain")]
+public class AbilityGainEffect : GameEffect
 {
     [SerializeField] private Item _newAbility;
     [SerializeField] private bool _isSPecial;
@@ -24,14 +24,5 @@ public class AbilityEffect : GameEffect
         Flame = 3,
         Reflect = 4,
         Split = 5,
-    }
-}
-
-public class LootItemEffect : GameEffect
-{
-    [SerializeField] private Item _lootedItem;
-    public override void Execute(GameObject source)
-    {
-        GameState.Instance.Inventory.TryAdd(_lootedItem);
     }
 }

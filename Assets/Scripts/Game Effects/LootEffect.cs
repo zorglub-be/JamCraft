@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Game Effects/Craft")]
-public class CraftEffect : GameEffect
+[CreateAssetMenu(menuName = "Game Effects/Loot Item")]
+public class LootEffect : GameEffect
 {
     [SerializeField] private Item _item;
     public Item Item => _item;

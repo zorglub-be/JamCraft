@@ -4,8 +4,6 @@ using UnityEngine;
 
 public static class NeoInput
 {
-
-
     // this is for the dead zone
     private static float _axisDeadZone = 0.1f;
 
@@ -33,7 +31,7 @@ public static class NeoInput
         {NeoKeyCode.ToggleInventory, new []{KeyCode.I, KeyCode.Joystick1Button11}}, //R3
         {NeoKeyCode.Use, new []{KeyCode.J, KeyCode.Joystick1Button1}}, // Cross
         {NeoKeyCode.Select, new []{KeyCode.Space, KeyCode.Joystick1Button0}}, // Square
-        {NeoKeyCode.Drop, new []{KeyCode.Space, KeyCode.Joystick1Button1}}, // Circle
+        {NeoKeyCode.Drop, new []{KeyCode.Space, KeyCode.Joystick1Button2}}, // Circle
         {NeoKeyCode.Craft, new []{KeyCode.Return, KeyCode.Joystick1Button3}}, // Triangle
     };
 
@@ -51,7 +49,6 @@ public static class NeoInput
         var value = Input.GetAxis(axis.axisName);
         if (Mathf.Abs(value) > _axisDeadZone)
             return Mathf.Sign(value);
-
         return KeyValue(axis.positiveKey) - KeyValue(axis.negativeKey);
     }
     

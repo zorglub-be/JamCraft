@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
@@ -84,25 +81,47 @@ public class MovementController : MonoBehaviour
             // Round out to prevent jittery direction changes.
             angle = Mathf.RoundToInt(angle);
         }
+        
+        // modified by Zorglub: changed angles to prevent jittery direction close to 45° angles
 
         if (angle > -45 && angle < 45) // UP
         {
-            currentDirection = Direction.Up;
+            if (currentDirection == Direction.Down )
+                currentDirection = Direction.Up;
+            if (currentDirection == Direction.Right && angle < 42)
+                currentDirection = Direction.Up;
+            if (currentDirection == Direction.Left && angle > -42)
+                currentDirection = Direction.Up;
         }
 
         else if (angle < -135 || angle > 135) // DOWN
         {
-            currentDirection = Direction.Down;
+            if (currentDirection == Direction.Up )
+                currentDirection = Direction.Down;
+            if (currentDirection == Direction.Right && angle > 138)
+                currentDirection = Direction.Down;
+            if (currentDirection == Direction.Left && angle < -138)
+                currentDirection = Direction.Down;
         }
 
         else if (angle >= 45 && angle <= 135) // RIGHT
         {
-            currentDirection = Direction.Right;
+            if (currentDirection == Direction.Left)
+                currentDirection = Direction.Right;
+            if (currentDirection == Direction.Up && angle >= 48)
+                currentDirection = Direction.Right;
+            if (currentDirection == Direction.Down && angle <= 132)
+                currentDirection = Direction.Right;
         }
 
         else if (angle <= -45 && angle >= -135) // LEFT
         {
-            currentDirection = Direction.Left;
+            if (currentDirection == Direction.Right )
+                currentDirection = Direction.Left;
+            if (currentDirection == Direction.Up && angle <= -48)
+                currentDirection = Direction.Left;
+            if (currentDirection == Direction.Down && angle >= -132)
+                currentDirection = Direction.Left;
         }
 
         // Did direction change?

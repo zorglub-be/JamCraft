@@ -4,6 +4,6 @@ using UnityEngine;
 
 [Serializable]
 public class SavedSceneSetup : ScriptableObject
-   {
-       public SceneSetup[] setups;
-   }
+{
+    public SceneSetup[] setups; 
+}
