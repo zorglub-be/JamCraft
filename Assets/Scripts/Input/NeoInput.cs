@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class NeoInput
 {
+
+
+    // this is for the dead zone
+    private static float _axisDeadZone = 0.1f;
+
     // basic controls are configure as Qwerty for keyboard and PS4 Dual shock for joystick (on Windows)
     public static Dictionary<NeoKeyCode, KeyCode[]> keyCodesMap = new Dictionary<NeoKeyCode, KeyCode[]>
     {
@@ -30,22 +36,50 @@ public static class NeoInput
         {NeoKeyCode.Drop, new []{KeyCode.Space, KeyCode.Joystick1Button1}}, // Circle
         {NeoKeyCode.Craft, new []{KeyCode.Return, KeyCode.Joystick1Button3}}, // Triangle
     };
-    
-    public static float HorizontalAxis()
-    {
-        var value = Input.GetAxisRaw("Joystick Horizontal");
-        if (Mathf.Approximately(value, 0))
-            return KeyValue(NeoKeyCode.Right) - KeyValue(NeoKeyCode.Left);
-        return value;
-    }
-    public static float VerticalAxis()
-    {
-        var value = Input.GetAxisRaw("Joystick Vertical");
-        if (Mathf.Approximately(value, 0))
-            return KeyValue(NeoKeyCode.Up) - KeyValue(NeoKeyCode.Down);
-        return value;
-    }
 
+    private static Dictionary<AxisCode, Axis> axisMapper = new Dictionary<AxisCode, Axis>
+    {
+        {AxisCode.Horizontal, new Axis("Joystick Horizontal", NeoKeyCode.Right, NeoKeyCode.Left)},
+        {AxisCode.Vertical, new Axis("Joystick Vertical", NeoKeyCode.Up, NeoKeyCode.Down)},
+    };
+    
+    
+
+    public static float GetAxis(AxisCode axisCode)
+    {
+        var axis = axisMapper[axisCode];
+        var value = Input.GetAxis(axis.axisName);
+        if (Mathf.Abs(value) > _axisDeadZone)
+            return Mathf.Sign(value);
+
+        return KeyValue(axis.positiveKey) - KeyValue(axis.negativeKey);
+    }
+    
+    /// <summary>
+    /// Updates an axis value managed by the calling object and returns true if it is a new press of the axis.
+    /// </summary>
+    /// <param name="axisCode">the axis to read</param>
+    /// <param name="axisValue">the axis value managed by the calling object</param>
+    /// <param name="lastUseTime">the last time a new press of the axis was detected</param>
+    /// <param name="useDelay">the delay between valid axis inputs during a single axis press</param>
+    /// <param name="realtime">if set, the delay will be real time instead of game time</param>
+    /// <returns>Returns true if it is a new press of the axis. Else returns false</returns>
+    public static bool UpdateTimedAxis(AxisCode axisCode, ref float axisValue, ref float lastUseTime, float useDelay, bool realtime = false)
+    {
+        var time = realtime ? Time.realtimeSinceStartup : Time.time;
+        if (axisValue != 0f && time - lastUseTime < useDelay)
+        {
+            axisValue = GetAxis(axisCode);
+            return false;
+        }
+        axisValue = GetAxis(axisCode);
+        if (Mathf.Approximately(axisValue, 0) == false)
+        {
+            lastUseTime = time;
+            return true;
+        }
+        return false;
+    }    
     
     public static int KeyValue(NeoKeyCode key)
     {
@@ -80,7 +114,24 @@ public static class NeoInput
         return false;
     }
 
-    
+    private class Axis
+    {
+        public string axisName;
+        public NeoKeyCode positiveKey;
+        public NeoKeyCode negativeKey;
+
+        public Axis(string axisName, NeoKeyCode positiveKey, NeoKeyCode negativeKey)
+        {
+            this.axisName = axisName;
+            this.positiveKey = positiveKey;
+            this.negativeKey = negativeKey;
+        }
+    }
+    public enum AxisCode
+    {
+        Horizontal,
+        Vertical,
+    }
     public enum NeoKeyCode
     {
         Up,

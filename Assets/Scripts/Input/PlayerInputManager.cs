@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(MovementController))]
 public class PlayerInputManager : MonoBehaviour
@@ -13,7 +12,7 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
-        _movementController.Horizontal = NeoInput.HorizontalAxis();
-        _movementController.Vertical = NeoInput.VerticalAxis();
+        _movementController.Horizontal = NeoInput.GetAxis(NeoInput.AxisCode.Horizontal);
+        _movementController.Vertical = NeoInput.GetAxis(NeoInput.AxisCode.Vertical);
     }
 }
