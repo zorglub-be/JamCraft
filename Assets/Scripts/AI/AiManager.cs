@@ -10,14 +10,20 @@ public abstract class AiManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _detected = true;
-        _target = other.attachedRigidbody.gameObject;
+        if (_detected == false)
+        {
+            _detected = true;
+            _target = other.attachedRigidbody.gameObject;
+        }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        _detected = false;
-        _target = null;
+        if (other.attachedRigidbody == _target)
+        {
+            _detected = false;
+            _target = null;
+        }
     }
     
     abstract protected void Tick();

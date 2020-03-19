@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cef4b0ca446444391917ec45ae391f7e, type: 3}
-  m_Name: StrikeAnimation
+  m_Name: BowAnimation
   m_EditorClassIdentifier: 
-  _animationLayer: 0
-  _animationName: 
+  _animatorState: Bow
+  _layerIndex: 0

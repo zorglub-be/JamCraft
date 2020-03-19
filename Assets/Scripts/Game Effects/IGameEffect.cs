@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
 public interface IGameEffect
 {
-    void Execute(GameObject source);
+    // Executes a game effect and calls the callback delegate when finished
+    void Execute(GameObject source, Action callback = null);
 }

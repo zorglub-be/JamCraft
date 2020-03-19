@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 // Uncomment the line below to turn all arrays into reorderable lists
-//#define LIST_ALL_ARRAYS
+#define LIST_ALL_ARRAYS
 
 // Uncomment the line below to make all ScriptableObject fields editable
 //#define EDIT_ALL_SCRIPTABLES

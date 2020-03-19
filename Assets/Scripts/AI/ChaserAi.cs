@@ -1,16 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ChaserAi : AiManager
 {
     [SerializeField] private GameEffect[] _attackEffects;
     [SerializeField] private float _attackRange;
-    private IState _idle;
-    private IState _chase;
-    private IState _attack;
+    [SerializeField] private bool _betterAim;
+    private IdleState _idle;
+    private ChaseState _chase;
+    private AttackState _attack;
+    private SpawnPoint[] _projectileSpawners;
 
     protected override void Tick()
     {
-        //nothing to do
+        if (_projectileSpawners.Length == 0 || ReferenceEquals(Target, null))
+            return;
+        
+        var targetPosition = Target.transform.position;
+        foreach (var spawner in _projectileSpawners)
+        {
+            var angle = Vector3.SignedAngle(Vector3.right, targetPosition - spawner.transform.position, Vector3.forward);
+            spawner.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
     protected override void Initialize()
     {
@@ -19,13 +30,18 @@ public class ChaserAi : AiManager
         _attack = new AttackState(_attackEffects, gameObject);
     }
 
+    private void Start()
+    {
+        _projectileSpawners = GetComponentsInChildren<SpawnPoint>(true);
+    }
+
     protected override void InitializeStateMachine(out StateMachine newStateMachine)
     {
         newStateMachine = new StateMachine();
         newStateMachine.AddStateChange(_idle, _chase, () => Detected);
         newStateMachine.AddStateChange(_chase, _idle, () => !Detected);
         newStateMachine.AddStateChange(_chase, _attack, InAttackRange);
-        newStateMachine.AddStateChange(_attack, _idle, () => true);
+        newStateMachine.AddStateChange(_attack, _idle, () => _attack.Finished);
         newStateMachine.SetState(_idle);
     }
 

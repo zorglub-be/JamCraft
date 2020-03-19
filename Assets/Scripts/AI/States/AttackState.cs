@@ -6,7 +6,7 @@ public class AttackState : IState
     private bool _finished;
     private GameEffect[] _effects;
     private GameObject _gameObject;
-    public Action Finished;
+    public bool Finished => _finished;
 
     public AttackState(GameEffect[] effects, GameObject gameObject)
     {
@@ -20,9 +20,10 @@ public class AttackState : IState
 
     public void OnEnter()
     {
+        _finished = false;
         foreach (var effect in _effects)
         {
-            effect.Execute(_gameObject);
+            effect.Execute(_gameObject, () => _finished = true);
         }
     }
 

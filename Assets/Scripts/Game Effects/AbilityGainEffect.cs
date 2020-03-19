@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Effects/Ability Gain")]
@@ -6,7 +7,7 @@ public class AbilityGainEffect : GameEffect
     [SerializeField] private Item _newAbility;
     [SerializeField] private bool _isSPecial;
     [SerializeField] private AbilitySlotType _slotType;
-    public override void Execute(GameObject user)
+    public override void Execute(GameObject user, Action callback = null)
     {
         //this should grant the player a new ability. What an ability is and how the player gets it is tbd
         var abilitiesManager = user.GetComponent<AbilitiesManager>();
@@ -14,6 +15,7 @@ public class AbilityGainEffect : GameEffect
             abilitiesManager?.SetSpecial(_newAbility);
         else
             abilitiesManager?.Unlock(_newAbility, (int)_slotType);
+        callback?.Invoke();
     }
     public enum AbilitySlotType
     {

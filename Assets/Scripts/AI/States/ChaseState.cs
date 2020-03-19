@@ -23,6 +23,7 @@ public class ChaseState : IState
             (Mathf.Abs(targetDirection.x) < _errorMargin) ? 0f : Mathf.Sign(targetDirection.x);
         _agentController.Vertical =
             (Mathf.Abs(targetDirection.y) < _errorMargin) ? 0f : Mathf.Sign(targetDirection.y);
+        
     }
 
 
