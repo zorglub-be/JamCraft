@@ -50,9 +50,6 @@ TagManager:
   - name: Walls
     uniqueID: 3026478147
     locked: 0
-  - name: Wall Deco
-    uniqueID: 3093245727
-    locked: 0
   - name: Doors
     uniqueID: 1471641885
     locked: 0
@@ -67,6 +64,9 @@ TagManager:
     locked: 0
   - name: Obstacles Upper
     uniqueID: 1249114635
+    locked: 0
+  - name: Wall Deco
+    uniqueID: 3093245727
     locked: 0
   - name: Light Shafts
     uniqueID: 3971102683
