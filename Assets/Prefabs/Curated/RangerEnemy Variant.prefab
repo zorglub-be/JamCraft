@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4887206531138792572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317269522405323127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48775d8b7a69a43dc870de8ee50b7b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectedLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  _attackEffects:
+  - {fileID: 11400000, guid: c55878e868ccb486f931904e6a3cebf4, type: 2}
+  _detectionRange: 10
+  _attackRange: 8
 --- !u!1001 &7286094719907622112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,6 +271,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.39208794
       objectReference: {fileID: 0}
+    - target: {fileID: 8479441068482935933, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300810, guid: 7f55fd39ae3f7b7449fa3d2c516cc700,
+        type: 3}
     - target: {fileID: 8479453944713308253, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Sprite
@@ -888,6 +913,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.39208794
       objectReference: {fileID: 0}
+    - target: {fileID: 8479972231292347227, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300808, guid: 7f55fd39ae3f7b7449fa3d2c516cc700,
+        type: 3}
     - target: {fileID: 8479977305413808219, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Sprite
@@ -1449,6 +1480,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.39208794
       objectReference: {fileID: 0}
+    - target: {fileID: 8480267796790776311, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300808, guid: 7f55fd39ae3f7b7449fa3d2c516cc700,
+        type: 3}
     - target: {fileID: 8480269961153368363, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Sprite
@@ -4126,3 +4163,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb29fc685cc34f078c299cc761d2de9, type: 3}
+--- !u!1 &1317269522405323127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7286094719907622112}
+  m_PrefabAsset: {fileID: 0}

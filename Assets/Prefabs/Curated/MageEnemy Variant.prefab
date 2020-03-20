@@ -17,8 +17,8 @@ MonoBehaviour:
     m_Bits: 256
   _attackEffects:
   - {fileID: 11400000, guid: 1554a97949b7e422799ce8bd886efc9f, type: 2}
+  _detectionRange: 8
   _attackRange: 4
-  _betterAim: 0
 --- !u!1001 &6761924509264830058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2783,7 +2783,7 @@ PrefabInstance:
     - target: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Name
-      value: MageEnemy Variant
+      value: MageEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb29fc685cc34f078c299cc761d2de9, type: 3}

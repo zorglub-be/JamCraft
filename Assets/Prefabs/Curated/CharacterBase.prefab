@@ -24358,11 +24358,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513047273963915147, guid: a11ebb533f1a3de46bfc1d8eedfde55f,
         type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 513047273963915147, guid: a11ebb533f1a3de46bfc1d8eedfde55f,
-        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
       value: 65535
       objectReference: {fileID: 0}
