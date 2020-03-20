@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -15,7 +16,10 @@ public class SoundEffect : GameEffect
     }
     private async Task WaitForSeconds(float duration, Action callback)
     {
-        await Task.Delay((int)duration * 1000);
+        var token = GameState.Instance.CancellationToken;
+        await Task.Delay((int)duration * 1000, token);
+        if (token.IsCancellationRequested)
+            return;
         callback?.Invoke();
     }
 }

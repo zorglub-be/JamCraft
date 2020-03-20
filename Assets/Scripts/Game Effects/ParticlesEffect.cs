@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -21,10 +22,13 @@ public class ParticlesEffect : GameEffect
     }
     private async void EmitForSeconds(ParticleSystem particles, float duration, Action callback)
     {
+        var token = GameState.Instance.CancellationToken;
         var emission = particles.emission;
         emission.enabled = true;
-        await Task.Delay((int)duration * 1000);
+        await Task.Delay((int)duration * 1000, token);
         emission.enabled = false;
+        if (token.IsCancellationRequested)
+            return;
         callback?.Invoke();
     }
     

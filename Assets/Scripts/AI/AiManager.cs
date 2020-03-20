@@ -3,32 +3,9 @@
 public abstract class AiManager : MonoBehaviour
 {
     private StateMachine _stateMachine;
-    private bool _detected;
-    private GameObject _target;
-    public bool Detected => _detected;
-    public GameObject Target => _target;
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (_detected == false)
-        {
-            _detected = true;
-            _target = other.attachedRigidbody.gameObject;
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.attachedRigidbody == _target)
-        {
-            _detected = false;
-            _target = null;
-        }
-    }
-    
-    abstract protected void Tick();
-    abstract protected void Initialize();
-    abstract protected void InitializeStateMachine(out StateMachine newStateMachine);
+    protected abstract void Tick();
+    protected abstract void Initialize();
+    protected abstract void InitializeStateMachine(out StateMachine newStateMachine);
 
     private void Awake()
     {
@@ -39,5 +16,13 @@ public abstract class AiManager : MonoBehaviour
     {
         Tick();
         _stateMachine.Tick();
+    }
+}
+
+public static class GameUtils
+{
+    public static bool IsInMask(GameObject gameObject, LayerMask layerMask)
+    {
+        return (layerMask | 1 << gameObject.layer) == layerMask;
     }
 }

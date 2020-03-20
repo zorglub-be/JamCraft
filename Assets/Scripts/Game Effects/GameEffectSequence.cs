@@ -1,41 +1,73 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Effects/Effect Sequence")]
 public class GameEffectSequence : GameEffect
 {
     [SerializeField] private GameEffectSequenceElement[] _sequence;
-    public override void Execute(GameObject source, Action callback = null)
+    [SerializeField] private bool _waitForAllFinished;
+
+    public override async void Execute(GameObject source, Action callback = null)
     {
-        var currentAction = callback;
+        var currentAction = _waitForAllFinished ? null : callback;
+        var sequencers = new GameEffectSequencer[_sequence.Length];
+        var token = GameState.Instance.CancellationToken;                    
         for (int i = _sequence.Length-1; i >=0 ; i--)
         {
-            var sequencer = new GameEffectSequencer(source, _sequence[i], currentAction);
-            currentAction = sequencer.Execute;
+            sequencers[i] = new GameEffectSequencer(source, _sequence[i], token, currentAction);
+            currentAction = sequencers[i].Execute;
         }
         currentAction?.Invoke();
+        if (_waitForAllFinished)
+        {
+            var allFinished = false;
+            while (!allFinished)
+            {
+                await Task.Delay(100,token);
+                if (token.IsCancellationRequested)
+                    return;
+                for (int i = 0; i < sequencers.Length; i++)
+                {
+                    if (sequencers[i].Finished == false)
+                        break;
+                    if (i == sequencers.Length-1)
+                        allFinished = true;
+                }
+            }
+            callback?.Invoke();
+        }
     }
+
 
     private class GameEffectSequencer
     {
         private GameEffectSequenceElement _sequenceElement;
         private GameObject _source;
         private Action _callback;
+        private bool _finished;
+        private CancellationToken _token;
+        public bool Finished => _finished;
 
-        public GameEffectSequencer(GameObject source, GameEffectSequenceElement sequenceElement, Action callback)
+        public GameEffectSequencer(GameObject source, GameEffectSequenceElement sequenceElement, CancellationToken token ,Action callback)
         {
             _source = source;
             _sequenceElement = sequenceElement;
             _callback = callback;
+            _token = token;
         }
 
         public async void Execute()
         {
             if (_sequenceElement.waitForSeconds > 0f)
             {
-                _sequenceElement.effect.Execute(_source);
-                await Task.Delay((int) (_sequenceElement.waitForSeconds * 1000));
+                _sequenceElement.effect.Execute(_source, () => _finished = true);
+                var token = GameState.Instance.CancellationToken;
+                await Task.Delay((int) (_sequenceElement.waitForSeconds * 1000), token);
+                if (token.IsCancellationRequested)
+                    return;
                 _callback?.Invoke();
                 return;
             }
@@ -43,10 +75,11 @@ public class GameEffectSequence : GameEffect
             if (_sequenceElement.waitForFinish)
             {
                 _sequenceElement.effect.Execute(_source, _callback);
+                _finished = true;
                 return;
             }
 
-            _sequenceElement.effect.Execute(_source);
+            _sequenceElement.effect.Execute(_source, () => _finished = true);
             _callback?.Invoke();
         }
         

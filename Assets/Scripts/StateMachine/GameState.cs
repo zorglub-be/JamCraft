@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Threading;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,6 +16,7 @@ public class GameState: SingletonMB<GameState>
     private GameObject _hudUI;
     private GameObject _inventoryUI;
     private StateMachine _stateMachine;
+    private CancellationTokenSource _cancellationTokenSource;
 
     // Events
     public static event Action<IState> OnGameStateChanged;
@@ -25,19 +27,30 @@ public class GameState: SingletonMB<GameState>
     public GameObject Player => FindPlayer();
     public GameObject InventoryUI => FindInventoryUI();
     public GameObject HudUI => FindHudUI();
-    
+    public CancellationToken CancellationToken
+    {
+        get
+        {
+            if (_cancellationTokenSource == null)
+                _cancellationTokenSource = new CancellationTokenSource();
+            return _cancellationTokenSource.Token;
+        }
+    }
+
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
 
     // Overrides
     protected override void Initialize()
     {
         _stateMachine = new StateMachine();
+        _stateMachine.OnStateChanged += CheckStateAndCancelAsyncIfNecessary;
         _stateMachine.OnStateChanged += state => OnGameStateChanged?.Invoke(state);
         
         var menu = new Menu();
         var loading = new LoadLevel();
         var play = new Play();
         var pause = new Pause();
+        
         
         _stateMachine.SetState(menu);
         
@@ -49,7 +62,18 @@ public class GameState: SingletonMB<GameState>
         _stateMachine.AddStateChange(pause, play, ()=> PlayerInput.Instance.PausePressed);
         //_stateMachine.AddStateChange(pause, menu, ()=>RestartButton.Pressed);
     }
-    
+
+    protected override void Cleanup()
+    {
+        _cancellationTokenSource.Cancel();
+    }
+
+    private void CheckStateAndCancelAsyncIfNecessary(IState state)
+    {
+        if (state.GetType() != typeof(Pause))
+            _cancellationTokenSource.Cancel();
+    }
+
     public void Update()
     {
         _stateMachine.Tick();
@@ -86,7 +110,4 @@ public class GameState: SingletonMB<GameState>
             _inventory = ScriptableObject.CreateInstance<Inventory>();
         return _inventory;
     }
-
-    
-
 }

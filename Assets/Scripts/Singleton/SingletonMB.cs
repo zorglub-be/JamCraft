@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
@@ -56,7 +57,9 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
 
     private void OnDisable()
     {
+        Cleanup();
         if (ReferenceEquals(this, _instance))
             _instance = null;
     }
+    protected abstract void Cleanup();
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   _sequence:
   - effect: {fileID: 11400000, guid: 1266db32eeed443c4835279a810e8a59, type: 2}
     waitForSeconds: 0.3
-    waitForFinish: 1
+    waitForFinish: 0
   - effect: {fileID: 11400000, guid: 02ae8a7e0a0894580a66015b3ccef7eb, type: 2}
     waitForSeconds: 0
     waitForFinish: 0
+  _waitForAllFinished: 1

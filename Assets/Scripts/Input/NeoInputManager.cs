@@ -39,6 +39,11 @@ public class NeoInputManager : SingletonMB<NeoInputManager>
         actionKeys.Add(KeyCode.M, OnFire4);
     }
 
+    protected override void Cleanup()
+    {
+        //do nothing
+    }
+
     public void Rebind(string actionName, KeyCode key)
     {
         if (actionKeys.ContainsKey(key))

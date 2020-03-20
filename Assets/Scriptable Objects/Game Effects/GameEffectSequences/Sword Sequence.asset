@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
-  m_Name: Flame Sequence
+  m_Name: Sword Sequence
   m_EditorClassIdentifier: 
   _sequence:
-  - effect: {fileID: 11400000, guid: 49e22fd185d9d4f66a60703a4ad50f18, type: 2}
-    waitForSeconds: 0.1
+  - effect: {fileID: 11400000, guid: 6bc1ac59632e748cc8d02f02b200396d, type: 2}
+    waitForSeconds: 0
     waitForFinish: 0
-  - effect: {fileID: 11400000, guid: 0ac9e7d3b794742b79152e4ae5218db9, type: 2}
-    waitForSeconds: 1
-    waitForFinish: 1
   _waitForAllFinished: 1

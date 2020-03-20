@@ -65,4 +65,9 @@ public class PlayerInput : SingletonMB<PlayerInput>, IPlayerInput
     protected override void Initialize()
     {
     }
+
+    protected override void Cleanup()
+    {
+        //do nothing
+    }
 }

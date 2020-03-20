@@ -45,8 +45,8 @@ public class Recipe : ScriptableObject
     public void Execute(GameObject source)
     {
         for (int i = 0; i < _effects.Length; i++)
-        {
-                _effects[i].Execute(source);
+        { 
+            _effects[i].Execute(source);
         }
     }
 }
