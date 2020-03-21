@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 90337799}
   - component: {fileID: 90337798}
   m_Layer: 0
-  m_Name: GameStateOther
+  m_Name: GameState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,6 +250,15 @@ MonoBehaviour:
   isPersistent: 1
   _inventory: {fileID: 11400000, guid: 079657080820e43368317bb068b931d8, type: 2}
   _audioSource: {fileID: 90337798}
+  _layerRelationships:
+  - layerName: Player
+    friendlyLayers:
+      serializedVersion: 2
+      m_Bits: 1281
+  - layerName: Enemies
+    friendlyLayers:
+      serializedVersion: 2
+      m_Bits: 1537
 --- !u!4 &90337800
 Transform:
   m_ObjectHideFlags: 0
@@ -264,6 +273,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &854947852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6036287270762185193, guid: 0ae21f8f42f9a485faa611022e18fc57,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808869064194702443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &883876829
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +499,46 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 4497513651680694549, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497513651680694549, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506608736914601368, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: OnEffect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506608736914601368, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: _sourceObject
+      value: 
+      objectReference: {fileID: 854947852}
+    - target: {fileID: 5506608736914601368, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: OnEffect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506608736914601368, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: OnEffect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787594284590283372, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3808869064194702444}
+    - target: {fileID: 5787594284590283372, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
+      propertyPath: _onKilled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Execute
+      objectReference: {fileID: 0}
     - target: {fileID: 6036287270762185193, guid: 0ae21f8f42f9a485faa611022e18fc57,
         type: 3}
       propertyPath: m_Name
@@ -546,6 +601,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae21f8f42f9a485faa611022e18fc57, type: 3}
+--- !u!114 &3808869064194702444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4553590718510700719, guid: 0ae21f8f42f9a485faa611022e18fc57,
+    type: 3}
+  m_PrefabInstance: {fileID: 3808869064194702443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854947852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4784261916817611711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,6 +748,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887206531138792572, guid: 7323cac93c84247fe98c80d38fdacb09,
+        type: 3}
+      propertyPath: _attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887206531138792572, guid: 7323cac93c84247fe98c80d38fdacb09,
+        type: 3}
+      propertyPath: _detectionRange
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7323cac93c84247fe98c80d38fdacb09, type: 3}

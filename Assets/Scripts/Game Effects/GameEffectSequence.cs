@@ -17,7 +17,7 @@ public class GameEffectSequence : GameEffect
         var token = GameState.Instance.CancellationToken;                    
         for (int i = _sequence.Length-1; i >=0 ; i--)
         {
-            sequencers[i] = new GameEffectSequencer(source, _sequence[i], token, currentAction);
+            sequencers[i] = new GameEffectSequencer(source, _sequence[i], currentAction);
             currentAction = sequencers[i].Execute;
         }
         currentAction?.Invoke();
@@ -26,7 +26,7 @@ public class GameEffectSequence : GameEffect
             var allFinished = false;
             while (!allFinished)
             {
-                await Task.Delay(100,token);
+                await Task.Delay(1,token);
                 if (token.IsCancellationRequested)
                     return;
                 for (int i = 0; i < sequencers.Length; i++)
@@ -48,15 +48,13 @@ public class GameEffectSequence : GameEffect
         private GameObject _source;
         private Action _callback;
         private bool _finished;
-        private CancellationToken _token;
         public bool Finished => _finished;
 
-        public GameEffectSequencer(GameObject source, GameEffectSequenceElement sequenceElement, CancellationToken token ,Action callback)
+        public GameEffectSequencer(GameObject source, GameEffectSequenceElement sequenceElement, Action callback)
         {
             _source = source;
             _sequenceElement = sequenceElement;
             _callback = callback;
-            _token = token;
         }
 
         public async void Execute()

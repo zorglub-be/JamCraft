@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
-  m_Name: Spawn Arrow
+  m_Script: {fileID: 11500000, guid: dcc5d2413fa794c86882d186fbc3d636, type: 3}
+  m_Name: Destroy Object Alternative
   m_EditorClassIdentifier: 
-  _objectToSpawn: {fileID: 8143463386285282315, guid: 04de36c511c414c028e7eebe5337cfdf,
-    type: 3}
+  _message: This is an alternative to your death

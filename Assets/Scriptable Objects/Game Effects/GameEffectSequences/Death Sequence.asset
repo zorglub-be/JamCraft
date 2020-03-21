@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
-  m_Name: Sword Sequence
+  m_Name: Death Sequence
   m_EditorClassIdentifier: 
   _sequence:
-  - effect: {fileID: 11400000, guid: 6bc1ac59632e748cc8d02f02b200396d, type: 2}
-    waitForSeconds: 0.2
-    waitForFinish: 0
-  - effect: {fileID: 11400000, guid: 5d5e9fba0cf5144a6800e46bb4ac93fd, type: 2}
+  - effect: {fileID: 11400000, guid: dc0a5ba1611e945908a3a20fd902bcf7, type: 2}
+    waitForSeconds: 0
+    waitForFinish: 1
+  - effect: {fileID: 11400000, guid: 22beddeb1b8cb4f9bbb236d2234f6c79, type: 2}
     waitForSeconds: 0
     waitForFinish: 0
   _waitForAllFinished: 1

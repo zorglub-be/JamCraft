@@ -27,6 +27,12 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
         _currentHealth = _maxHealth;
     }
 
+    [ContextMenu("Test Damage")]
+    private void TestDamage()
+    {
+        TakeDamage(1);
+    }
+    
     public void TakeDamage(int value)
     {
         if (_currentHealth <= 0 || value == 0)

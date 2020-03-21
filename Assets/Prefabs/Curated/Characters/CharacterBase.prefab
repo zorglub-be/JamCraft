@@ -16495,6 +16495,8 @@ GameObject:
   - component: {fileID: 8559466774603701591}
   - component: {fileID: 8640422846851372029}
   - component: {fileID: 3101290635911616660}
+  - component: {fileID: 8416682557943326226}
+  - component: {fileID: 1994567723861738705}
   m_Layer: 0
   m_Name: CharacterBase
   m_TagString: Untagged
@@ -16632,6 +16634,60 @@ MonoBehaviour:
   leftObject: {fileID: 8600643604408805287}
   rightObject: {fileID: 8600390364022908081}
   downObject: {fileID: 8601653698822178497}
+--- !u!114 &8416682557943326226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600337267461692823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2e12e8bff3e445cb930b1bbbe20456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
+  _currentHealth: 1
+  _onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1994567723861738705}
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1994567723861738705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600337267461692823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effect: {fileID: 11400000, guid: 25fa28eca01f04e509958946f5827f34, type: 2}
+  _sourceObject: {fileID: 8600337267461692823}
+  OnEffect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8600338636877007791
 GameObject:
   m_ObjectHideFlags: 0

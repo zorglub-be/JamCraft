@@ -4,6 +4,7 @@ public class SpawnPoint : MonoBehaviour
 {
     public GameObject Spawn(GameObject prefab)
     {
-        return Instantiate(prefab, transform.position, transform.rotation);
+        var spawn = Instantiate(prefab, transform.position, transform.rotation);
+        return spawn;
     }
 }
