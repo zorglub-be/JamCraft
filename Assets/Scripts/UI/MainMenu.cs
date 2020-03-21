@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public void StartNewGame()
     {
         Debug.Log("Started New Game");
+        SceneManager.LoadScene("Level1");
     }
 
     public void ContinueFromLastSave()

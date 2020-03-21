@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5562420428153642601}
   - component: {fileID: 7232128019985338616}
   - component: {fileID: 8042958908445693158}
+  - component: {fileID: 823844927439003008}
+  - component: {fileID: 2856951819708671438}
   m_Layer: 0
   m_Name: banner_bottomwall
   m_TagString: Untagged
@@ -108,3 +110,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.05, y: 1.52}
   m_EdgeRadius: 0
+--- !u!114 &823844927439003008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981027712888683252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2e12e8bff3e445cb930b1bbbe20456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
+  _currentHealth: 1
+  _onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onKilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2856951819708671438}
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2856951819708671438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981027712888683252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321c5436dbf7207479d939cd946ce0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bannerSwish: {fileID: 8300000, guid: bced7c20974b23f41995345775c4d069, type: 3}
