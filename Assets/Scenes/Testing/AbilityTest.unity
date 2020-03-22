@@ -321,7 +321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1956004803
 GameObject:
@@ -680,6 +680,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5366139109440216405, guid: 5a002b0a13c33477aa328dddf8209b3b,
+        type: 3}
+      propertyPath: lootItem
+      value: 
+      objectReference: {fileID: 8614289358183012491, guid: 8fbdf461ae7d1184281fb1fe131ae7c2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a002b0a13c33477aa328dddf8209b3b, type: 3}
 --- !u!1001 &8022762514964991396
@@ -811,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 3070237754139033897, guid: 6394f632a2e2a4b498f39511cfa5c0e6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3070237754139033897, guid: 6394f632a2e2a4b498f39511cfa5c0e6,
         type: 3}

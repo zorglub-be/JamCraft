@@ -11,6 +11,9 @@ public class SpawnEffect : GameEffect
 
     public override void Execute(GameObject source, Action callback=null)
     {
+        var loot = source.GetComponent<LootComponent>();
+        if (ReferenceEquals(loot, null) == false)
+            _objectToSpawn = loot.lootItem;
         var spawnPoint = source.GetComponentsInChildren<SpawnPoint>(false)[0];
         GameObject spawn;
         if (ReferenceEquals(spawnPoint, null) == false)

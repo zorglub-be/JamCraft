@@ -16,6 +16,9 @@ MonoBehaviour:
   - effect: {fileID: 11400000, guid: dc0a5ba1611e945908a3a20fd902bcf7, type: 2}
     waitForSeconds: 0
     waitForFinish: 1
+  - effect: {fileID: 11400000, guid: 8cd0c7a92bb8baa4ba82b5b0ead83488, type: 2}
+    waitForSeconds: 0
+    waitForFinish: 1
   - effect: {fileID: 11400000, guid: 22beddeb1b8cb4f9bbb236d2234f6c79, type: 2}
     waitForSeconds: 0
     waitForFinish: 0

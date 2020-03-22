@@ -60,7 +60,7 @@
             var pause = new Pause();
             
             
-            _stateMachine.SetState(menu);
+            _stateMachine.SetState(play);
             
             _stateMachine.AddStateChange(menu, loading, () => PlayLevel.LevelToLoad != null);
             
