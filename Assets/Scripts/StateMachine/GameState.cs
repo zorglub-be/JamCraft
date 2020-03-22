@@ -123,9 +123,9 @@
         {
             var layer1 = object1.layer;
             var layer2 = object2.layer;
-            if (_friendlyLayersIndex[layer1] == (_friendlyLayersIndex[layer1] | 1 << layer2))
+            if (_friendlyLayersIndex.ContainsKey(layer1) && _friendlyLayersIndex[layer1] == (_friendlyLayersIndex[layer1] | 1 << layer2))
                 return true;
-            return _friendlyLayersIndex[layer2] == (_friendlyLayersIndex[layer2] | 1 << layer1);
+            return (_friendlyLayersIndex.ContainsKey(layer1) && _friendlyLayersIndex[layer2] == (_friendlyLayersIndex[layer2] | 1 << layer1));
         }
     }
 

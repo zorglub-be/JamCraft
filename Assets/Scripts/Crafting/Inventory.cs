@@ -249,7 +249,7 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
             }
         }
         
-        // if we couldn't find enough room to add all items to existing stacks, we look for empty spaces
+        // if all items couldn't find a spot in an existing stacks we look for empty spaces
         if (delta > 0)
         {
             for (int i = 0; i < _items.Length; i++)

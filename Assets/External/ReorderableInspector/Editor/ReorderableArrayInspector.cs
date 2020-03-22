@@ -24,7 +24,7 @@ SOFTWARE.*/
 #define LIST_ALL_ARRAYS
 
 // Uncomment the line below to make all ScriptableObject fields editable
-//#define EDIT_ALL_SCRIPTABLES
+#define EDIT_ALL_SCRIPTABLES
 
 using System;
 using System.Collections.Generic;

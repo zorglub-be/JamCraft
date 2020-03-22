@@ -47,6 +47,8 @@ public class TriggerEvent : MonoBehaviour
 
     private bool ShouldIgnore(GameObject other)
     {
+        if (!_ignoreFoes && !_ignoreFriends)
+            return false;
         var isFriend = GameState.Instance.AreFriendly(gameObject, other);
         if (isFriend && _ignoreFriends || !isFriend && _ignoreFoes)
             return true;

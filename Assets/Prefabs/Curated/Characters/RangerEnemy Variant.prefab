@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4887206531138792572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317269522405323127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48775d8b7a69a43dc870de8ee50b7b17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectedLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  _attackEffects:
-  - {fileID: 11400000, guid: c55878e868ccb486f931904e6a3cebf4, type: 2}
-  _detectionRange: 10
-  _attackRange: 8
 --- !u!1001 &7286094719907622112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,6 +7,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _detectedLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c55878e868ccb486f931904e6a3cebf4,
+        type: 2}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _detectionRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 115833469428866105, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Layer
@@ -4163,9 +4170,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb29fc685cc34f078c299cc761d2de9, type: 3}
---- !u!1 &1317269522405323127 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7286094719907622112}
-  m_PrefabAsset: {fileID: 0}

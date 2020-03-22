@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
   m_Name: Drop Loot
   m_EditorClassIdentifier: 
-  _objectToSpawn: {fileID: 8614289358183012491, guid: 8fbdf461ae7d1184281fb1fe131ae7c2,
-    type: 3}
-  _copyLayer: 1
+  _useLootComponent: 1
+  _useSpawnPoint: 0
+  _objectToSpawn: {fileID: 0}
+  _copyLayer: 0

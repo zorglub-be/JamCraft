@@ -18,6 +18,6 @@ MonoBehaviour:
   _maxStack: 1
   _useDelay: 0
   _isConsumable: 0
-  _isUsable: 0
-  _useEffect: {fileID: 0}
+  _isUsable: 1
+  _useEffect: {fileID: 11400000, guid: 1554a97949b7e422799ce8bd886efc9f, type: 2}
   _sound: {fileID: 8300000, guid: c5acdc3766fd4422991e391d9a6aaaa6, type: 3}

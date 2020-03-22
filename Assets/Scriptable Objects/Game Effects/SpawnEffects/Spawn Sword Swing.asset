@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
   m_Name: Spawn Sword Swing
   m_EditorClassIdentifier: 
+  _useLootComponent: 0
+  _useSpawnPoint: 1
   _objectToSpawn: {fileID: 3018183102757287045, guid: e31b3ded4f1a54df2bff171683c702bd,
     type: 3}
   _copyLayer: 1

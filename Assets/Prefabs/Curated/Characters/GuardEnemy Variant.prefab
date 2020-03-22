@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1715004548279345787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4486099848813084161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48775d8b7a69a43dc870de8ee50b7b17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectedLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  _attackEffects:
-  - {fileID: 11400000, guid: 333d5f8c8a74a459dad299adc1b663fe, type: 2}
-  _detectionRange: 10
-  _attackRange: 2
 --- !u!1001 &5267906610502853526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,6 +7,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _detectedLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 333d5f8c8a74a459dad299adc1b663fe,
+        type: 2}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _detectionRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 115833469428866105, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Layer
@@ -3595,7 +3602,7 @@ PrefabInstance:
     - target: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Name
-      value: GuardEnemy
+      value: GuardEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
@@ -4339,9 +4346,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb29fc685cc34f078c299cc761d2de9, type: 3}
---- !u!1 &4486099848813084161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8600337267461692823, guid: 4fb29fc685cc34f078c299cc761d2de9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5267906610502853526}
-  m_PrefabAsset: {fileID: 0}

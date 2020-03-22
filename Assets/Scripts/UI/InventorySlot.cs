@@ -35,6 +35,7 @@ public class InventorySlot : MonoBehaviour
 
     private void OnEnable()
     {
+        UpdateSlot();
         GameState.Instance.Inventory.OnChange += UpdateSlot;
     }
     

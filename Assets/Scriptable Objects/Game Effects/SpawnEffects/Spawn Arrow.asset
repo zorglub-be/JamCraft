@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
   m_Name: Spawn Arrow
   m_EditorClassIdentifier: 
+  _useLootComponent: 0
+  _useSpawnPoint: 1
   _objectToSpawn: {fileID: 1945937761345667062, guid: 0bd074a79e61d479ebe92230217b075d,
     type: 3}
   _copyLayer: 1
