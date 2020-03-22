@@ -44,9 +44,16 @@ public class Item : ScriptableObject, IItem
         if (IsUsable == false || IsReady == false)
             return false;
         _useEffect.Execute(user);
+        PlaySound();
         _lastUseTime = Time.time;
         OnUse?.Invoke();
         return true;
+    }
+
+    public void PlaySound()
+    {
+        if (_sound != null)
+            GameState.Instance.AudioSource.PlayOneShot(_sound);
     }
 
     private void OnValidate()

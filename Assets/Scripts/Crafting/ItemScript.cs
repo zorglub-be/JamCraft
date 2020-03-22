@@ -15,7 +15,12 @@ public class ItemScript : MonoBehaviour
 
     public void Pickup()
     {
+        var before = amount;
         amount -= GameState.Instance.Inventory.TryAdd(_item, amount);
+        /*
+        if (amount < before)
+            _item.PlaySound();
+            */
         if (amount == 0)
             Destroy(gameObject);
     }

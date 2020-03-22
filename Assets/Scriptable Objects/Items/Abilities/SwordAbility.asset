@@ -20,4 +20,4 @@ MonoBehaviour:
   _isConsumable: 0
   _isUsable: 1
   _useEffect: {fileID: 11400000, guid: 333d5f8c8a74a459dad299adc1b663fe, type: 2}
-  _sound: {fileID: 8300000, guid: e69780047b9fc4165819f31734c2a38f, type: 3}
+  _sound: {fileID: 8300000, guid: 053c76dd188034f1f8b3e7a51fd0876b, type: 3}

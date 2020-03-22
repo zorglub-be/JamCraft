@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
 using TMPro;
@@ -35,7 +36,6 @@ public class InventorySlot : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateSlot();
         GameState.Instance.Inventory.OnChange += UpdateSlot;
     }
     

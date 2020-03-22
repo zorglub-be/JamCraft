@@ -15,9 +15,9 @@ MonoBehaviour:
   _clearOnAwake: 0
   _items:
   - _count: 1
-    _item: {fileID: 11400000, guid: 3688e7907848643d284ecd951333807f, type: 2}
-  - _count: 1
-    _item: {fileID: 11400000, guid: 4f4f282a7b5494802b38c5b5a2344d76, type: 2}
+    _item: {fileID: 11400000, guid: 5142774f35d4345748613619065babf8, type: 2}
+  - _count: 0
+    _item: {fileID: 0}
   - _count: 0
     _item: {fileID: 0}
   - _count: 0

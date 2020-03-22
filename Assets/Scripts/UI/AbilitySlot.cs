@@ -42,6 +42,7 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
         _slotImage.sprite = (item == null) ? _defaultSprite : item.Icon;
         if (_slotImage.gameObject.activeSelf == false)
             _slotImage.gameObject.SetActive(true);
+        item.PlaySound();
     }
 
     public void OnPointerClick(PointerEventData eventData)

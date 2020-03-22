@@ -58,7 +58,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
             TakeDamage(-value);
         }
         var actualHealing = Mathf.Min(_maxHealth - _currentHealth, value);
-        _currentHealth -= actualHealing;
+        _currentHealth += actualHealing;
         OnHealed?.Invoke(actualHealing);
     }
 

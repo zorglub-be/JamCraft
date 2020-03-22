@@ -298,4 +298,9 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
         return modifiedNb;
     }
 
+    private void OnValidate()
+    {
+        if (_items == null)
+            _items = new ItemStack[_defaultSize];
+    }
 }

@@ -27,14 +27,13 @@ public class InventoryUI : MonoBehaviour
     private AudioSource AudioSource => GameState.Instance.AudioSource;
     private GameObject Player => GameState.Instance.Player;
     
-    private void Start()
+    private void Awake()
     {
         _gridLayoutGroup = GetComponent<GridLayoutGroup>();
         _slots = _inventoryPanel.GetComponentsInChildren<InventorySlot>();
         for (int i = 0; i < _slots.Length; i++)
         {
             _slots[i].slotIndex = i;
-            //We don't update in the slot's start method because we have to set the slot index first
             _slots[i].UpdateSlot();
         }
         SetCursor(0);
@@ -69,9 +68,9 @@ public class InventoryUI : MonoBehaviour
     {
         if (_cursorIndex >= 0)
         {
-            if (Inventory[_cursorIndex].TryUse(Player) == false)
+            if (Inventory[_cursorIndex].TryUse(Player))
             {
-                //TODO: We may want to handle when an item use fails                
+                
             }
         }
     }

@@ -39,10 +39,8 @@ public class CraftingUI: MonoBehaviour
         {
             _activeRecipe = RecipeBook?.GetRecipe(Inventory[_leftItemIndex].Item, Inventory[_rightItemIndex].Item);
         }
-
-        var sound = Inventory[itemIndex]?.Item?.Sound;
-        if ( playSound && ReferenceEquals(sound, null) == false)
-            AudioSource.PlayOneShot(sound);
+        if ( playSound)
+            Inventory[itemIndex]?.Item?.PlaySound();
         UpdateImages();
     }
     
