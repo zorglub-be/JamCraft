@@ -44,7 +44,7 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
         }
         return _instance;
     }
-
+/*
     private void OnValidate()
     {
         if (TryInitialize() == false)
@@ -54,6 +54,7 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
                                        "Please remove the superfluous instance", typeof(T), _instance.name, _instance.gameObject.scene.name, gameObject.name, gameObject.scene.name);
         }
     }
+*/
 
     private void OnDisable()
     {

@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
   m_Name: HealthPotionSequence
   m_EditorClassIdentifier: 
-  _sequence: []
+  _sequence:
+  - effect: {fileID: 11400000, guid: 69cf113d7564f4c38964589cecb2e02a, type: 2}
+    waitForSeconds: 0
+    waitForFinish: 0
+  - effect: {fileID: 11400000, guid: 2851a60d64f754b64bc0a820ae05070c, type: 2}
+    waitForSeconds: 0
+    waitForFinish: 0
   _waitForAllFinished: 0

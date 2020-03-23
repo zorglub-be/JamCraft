@@ -14,13 +14,17 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
-        _movementController.Horizontal = NeoInput.GetAxis(NeoInput.AxisCode.Horizontal);
-        _movementController.Vertical = NeoInput.GetAxis(NeoInput.AxisCode.Vertical);
-        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.PrimaryAttack))
-            _abilitiesManager.UsePrimary();
-        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.SecondaryAttack))
-            _abilitiesManager.UseSecondary();
-        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.SpecialAttack))
-            _abilitiesManager.UseSpecial();
+        if (Time.timeScale > 0)
+        {
+            _movementController.Horizontal = NeoInput.GetAxis(NeoInput.AxisCode.Horizontal);
+            _movementController.Vertical = NeoInput.GetAxis(NeoInput.AxisCode.Vertical);
+            if (NeoInput.GetKey(NeoInput.NeoKeyCode.PrimaryAttack))
+                _abilitiesManager.UsePrimary();
+            if (NeoInput.GetKey(NeoInput.NeoKeyCode.SecondaryAttack))
+                _abilitiesManager.UseSecondary();
+            if (NeoInput.GetKey(NeoInput.NeoKeyCode.SpecialAttack))
+                _abilitiesManager.UseSpecial();            
+        }
+
     }
 }

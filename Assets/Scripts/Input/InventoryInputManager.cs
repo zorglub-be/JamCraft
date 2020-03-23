@@ -15,7 +15,6 @@ public class InventoryInputManager : MonoBehaviour
 
     private void Update()
     {
-        
         if (_isOpen)
         {
             if(NeoInput.UpdateTimedAxis(NeoInput.AxisCode.Horizontal, ref _horizontalAxis,ref _lastHorizontalUse, _horizontalDelay, true))
@@ -51,12 +50,12 @@ public class InventoryInputManager : MonoBehaviour
             {
                 _inventoryUi.Drop();
             }
-
         }
         if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.ToggleInventory))
         {
             _isOpen = !_isOpen;
             _inventoryAnimator.SetBool("IsOpen", _isOpen);
+            Time.timeScale = _isOpen ? 0 : 1;
         }
     }
 }

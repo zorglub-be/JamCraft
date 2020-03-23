@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b37660aec259743529773b78bbbce01e, type: 3}
-  m_Name: Loot Red Potion
+  m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
+  m_Name: Unlock Dash
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 0395982f2091e4ea38b3a742c9c9106b, type: 2}
+  _newAbility: {fileID: 11400000, guid: dc54cd618b62446a99957333653e8c10, type: 2}
+  _isSPecial: 0
+  _slotType: 2

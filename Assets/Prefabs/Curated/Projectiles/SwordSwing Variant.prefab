@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordSwing Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8896616711508174445, guid: 04de36c511c414c028e7eebe5337cfdf,
+        type: 3}
+      propertyPath: _ignoreFriends
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8143463385293926539, guid: 04de36c511c414c028e7eebe5337cfdf, type: 3}
     - {fileID: 8143463386264863797, guid: 04de36c511c414c028e7eebe5337cfdf, type: 3}

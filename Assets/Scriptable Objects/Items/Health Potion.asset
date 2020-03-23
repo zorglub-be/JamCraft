@@ -19,5 +19,5 @@ MonoBehaviour:
   _useDelay: 5
   _isConsumable: 1
   _isUsable: 1
-  _useEffect: {fileID: 11400000, guid: 69cf113d7564f4c38964589cecb2e02a, type: 2}
+  _useEffect: {fileID: 11400000, guid: be7f289e6c37d4bd094fae9cf9a6dc5e, type: 2}
   _sound: {fileID: 8300000, guid: 5095a44ef003f4091b8635cb6982eb87, type: 3}

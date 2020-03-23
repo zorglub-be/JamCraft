@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
-  m_Name: Dashing Strike Ability
+  m_Script: {fileID: 11500000, guid: a7cabb183a5b54d83a257804bc89d0a6, type: 3}
+  m_Name: Dash
   m_EditorClassIdentifier: 
+  _dashDistance: 8
+  _obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  _collisionRadius: 0.5
+  _clipNarrowObstacles: 1

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b37660aec259743529773b78bbbce01e, type: 3}
-  m_Name: Red Potion Craft
+  m_Name: Loot Empty Potion
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 0395982f2091e4ea38b3a742c9c9106b, type: 2}
+  _item: {fileID: 11400000, guid: d2dab5c1368e543e38547a58f9d7194d, type: 2}

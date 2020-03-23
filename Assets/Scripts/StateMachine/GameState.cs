@@ -46,6 +46,7 @@
         protected override void Initialize()
         {
             _friendlyLayersIndex = new Dictionary<int, int>(_layerRelationships.Length);
+            _cancellationTokenSource = new CancellationTokenSource();
             foreach (var item in _layerRelationships)
             {
                 _friendlyLayersIndex.Add(LayerMask.NameToLayer(item.layerName), item.friendlyLayers.value);
@@ -66,8 +67,8 @@
             
             
             _stateMachine.AddStateChange(loading, play, loading.Finished);
-            _stateMachine.AddStateChange(play, pause, ()=> PlayerInput.Instance.PausePressed);
-            _stateMachine.AddStateChange(pause, play, ()=> PlayerInput.Instance.PausePressed);
+            _stateMachine.AddStateChange(play, pause, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
+            _stateMachine.AddStateChange(pause, play, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
             //_stateMachine.AddStateChange(pause, menu, ()=>RestartButton.Pressed);
         }
 
@@ -80,10 +81,13 @@
         {
             if (state.GetType() != typeof(Pause))
                 _cancellationTokenSource.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
         }
 
         public void Update()
         {
+            //this is a bit ugly but I just want to gain time
+            
             _stateMachine.Tick();
         }
         
@@ -125,7 +129,7 @@
             var layer2 = object2.layer;
             if (_friendlyLayersIndex.ContainsKey(layer1) && _friendlyLayersIndex[layer1] == (_friendlyLayersIndex[layer1] | 1 << layer2))
                 return true;
-            return (_friendlyLayersIndex.ContainsKey(layer1) && _friendlyLayersIndex[layer2] == (_friendlyLayersIndex[layer2] | 1 << layer1));
+            return (_friendlyLayersIndex.ContainsKey(layer2) && _friendlyLayersIndex[layer2] == (_friendlyLayersIndex[layer2] | 1 << layer1));
         }
     }
 

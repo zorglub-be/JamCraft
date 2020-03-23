@@ -19,29 +19,26 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var obj = other.attachedRigidbody.gameObject;
-        if (ShouldIgnore(obj) == false)
-        {
-            _alreadyColliding.Add(obj);
-            OnTriggerEntered?.Invoke(other.attachedRigidbody.gameObject);
-        }
+        HandleTrigger(other, OnTriggerEntered);
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        var obj = other.attachedRigidbody.gameObject;
-        if (ShouldIgnore(obj) == false)
-        {
-            _alreadyColliding.Add(obj);
-            OnTriggerStay?.Invoke(other.attachedRigidbody.gameObject);
-        }
+        HandleTrigger(other, OnTriggerStay);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        var obj = other.attachedRigidbody.gameObject;
+        HandleTrigger(other, OnTriggerExit);
+    }
+
+    private void HandleTrigger(Collider2D other, GameObjectEvent callback)
+    {
+        var obj = other?.attachedRigidbody?.gameObject;
+        if (obj == null)
+            obj = other.gameObject;
         if (ShouldIgnore(obj) == false)
         {
             _alreadyColliding.Add(obj);
-            OnTriggerExit?.Invoke(other.attachedRigidbody.gameObject);
+            callback?.Invoke(obj);
         }
     }
 
