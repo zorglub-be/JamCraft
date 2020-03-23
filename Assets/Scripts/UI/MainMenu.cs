@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Started New Game");
         SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Inventory", LoadSceneMode.Additive);
     }
 
     public void ContinueFromLastSave()
