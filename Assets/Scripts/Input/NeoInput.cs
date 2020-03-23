@@ -37,8 +37,8 @@ public static class NeoInput
 
     private static Dictionary<AxisCode, Axis> axisMapper = new Dictionary<AxisCode, Axis>
     {
-        {AxisCode.Horizontal, new Axis("Joystick Horizontal", NeoKeyCode.Right, NeoKeyCode.Left)},
-        {AxisCode.Vertical, new Axis("Joystick Vertical", NeoKeyCode.Up, NeoKeyCode.Down)},
+        {AxisCode.Horizontal, new Axis("Horizontal", NeoKeyCode.Right, NeoKeyCode.Left)},
+        {AxisCode.Vertical, new Axis("Vertical", NeoKeyCode.Up, NeoKeyCode.Down)},
     };
     
     
