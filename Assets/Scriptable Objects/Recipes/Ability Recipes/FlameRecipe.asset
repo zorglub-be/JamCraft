@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
+  m_Name: FlameRecipe
+  m_EditorClassIdentifier: 
+  _name: FlameRecipe
+  _icon: {fileID: 21300000, guid: f1a5463166394cf42acbfa29c891bcad, type: 3}
+  _ingredients:
+  - {fileID: 11400000, guid: 58d83be29767d47c898c08f4c0918a2b, type: 2}
+  - {fileID: 11400000, guid: a3d1f7aad08624160bade2ee6a46e921, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: 2024331150412458d85e986717fdb9f1, type: 2}
