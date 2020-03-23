@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RecipeBook))]
 public class AbilitiesManager : MonoBehaviour
 {
     [SerializeField] private RecipeBook _recipeBook;
@@ -20,15 +21,6 @@ public class AbilitiesManager : MonoBehaviour
     private Item _secondaryAbility;
     private Item _specialAbility;
 
-    //temporary until we plug this into the input manager
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-            NextPrimary();
-        if (Input.GetKeyDown(KeyCode.E))
-            NextSecondary();
-    }
-
     private void Start()
     {
         InitReferences();
@@ -41,6 +33,7 @@ public class AbilitiesManager : MonoBehaviour
     [ContextMenu("Initialize")]
     public void InitReferences()
     {
+        _recipeBook = GetComponent<RecipeBook>();
         _abilitySlots = FindObjectsOfType<AbilitySlot>();
         // we need to sort the array because Find does not guarantee hierarchical order
         Array.Sort(_abilitySlots, (as1, as2) => as1.transform.GetSiblingIndex() - as2.transform.GetSiblingIndex());
@@ -63,7 +56,25 @@ public class AbilitiesManager : MonoBehaviour
     private void NextAbility(int currentIndex, Action<int> abilitySetter)
     {
         var nbAbilities = _abilitySlots.Length;
-        for (int i = currentIndex + 1; i < currentIndex + nbAbilities + 1; i++)
+        for (int i = currentIndex + 1; i < currentIndex + nbAbilities; i++)
+        {
+            var abilityIndex = i % nbAbilities;
+            var currentSlot = _abilitySlots[abilityIndex];
+            if (currentSlot.IsEmpty)
+                continue;
+            abilitySetter?.Invoke(abilityIndex);
+            break;
+        }
+
+        SetSpecial(null);
+        var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
+        specialRecipe?.Execute(gameObject);
+    }
+    private void PreviousAbility(int currentIndex, Action<int> abilitySetter)
+    {
+        var nbAbilities = _abilitySlots.Length;
+        //we use modulo to navigate backwards from currentIndex
+        for (int i = currentIndex + nbAbilities - 1; i > currentIndex; i--)
         {
             var abilityIndex = i % nbAbilities;
             var currentSlot = _abilitySlots[abilityIndex];
@@ -101,6 +112,15 @@ public class AbilitiesManager : MonoBehaviour
     public void NextSecondary()
     {
         NextAbility(_selectedSecondaryIndex, SetSecondary);
+    }
+    
+    public void PreviousPrimary()
+    {
+        PreviousAbility(_selectedPrimaryIndex, SetPrimary);
+    }
+    public void PreviousSecondary()
+    {
+        PreviousAbility(_selectedSecondaryIndex, SetSecondary);
     }
 
     public void SetPrimary(int newIndex)
@@ -162,12 +182,4 @@ public class AbilitiesManager : MonoBehaviour
         if (ReferenceEquals(ability, null) == false) ability.TryUse(GameState.Instance.Player);
     }
 
-    public void PreviousPrimary()
-    {
-        throw new NotImplementedException();
-    }
-    public void PreviousSecondary()
-    {
-        throw new NotImplementedException();
-    }
 }

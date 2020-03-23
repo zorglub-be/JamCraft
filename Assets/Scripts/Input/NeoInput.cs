@@ -21,10 +21,10 @@ public static class NeoInput
         {NeoKeyCode.SecondaryAttack, new []{KeyCode.K, KeyCode.Joystick1Button0}}, // Square
         {NeoKeyCode.SpecialAttack, new []{KeyCode.L, KeyCode.Joystick1Button3}}, // Triangle
         {NeoKeyCode.Interact, new []{KeyCode.Return, KeyCode.Joystick1Button2}}, // Circle
-        {NeoKeyCode.NextPrimary, new []{KeyCode.Q, KeyCode.Joystick1Button5}}, //R1
-        {NeoKeyCode.PreviousPrimary, new []{KeyCode.Z, KeyCode.Joystick1Button4}}, //L1
-        {NeoKeyCode.NextSecondary, new []{KeyCode.E, KeyCode.Joystick1Button7}}, //R2
-        {NeoKeyCode.PreviousSecondary, new []{KeyCode.C, KeyCode.Joystick1Button6}}, //L2
+        {NeoKeyCode.NextPrimary, new []{KeyCode.Q, KeyCode.Joystick1Button4}}, //L1
+        {NeoKeyCode.PreviousPrimary, new []{KeyCode.Z, KeyCode.Joystick1Button6}}, //L2
+        {NeoKeyCode.NextSecondary, new []{KeyCode.E, KeyCode.Joystick1Button5}}, //R1
+        {NeoKeyCode.PreviousSecondary, new []{KeyCode.C, KeyCode.Joystick1Button7}}, //R2
         {NeoKeyCode.Pause, new []{KeyCode.Escape, KeyCode.Joystick1Button9}}, // Options
 
         // Inventory

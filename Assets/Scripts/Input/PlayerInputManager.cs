@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(MovementController))]
+[RequireComponent(typeof(MovementController), typeof(AbilitiesManager))]
 public class PlayerInputManager : MonoBehaviour
 {
     private MovementController _movementController;
@@ -25,6 +25,13 @@ public class PlayerInputManager : MonoBehaviour
             if (NeoInput.GetKey(NeoInput.NeoKeyCode.SpecialAttack))
                 _abilitiesManager.UseSpecial();            
         }
-
+        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.NextPrimary))
+            _abilitiesManager.NextPrimary();
+        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.NextSecondary))
+            _abilitiesManager.NextSecondary();
+        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.PreviousPrimary))
+            _abilitiesManager.PreviousPrimary();
+        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.PreviousSecondary))
+            _abilitiesManager.PreviousSecondary();
     }
 }
