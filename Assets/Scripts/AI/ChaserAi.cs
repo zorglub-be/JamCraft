@@ -7,6 +7,10 @@ public class ChaserAi : AiManager
     [SerializeField] private GameEffect[] _attackEffects;
     [SerializeField] private float _detectionRange;
     [SerializeField] private float _attackRange;
+    [Tooltip("If true, attacks will be precisely aimed at the target")]
+    [SerializeField] private bool _aimedAttacks;
+    [Tooltip("Additional delay before an attack")]
+    [SerializeField] private float _attackDelay = 0.5f;
     private IdleState _idle;
     private ChaseState _chase;
     private AttackState _attack;
@@ -22,7 +26,8 @@ public class ChaserAi : AiManager
     protected override void Tick()
     {
         Detect();
-        UpdateSpawnersRotation();
+        if (_aimedAttacks)
+            UpdateSpawnersRotation();
     }
 
     void UpdateSpawnersRotation()
@@ -53,7 +58,7 @@ public class ChaserAi : AiManager
         _transform = transform;
         _idle = new IdleState();
         _chase = new ChaseState(()=>Target ,GetComponentInChildren<MovementController>());
-        _attack = new AttackState(_attackEffects, gameObject);
+        _attack = new AttackState(_attackEffects, gameObject, _attackDelay);
     }
 
     private void Start()
