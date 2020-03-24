@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
-  m_Name: Flame Sequence
+  m_Name: Flaming Bow Sequence
   m_EditorClassIdentifier: 
   _waitForAllFinished: 1
   _disableInputDuringSequence: 1
   _sequence:
-  - effect: {fileID: 11400000, guid: 49e22fd185d9d4f66a60703a4ad50f18, type: 2}
-    waitForSeconds: 0.1
+  - effect: {fileID: 11400000, guid: 1266db32eeed443c4835279a810e8a59, type: 2}
+    waitForSeconds: 0.3
     waitForFinish: 0
-  - effect: {fileID: 11400000, guid: cf34ded02da4f468ab4f11ad040beb1c, type: 2}
-    waitForSeconds: 1
-    waitForFinish: 1
+  - effect: {fileID: 11400000, guid: 586c70da268c2458b9edbc8f55a3370c, type: 2}
+    waitForSeconds: 0
+    waitForFinish: 0

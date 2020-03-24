@@ -13,6 +13,9 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image _secondaryAbilityUI;
     [SerializeField] private Image _specialAbilityUI;
 
+    private Image _primaryAbilityCooldown;
+    private Image _secondaryAbilityCooldown;
+    private Image _specialAbilityCooldown;
 
     private int _selectedPrimaryIndex = -1;
     private int _selectedSecondaryIndex = -1;
@@ -24,6 +27,17 @@ public class AbilitiesManager : MonoBehaviour
     private void Start()
     {
         InitReferences();
+    }
+
+    private void Update()
+    {
+        if (_primaryAbility)
+            _primaryAbilityCooldown.fillAmount = _primaryAbility.Cooldown > 0 ? _primaryAbility.RemainingCooldown / _primaryAbility.Cooldown : 0;
+        if (_secondaryAbility)
+            _secondaryAbilityCooldown.fillAmount = _secondaryAbility.Cooldown > 0 ? _secondaryAbility.RemainingCooldown / _secondaryAbility.Cooldown : 0;
+        if (_specialAbility)
+            _specialAbilityCooldown.fillAmount = _specialAbility.Cooldown > 0 ? _specialAbility.RemainingCooldown / _specialAbility.Cooldown : 0;
+
     }
 
     //this is just for testing with InitReferences, will have to go away eventually
@@ -40,6 +54,9 @@ public class AbilitiesManager : MonoBehaviour
         _primaryAbilityUI = GameObject.Find("Left Power Icon").GetComponent<Image>();
         _secondaryAbilityUI = GameObject.Find("Right Power Icon").GetComponent<Image>();
         _specialAbilityUI = GameObject.Find("Centre Power Icon").GetComponent<Image>();
+        _primaryAbilityCooldown = _primaryAbilityUI.transform.Find("Cooldown").GetComponent<Image>();
+        _secondaryAbilityCooldown = _secondaryAbilityUI.transform.Find("Cooldown").GetComponent<Image>();
+        _specialAbilityCooldown = _specialAbilityUI.transform.Find("Cooldown").GetComponent<Image>();
         _defaultSpecialSprite = _specialAbilityUI.sprite;
         for (int i = 0; i < _abilitySlots.Length; i++)
         {

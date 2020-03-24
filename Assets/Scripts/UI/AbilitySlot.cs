@@ -11,6 +11,7 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject _abilityPopupMenuPrefab;
     [SerializeField] private bool _selected;
     [SerializeField] private Image _slotHighlight;
+    [SerializeField] private Image _cooldown;
     [SerializeField] private Image _slotImage;
     [SerializeField] private Sprite _defaultSprite;
     public Item Item { get; private set; }
@@ -35,6 +36,15 @@ public class AbilitySlot : MonoBehaviour, IPointerClickHandler
         _defaultSprite = _slotImage?.sprite;
         _slotHighlight.gameObject.SetActive(_selected);
     }
+
+    private void Update()
+    {
+        if (!Item)
+            return;
+        _cooldown.fillAmount = Item.Cooldown > 0 ? Item.RemainingCooldown / Item.Cooldown : 0;
+
+    }
+
 
     public void SetItem(Item item)
     {

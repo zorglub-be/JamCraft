@@ -13,25 +13,6 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
 
     private static int _defaultSize = 12;
     
-    private void Awake()
-    {
-        if (_items == null)
-            _items = new ItemStack[_defaultSize];
-        if(_clearOnAwake)
-            Clear();
-    }
-
-    private void OnEnable()
-    {
-        for (int i = 0; i < _items.Length; i++)
-        {
-            if (_items[i]?.Item == null)
-                continue;
-            var stackIndex = i;
-            _items[i].OnCountChange += () => { CheckEmptyStack(stackIndex); };
-        }
-    }
-
     // Privates
     private int _count;
 
@@ -60,7 +41,28 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
     /// Indexer to access the Item at a specific position in the inventory. This is a read-only indexer.
     /// </summary>
     /// <param name="index"></param>
+    /// 
     public ItemStack this[int index] => _items[index];
+    private void Awake()
+    {
+        if (_items == null)
+            _items = new ItemStack[_defaultSize];
+        if(_clearOnAwake)
+            Clear();
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i]?.Item == null)
+                continue;
+            var stackIndex = i;
+            _items[i].OnCountChange += () => { CheckEmptyStack(stackIndex); };
+            _items[i].OnCountChange += () => OnChange?.Invoke();
+        }
+    }
+
 
     /// <summary>
     ///tries to add an item to the inventory. Returns true if it was successfully added, else false
@@ -243,7 +245,7 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
                 changedItems += ModifyItemCountAt(i, delta);
                 if (changedItems == Mathf.Abs(delta))
                 {
-                    OnChange?.Invoke();
+//                    OnChange?.Invoke();
                     return changedItems;
                 }
             }
@@ -260,18 +262,17 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
                     _items[i] = new ItemStack(item, itemsToAdd);
                     var stackIndex = i; //this is necessary to make sure the CheckEmptyStack call uses the right index
                     _items[i].OnCountChange += () => { CheckEmptyStack(stackIndex); };
+                    _items[i].OnCountChange += () => OnChange?.Invoke();
+                    OnChange?.Invoke();
                     changedItems += itemsToAdd;
                     _count++;
                     if (changedItems == delta)
                     {
-                        OnChange?.Invoke();
                         return changedItems;
                     }
                 }
             }
         }
-        if (changedItems > 0)
-            OnChange?.Invoke();
         return changedItems;              
     }
 

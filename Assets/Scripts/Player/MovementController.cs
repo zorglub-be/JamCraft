@@ -86,41 +86,21 @@ public class MovementController : MonoBehaviour
 
         if (angle > -45 && angle < 45) // UP
         {
-            if (currentDirection == Direction.Down )
-                currentDirection = Direction.Up;
-            if (currentDirection == Direction.Right && angle < 42)
-                currentDirection = Direction.Up;
-            if (currentDirection == Direction.Left && angle > -42)
                 currentDirection = Direction.Up;
         }
 
         else if (angle < -135 || angle > 135) // DOWN
         {
-            if (currentDirection == Direction.Up )
-                currentDirection = Direction.Down;
-            if (currentDirection == Direction.Right && angle > 138)
-                currentDirection = Direction.Down;
-            if (currentDirection == Direction.Left && angle < -138)
                 currentDirection = Direction.Down;
         }
 
         else if (angle >= 45 && angle <= 135) // RIGHT
         {
-            if (currentDirection == Direction.Left)
-                currentDirection = Direction.Right;
-            if (currentDirection == Direction.Up && angle >= 48)
-                currentDirection = Direction.Right;
-            if (currentDirection == Direction.Down && angle <= 132)
                 currentDirection = Direction.Right;
         }
 
         else if (angle <= -45 && angle >= -135) // LEFT
         {
-            if (currentDirection == Direction.Right )
-                currentDirection = Direction.Left;
-            if (currentDirection == Direction.Up && angle <= -48)
-                currentDirection = Direction.Left;
-            if (currentDirection == Direction.Down && angle >= -132)
                 currentDirection = Direction.Left;
         }
 

@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class LightFlicker2D : MonoBehaviour
 {
     [SerializeField] private float timeScale = 4f;
+    [SerializeField] private float _minFlickerInterval = 5f;
+    [SerializeField] private float _maxFlickerInterval = 10f;
     
     private float _intensity = 1.5f;
     private Light2D _light2D;
@@ -24,12 +26,12 @@ public class LightFlicker2D : MonoBehaviour
     {
         _timer += Time.deltaTime;
         
-        if (_timer > Random.Range(5, 10))
+        if (_timer > Random.Range(_minFlickerInterval, _maxFlickerInterval))
         {
             StartCoroutine(Flicker());
         }
 
-        if (_timer > 10 ) _timer = 0;
+        if (_timer > _maxFlickerInterval ) _timer = 0;
         }
 
     private IEnumerator Flicker()

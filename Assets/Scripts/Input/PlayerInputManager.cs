@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(MovementController), typeof(AbilitiesManager))]
 public class PlayerInputManager : MonoBehaviour
@@ -20,9 +21,9 @@ public class PlayerInputManager : MonoBehaviour
             _movementController.Vertical = NeoInput.GetAxis(NeoInput.AxisCode.Vertical);
             if (NeoInput.GetKey(NeoInput.NeoKeyCode.PrimaryAttack))
                 _abilitiesManager.UsePrimary();
-            if (NeoInput.GetKey(NeoInput.NeoKeyCode.SecondaryAttack))
+            else if (NeoInput.GetKey(NeoInput.NeoKeyCode.SecondaryAttack))
                 _abilitiesManager.UseSecondary();
-            if (NeoInput.GetKey(NeoInput.NeoKeyCode.SpecialAttack))
+            else if (NeoInput.GetKey(NeoInput.NeoKeyCode.SpecialAttack))
                 _abilitiesManager.UseSpecial();            
         }
         if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.NextPrimary))
@@ -33,5 +34,11 @@ public class PlayerInputManager : MonoBehaviour
             _abilitiesManager.PreviousPrimary();
         if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.PreviousSecondary))
             _abilitiesManager.PreviousSecondary();
+    }
+
+    private void OnDisable()
+    {
+        _movementController.Horizontal = 0;
+        _movementController.Vertical = 0;
     }
 }

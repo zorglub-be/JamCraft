@@ -36,7 +36,7 @@ public class Item : ScriptableObject, IItem
 
     public void OnEnable()
     {
-        _lastUseTime = 0;
+        _lastUseTime = Time.time -_useDelay;
     }
 
     public bool TryUse(GameObject user)

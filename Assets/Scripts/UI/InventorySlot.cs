@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Image _hilight;
+    [SerializeField] private Image _cooldown;
     
     // Public fields
     [HideInInspector] public int slotIndex = -1;
@@ -42,6 +43,13 @@ public class InventorySlot : MonoBehaviour
     private void OnDisable()
     {
         GameState.Instance.Inventory.OnChange -= UpdateSlot;
+    }
+
+    public void Update()
+    {
+        if (!Item)
+            return;
+        _cooldown.fillAmount = Item.Cooldown > 0 ? Item.RemainingCooldown / Item.Cooldown : 0;
     }
 
     public void UpdateSlot()

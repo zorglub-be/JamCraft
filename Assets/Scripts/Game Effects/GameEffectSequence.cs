@@ -7,11 +7,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game Effects/Effect Sequence")]
 public class GameEffectSequence : GameEffect
 {
-    [SerializeField] private GameEffectSequenceElement[] _sequence;
     [SerializeField] private bool _waitForAllFinished;
+    [SerializeField] private bool _disableInputDuringSequence = true;
+    [SerializeField] private GameEffectSequenceElement[] _sequence;
 
     public override async void Execute(GameObject source, Action callback = null)
     {
+        if (_disableInputDuringSequence)
+        {
+            var input = source.GetComponent<PlayerInputManager>();
+            if (input)
+            {
+                input.enabled = false;
+                callback = (() => input.enabled = true) + callback;
+            }
+        }
         var currentAction = _waitForAllFinished ? null : callback;
         var sequencers = new GameEffectSequencer[_sequence.Length];
         var token = GameState.Instance.CancellationToken;                    
