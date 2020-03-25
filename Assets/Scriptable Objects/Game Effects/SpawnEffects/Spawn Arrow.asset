@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
+  m_Name: Spawn Arrow
+  m_EditorClassIdentifier: 
+  _useLootComponent: 0
+  _useSpawnPoint: 1
+  _objectToSpawn: {fileID: 1945937761345667062, guid: 0bd074a79e61d479ebe92230217b075d,
+    type: 3}
+  _copyLayer: 1

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
+  m_Name: BowAbility
+  m_EditorClassIdentifier: 
+  _name: 'BowAbility '
+  _icon: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
+  _sprite: {fileID: 21300000, guid: c25d13d8b486e4e85888b3731bda4c27, type: 3}
+  _maxStack: 5
+  _useDelay: 1
+  _isConsumable: 0
+  _isUsable: 1
+  _useEffect: {fileID: 11400000, guid: c55878e868ccb486f931904e6a3cebf4, type: 2}
+  _sound: {fileID: 8300000, guid: 09d5365b47fc340bd856bc5dc071c2ec, type: 3}

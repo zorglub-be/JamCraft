@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
+  m_Name: Split Arrow
+  m_EditorClassIdentifier: 
+  _name: Split Arrow
+  _icon: {fileID: 0}
+  _ingredients:
+  - {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
+  - {fileID: 11400000, guid: 0037c92a51db64e0a8b6c3da5f13dfda, type: 2}
+  _effects:
+  - {fileID: 11400000, guid: 3ad8d140f48a84fc3b24229ceafab08a, type: 2}

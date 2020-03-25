@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
+  m_Name: Flame Sequence
+  m_EditorClassIdentifier: 
+  _waitForAllFinished: 1
+  _disableInputDuringSequence: 1
+  _sequence:
+  - effect: {fileID: 11400000, guid: 49e22fd185d9d4f66a60703a4ad50f18, type: 2}
+    waitForSeconds: 0.1
+    waitForFinish: 0
+  - effect: {fileID: 11400000, guid: cf34ded02da4f468ab4f11ad040beb1c, type: 2}
+    waitForSeconds: 1
+    waitForFinish: 1
