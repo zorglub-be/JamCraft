@@ -70,14 +70,14 @@ public class InventoryUI : MonoBehaviour
         {
             if (Inventory[_cursorIndex].TryUse(Player))
             {
-                
+                //do we need to do something here?
             }
         }
     }
 
     public void SendSelectedItemToCraft()
     {
-        if (_cursorIndex >= 0)
+        if (_cursorIndex >= 0 && _slots[_cursorIndex].Item != null)
         {
             _craftingUI.AddItem(_cursorIndex);
         }
