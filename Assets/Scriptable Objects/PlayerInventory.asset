@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clearOnAwake: 0
   _items:
-  - _count: 1
-    _item: {fileID: 11400000, guid: d2dab5c1368e543e38547a58f9d7194d, type: 2}
-  - _count: 1
-    _item: {fileID: 11400000, guid: 0395982f2091e4ea38b3a742c9c9106b, type: 2}
-  - _count: 1
-    _item: {fileID: 11400000, guid: a3d1f7aad08624160bade2ee6a46e921, type: 2}
-  - _count: 2
-    _item: {fileID: 11400000, guid: 0e88bb907f53540b58b0d305cb2667d2, type: 2}
+  - _count: 0
+    _item: {fileID: 0}
+  - _count: 0
+    _item: {fileID: 0}
+  - _count: 0
+    _item: {fileID: 0}
+  - _count: 0
+    _item: {fileID: 0}
   - _count: 0
     _item: {fileID: 0}
   - _count: 0

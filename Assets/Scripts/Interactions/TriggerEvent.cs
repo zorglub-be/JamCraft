@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 public class TriggerEvent : MonoBehaviour
 {
+    [SerializeField] private string[] _withTags;    
     [SerializeField] private bool _ignoreFriends;    
     [SerializeField] private bool _ignoreFoes;
     public GameObjectEvent OnTriggerEntered;
@@ -44,11 +46,16 @@ public class TriggerEvent : MonoBehaviour
 
     private bool ShouldIgnore(GameObject other)
     {
-        if (!_ignoreFoes && !_ignoreFriends)
-            return false;
-        var isFriend = GameState.Instance.AreFriendly(gameObject, other);
-        if (isFriend && _ignoreFriends || !isFriend && _ignoreFoes)
+        if (_ignoreFoes || _ignoreFriends)
+        {
+            var isFriend = GameState.Instance.AreFriendly(gameObject, other);
+            if (isFriend && _ignoreFriends || !isFriend && _ignoreFoes)
+                return true;
+        }
+        if (_alreadyColliding.Contains(other))
             return true;
-        return _alreadyColliding.Contains(other);
+        if (_withTags.Length ==0 || _withTags.Contains(other.tag))
+            return false;
+        return true;
     }
 }

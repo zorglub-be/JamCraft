@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelExitTrigger : MonoBehaviour
 {
     [Tooltip("Look at the build settings for build index.")]
-    [SerializeField] private int nextLevelToLoad;
+    [SerializeField] private string nextLevelToLoad;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

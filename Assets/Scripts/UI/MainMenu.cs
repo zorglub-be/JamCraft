@@ -8,13 +8,16 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject creditsPanel;
 
-    public void StartNewGame()
+/*    public void StartNewGame()
     {
+        //commented by zorglub: use Load Level Game Effect instead
         Debug.Log("Started New Game");
         SceneManager.LoadScene("Level1");
         SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         SceneManager.LoadScene("Inventory", LoadSceneMode.Additive);
+        
     }
+        */
 
     public void ContinueFromLastSave()
     {

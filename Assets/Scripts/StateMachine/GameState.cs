@@ -1,4 +1,5 @@
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Threading;
@@ -41,6 +42,7 @@
         }
 
         public Type CurrentStateType => _stateMachine.CurrentState.GetType();
+        public bool Loading { get; set;}
 
         // Overrides
         protected override void Initialize()
@@ -55,7 +57,6 @@
             _stateMachine.OnStateChanged += CheckStateAndCancelAsyncIfNecessary;
             _stateMachine.OnStateChanged += state => OnGameStateChanged?.Invoke(state);
             
-            var menu = new Menu();
             var loading = new LoadLevel();
             var play = new Play();
             var pause = new Pause();
@@ -63,13 +64,10 @@
             
             _stateMachine.SetState(play);
             
-            _stateMachine.AddStateChange(menu, loading, () => PlayLevel.LevelToLoad != null);
-            
-            
-            _stateMachine.AddStateChange(loading, play, loading.Finished);
+            _stateMachine.AddAnyStateChange(loading, () => Loading == true);
+            _stateMachine.AddStateChange(loading, play, () => Loading == false);
             _stateMachine.AddStateChange(play, pause, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
             _stateMachine.AddStateChange(pause, play, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
-            //_stateMachine.AddStateChange(pause, menu, ()=>RestartButton.Pressed);
         }
 
         protected override void Cleanup()
