@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1357461379033665861
-    second: psbuttonstransp_0
+    second: ps-circle-button
   - first:
       213: 4150165886355150230
-    second: psbuttonstransp_1
+    second: ps-cross-button
   - first:
       213: 8161057421234373938
-    second: psbuttonstransp_2
+    second: ps-triangle-button
   - first:
       213: -3849283233668348423
-    second: psbuttonstransp_3
+    second: ps-square-button
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: psbuttonstransp_0
+      name: ps-circle-button
       rect:
         serializedVersion: 2
         x: 21
@@ -118,7 +118,7 @@ TextureImporter:
         width: 85
         height: 86
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: psbuttonstransp_1
+      name: ps-cross-button
       rect:
         serializedVersion: 2
         x: 151
@@ -139,7 +139,7 @@ TextureImporter:
         width: 85
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: psbuttonstransp_2
+      name: ps-triangle-button
       rect:
         serializedVersion: 2
         x: 20
@@ -160,7 +160,7 @@ TextureImporter:
         width: 86
         height: 86
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: psbuttonstransp_3
+      name: ps-square-button
       rect:
         serializedVersion: 2
         x: 151
@@ -181,7 +181,7 @@ TextureImporter:
         width: 86
         height: 87
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

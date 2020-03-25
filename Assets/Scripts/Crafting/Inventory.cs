@@ -304,4 +304,14 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
         if (_items == null)
             _items = new ItemStack[_defaultSize];
     }
+
+    public int FirstIndexOf(Item item)
+    {
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i].Item == item && _items[i].Count > 0)
+                return i;
+        }
+        return -1;
+    }
 }

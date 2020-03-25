@@ -59,9 +59,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Props
-    uniqueID: 2144320535
-    locked: 0
   - name: Obstacles Upper
     uniqueID: 1249114635
     locked: 0
@@ -74,8 +71,14 @@ TagManager:
   - name: Interactions
     uniqueID: 2856395103
     locked: 0
+  - name: Props
+    uniqueID: 2144320535
+    locked: 0
   - name: Characters
     uniqueID: 2174464395
+    locked: 0
+  - name: Ceiling
+    uniqueID: 781781533
     locked: 0
   - name: HUD
     uniqueID: 1188973311

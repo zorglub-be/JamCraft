@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image _secondaryAbilityUI;
     [SerializeField] private Image _specialAbilityUI;
 
+    private bool _initialized;
+
     private Image _primaryAbilityCooldown;
     private Image _secondaryAbilityCooldown;
     private Image _specialAbilityCooldown;
@@ -26,11 +29,27 @@ public class AbilitiesManager : MonoBehaviour
 
     private void Start()
     {
-        InitReferences();
+        StartCoroutine(TryInitReferences());
     }
+
+    private IEnumerator TryInitReferences()
+    {
+        while (_initialized == false)
+        {
+            try
+            {
+                InitReferences();
+            }
+            catch (Exception e)
+            {}
+            yield return new WaitForSeconds(.5f);
+        }
+    }
+    
 
     private void Update()
     {
+        
         if (_primaryAbility)
             _primaryAbilityCooldown.fillAmount = _primaryAbility.Cooldown > 0 ? _primaryAbility.RemainingCooldown / _primaryAbility.Cooldown : 0;
         if (_secondaryAbility)
@@ -68,6 +87,7 @@ public class AbilitiesManager : MonoBehaviour
             SetPrimary(_selectedPrimaryIndex);
         if (_selectedSecondaryIndex >= 0)
             SetPrimary(_selectedSecondaryIndex);
+        _initialized = true;
     }
 
     private void NextAbility(int currentIndex, Action<int> abilitySetter)
