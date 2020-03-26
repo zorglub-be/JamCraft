@@ -8,11 +8,14 @@ public class AbilitiesManager : MonoBehaviour
 {
     [SerializeField] private RecipeBook _recipeBook;
 
-    [SerializeField] private AbilitySlot[] _abilitySlots;
 
     [SerializeField] private Image _primaryAbilityUI;
     [SerializeField] private Image _secondaryAbilityUI;
     [SerializeField] private Image _specialAbilityUI;
+    [SerializeField] private Item[] _abilities;
+    [SerializeField] private AbilitySlot[] _abilitySlots;
+
+    private Sprite _defaultSpecialSprite;
 
     private bool _initialized;
 
@@ -26,6 +29,24 @@ public class AbilitiesManager : MonoBehaviour
     private Item _primaryAbility;
     private Item _secondaryAbility;
     private Item _specialAbility;
+
+    public Item[] Abilities
+    {
+        get => _abilities;
+        set { _abilities = value; }
+    }
+
+    public int SelectedPrimaryIndex
+    {
+        get => _selectedPrimaryIndex;
+        set => _selectedPrimaryIndex = value;
+    }
+
+    public int SelectedSecondaryIndex
+    {
+        get => _selectedSecondaryIndex;
+        set => _selectedSecondaryIndex = value;
+    }
 
     private void Start()
     {
@@ -59,9 +80,6 @@ public class AbilitiesManager : MonoBehaviour
 
     }
 
-    //this is just for testing with InitReferences, will have to go away eventually
-    [SerializeField] private Item[] _abilities;
-    private Sprite _defaultSpecialSprite;
 
     [ContextMenu("Initialize")]
     public void InitReferences()
@@ -83,10 +101,10 @@ public class AbilitiesManager : MonoBehaviour
                 _abilitySlots[i].SetItem(_abilities[i]);
         }
 
-        if (_selectedPrimaryIndex >= 0)
-            SetPrimary(_selectedPrimaryIndex);
-        if (_selectedSecondaryIndex >= 0)
-            SetPrimary(_selectedSecondaryIndex);
+        if (SelectedPrimaryIndex >= 0)
+            SetPrimary(SelectedPrimaryIndex);
+        if (SelectedSecondaryIndex >= 0)
+            SetPrimary(SelectedSecondaryIndex);
         _initialized = true;
     }
 
@@ -133,42 +151,42 @@ public class AbilitiesManager : MonoBehaviour
             _abilities[index] = ability;
             _abilitySlots[index].SetItem(ability);
         }
-        if (_selectedPrimaryIndex < 0)
+        if (SelectedPrimaryIndex < 0)
             SetPrimary(index);
-        else if (_selectedSecondaryIndex < 0)
+        else if (SelectedSecondaryIndex < 0)
             SetSecondary(index);
     }
 
     [ContextMenu("Next Primary")]
     public void NextPrimary()
     {
-        NextAbility(_selectedPrimaryIndex, SetPrimary);
+        NextAbility(SelectedPrimaryIndex, SetPrimary);
     }
 
     [ContextMenu("Next Secondary")]
     public void NextSecondary()
     {
-        NextAbility(_selectedSecondaryIndex, SetSecondary);
+        NextAbility(SelectedSecondaryIndex, SetSecondary);
     }
     
     public void PreviousPrimary()
     {
-        PreviousAbility(_selectedPrimaryIndex, SetPrimary);
+        PreviousAbility(SelectedPrimaryIndex, SetPrimary);
     }
     public void PreviousSecondary()
     {
-        PreviousAbility(_selectedSecondaryIndex, SetSecondary);
+        PreviousAbility(SelectedSecondaryIndex, SetSecondary);
     }
 
     public void SetPrimary(int newIndex)
     {
-        SetAbility(newIndex, ref _selectedPrimaryIndex, _selectedSecondaryIndex, ref _primaryAbility,
+        SetAbility(newIndex, ref _selectedPrimaryIndex, SelectedSecondaryIndex, ref _primaryAbility,
             ref _primaryAbilityUI);
     }
 
     public void SetSecondary(int newIndex)
     {
-        SetAbility(newIndex, ref _selectedSecondaryIndex, _selectedPrimaryIndex, ref _secondaryAbility,
+        SetAbility(newIndex, ref _selectedSecondaryIndex, SelectedPrimaryIndex, ref _secondaryAbility,
             ref _secondaryAbilityUI);
     }
 

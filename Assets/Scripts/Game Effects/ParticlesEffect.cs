@@ -25,7 +25,8 @@ public class ParticlesEffect : GameEffect
         var token = GameState.Instance.CancellationToken;
         var emission = particles.emission;
         emission.enabled = true;
-        await Task.Delay((int)duration * 1000, token);
+        var wait = WaitForSeconds(duration);
+        await wait;
         emission.enabled = false;
         if (token.IsCancellationRequested)
             return;

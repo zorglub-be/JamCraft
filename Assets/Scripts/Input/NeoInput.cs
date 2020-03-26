@@ -11,10 +11,10 @@ public static class NeoInput
     public static Dictionary<NeoKeyCode, KeyCode[]> keyCodesMap = new Dictionary<NeoKeyCode, KeyCode[]>
     {
         // Directions
-        {NeoKeyCode.Up, new []{KeyCode.W}},
-        {NeoKeyCode.Down, new []{KeyCode.S}},
-        {NeoKeyCode.Left, new []{KeyCode.A}},
-        {NeoKeyCode.Right, new []{KeyCode.D}},
+        {NeoKeyCode.Up, new []{KeyCode.W, KeyCode.None}},
+        {NeoKeyCode.Down, new []{KeyCode.S,  KeyCode.None}},
+        {NeoKeyCode.Left, new []{KeyCode.A,  KeyCode.None}},
+        {NeoKeyCode.Right, new []{KeyCode.D,  KeyCode.None}},
         
         // Controls
         {NeoKeyCode.PrimaryAttack, new []{KeyCode.J, KeyCode.Joystick1Button1}}, // Cross
@@ -39,6 +39,31 @@ public static class NeoInput
     {
         {AxisCode.Horizontal, new Axis("Horizontal", NeoKeyCode.Right, NeoKeyCode.Left)},
         {AxisCode.Vertical, new Axis("Vertical", NeoKeyCode.Up, NeoKeyCode.Down)},
+    };
+
+    public static Dictionary<string, NeoKeyCode> StringKeyCodes = new Dictionary<string, NeoKeyCode>()
+    {
+        {"Up", NeoKeyCode.Up},
+        {"Down", NeoKeyCode.Down},
+        {"Left", NeoKeyCode.Left},
+        {"Right", NeoKeyCode.Right},
+
+        {"Primary Attack", NeoKeyCode.PrimaryAttack},
+        {"Secondary Attack", NeoKeyCode.SecondaryAttack},
+        {"Special Attack", NeoKeyCode.SpecialAttack},
+        {"Interact", NeoKeyCode.Interact},
+        {"Next Primary", NeoKeyCode.NextPrimary},
+        {"Previous Primary", NeoKeyCode.PreviousPrimary},
+        {"Next Secondary", NeoKeyCode.NextSecondary},
+        {"Previous Secondary", NeoKeyCode.PreviousSecondary},
+
+        {"Toggle Inventory", NeoKeyCode.ToggleInventory},
+        {"Toggle Pause", NeoKeyCode.Pause},
+        
+        {"Use Item", NeoKeyCode.Use},
+        {"Select Item", NeoKeyCode.Select},
+        {"Craft", NeoKeyCode.Craft},
+        {"Drop Item", NeoKeyCode.Drop},
     };
     
     

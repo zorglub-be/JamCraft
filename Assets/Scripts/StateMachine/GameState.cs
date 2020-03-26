@@ -1,15 +1,12 @@
     using System;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Threading;
-    using UnityEditorInternal;
     using UnityEngine;
-    using UnityEngine.Serialization;
 
     public class GameState: SingletonMB<GameState>
     {
         // Inspector
+        [SerializeField] private Player _playerPrefab;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private LayerFriends[] _layerRelationships;
@@ -21,6 +18,9 @@
         private StateMachine _stateMachine;
         private CancellationTokenSource _cancellationTokenSource;
         private Dictionary<int, int> _friendlyLayersIndex;
+        private GameSave _gameSave;
+        private Inventory savedInventory;
+
 
         // Events
         public static event Action<IState> OnGameStateChanged;
@@ -31,6 +31,7 @@
         public GameObject Player => FindPlayer();
         public GameObject InventoryUI => FindInventoryUI();
         public GameObject HudUI => FindHudUI();
+        public LoadLevelEffect CurrentLevelLoader { get; set; }
         public CancellationToken CancellationToken
         {
             get
@@ -43,6 +44,7 @@
 
         public Type CurrentStateType => _stateMachine.CurrentState.GetType();
         public bool Loading { get; set;}
+        public bool Paused { get; set; }
 
         // Overrides
         protected override void Initialize()
@@ -68,11 +70,55 @@
             _stateMachine.AddStateChange(loading, play, () => Loading == false);
             _stateMachine.AddStateChange(play, pause, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
             _stateMachine.AddStateChange(pause, play, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
+            _stateMachine.AddStateChange(play, pause, ()=> Paused);
+            _stateMachine.AddStateChange(pause, play, ()=> Paused == false);
         }
 
+        public void SaveGame()
+        {
+            _gameSave = new GameSave(Player, Inventory, CurrentLevelLoader);
+        }
+
+        public void LoadGame()
+        {
+            if (_gameSave == null)
+                return;
+            if (Player)
+            {
+                Destroy(Player);
+            }
+            Inventory.FillFrom(_gameSave.Inventory);
+            _player = Instantiate(_playerPrefab).gameObject;
+            _player.GetComponent<Health>().SetHealth(_gameSave.CurrentHealth);
+            var abilitiesManager = _player.GetComponent<AbilitiesManager>();
+            abilitiesManager.Abilities = _gameSave.Abilities;
+            abilitiesManager.SelectedPrimaryIndex = _gameSave.SelectedPrimary;
+            abilitiesManager.SelectedSecondaryIndex = _gameSave.SelectedSecondary;
+            _gameSave.LevelLoader.Execute(null);
+        }
+        
+
+        public void NewGame(LoadLevelEffect firstLevelLoader)    
+        {
+            if (Player)
+            {
+                Destroy(Player);
+            }
+            Inventory.Clear();
+            _player = Instantiate(_playerPrefab).gameObject;
+            firstLevelLoader.Execute(null);
+        }
+        
+        
         protected override void Cleanup()
         {
+            if (Player)
+            {
+                Destroy(Player);
+            }
+            Inventory.Clear();
             _cancellationTokenSource.Cancel();
+            _cancellationTokenSource = null;
         }
 
         private void CheckStateAndCancelAsyncIfNecessary(IState state)
@@ -128,6 +174,31 @@
             if (_friendlyLayersIndex.ContainsKey(layer1) && _friendlyLayersIndex[layer1] == (_friendlyLayersIndex[layer1] | 1 << layer2))
                 return true;
             return (_friendlyLayersIndex.ContainsKey(layer2) && _friendlyLayersIndex[layer2] == (_friendlyLayersIndex[layer2] | 1 << layer1));
+        }
+    }
+
+    public class GameSave
+    {
+        public int CurrentHealth { get; }
+        public Item[] Abilities { get; }
+        public int SelectedPrimary { get; }
+        public int SelectedSecondary { get; }
+        public ItemStack[] Inventory { get;}
+        public LoadLevelEffect LevelLoader { get;}
+
+        public GameSave(GameObject player, Inventory inventory, LoadLevelEffect currentLevelLoader)
+        {
+            CurrentHealth = player.GetComponent<Health>().CurrentHealth;
+            var abilitiesManager = player.GetComponent<AbilitiesManager>();
+            Abilities = player.GetComponent<AbilitiesManager>().Abilities;
+            SelectedPrimary = abilitiesManager.SelectedPrimaryIndex;
+            SelectedSecondary = abilitiesManager.SelectedSecondaryIndex;
+            Inventory = new ItemStack[inventory.Length];
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                Inventory[i] = inventory[i];
+            }
+            LevelLoader = currentLevelLoader;
         }
     }
 

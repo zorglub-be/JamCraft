@@ -69,4 +69,9 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("SettingsMenu");
     }
+    public void OpenControlsMenu()
+    {
+        SceneManager.LoadScene("KeybindingsMenu", LoadSceneMode.Additive);
+    }
+
 }

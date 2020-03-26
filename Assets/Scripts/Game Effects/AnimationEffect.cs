@@ -18,18 +18,13 @@ public class AnimationEffect : GameEffect
             return;
         
         animator.Play(_animatorState, _layerIndex);
-        await Task.Delay(1, token);
+        await Task.Yield();
         var stateInfo = animator.GetCurrentAnimatorStateInfo(_layerIndex);
         var duration = stateInfo.length;
-        WaitForSeconds(duration, callback);
-    }
-    
-    private async Task WaitForSeconds(float duration, Action callback)
-    {
-        var token = GameState.Instance.CancellationToken;
-        await Task.Delay((int)(duration * 1000), token);
+        var wait = WaitForSeconds(duration);
+        await wait;
         if (token.IsCancellationRequested)
             return;
-        callback?.Invoke();
+        callback.Invoke();
     }
 }

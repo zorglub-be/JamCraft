@@ -63,6 +63,10 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
         }
     }
 
+    public Inventory Duplicate()
+    {
+        return Instantiate(this);
+    }
 
     /// <summary>
     ///tries to add an item to the inventory. Returns true if it was successfully added, else false
@@ -141,9 +145,13 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
     /// </summary>
     public void Clear()
     {
+        foreach (var stack in _items)
+        {
+            if(stack != null)
+                stack.Clear();
+        }
         Array.Clear(_items, 0, _items.Length);
         _count = 0;
-        OnChange?.Invoke();
     }
     
     /// <summary>
@@ -151,9 +159,9 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
     /// </summary>
     public void ClearAt(int index)
     {
+        _items[index].Clear();
         Array.Clear(_items, index, 1);
         _count--;
-        OnChange?.Invoke();
     }
     
     /// <summary>
@@ -313,5 +321,15 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
                 return i;
         }
         return -1;
+    }
+
+    public void FillFrom(IEnumerable<ItemStack> stacks)
+    {
+        OnChange = null;
+        Clear();
+        foreach (ItemStack stack in stacks)
+        {
+            TryAdd(stack);
+        }
     }
 }

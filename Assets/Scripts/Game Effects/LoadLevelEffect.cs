@@ -40,8 +40,11 @@ public class LoadLevelEffect : GameEffect
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneNames[0]));
         }
+        GameState.Instance.CurrentLevelLoader = this;
+        GameState.Instance.SaveGame();
         Time.timeScale = 1;
         GameState.Instance.Loading = false;
+        GameState.Instance.Player.GetComponent<AbilitiesManager>().InitReferences();
         callback?.Invoke();
     }
 
@@ -49,7 +52,7 @@ public class LoadLevelEffect : GameEffect
     {
         while (asyncOp.isDone == false)
         {
-            await Task.Delay(1);
+            await Task.Yield();
         }
     }
 }

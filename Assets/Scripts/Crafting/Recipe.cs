@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Net.Configuration;
 using System.Text;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(menuName = "Crafting/Recipe")]
 public class Recipe : ScriptableObject
@@ -21,9 +21,22 @@ public class Recipe : ScriptableObject
     
     private void OnValidate()
     {
+        UpdateId();
+    }
+
+    private void OnEnable()
+    {
+        UpdateId();
+    }
+
+
+    [ContextMenu("Update Id")]
+    private void UpdateId()
+    {
         _id = IdFromIngredients(_ingredients);
         if (_name.Length == 0)
             _name = name; //set the name by default to be the name of the scriptable object instance
+        
     }
 
     /// <summary>
@@ -33,7 +46,7 @@ public class Recipe : ScriptableObject
     /// <returns></returns>
     public static string IdFromIngredients(Item[] ingredients)
     {
-        Array.Sort(ingredients, new Comparison<Item>((i1, i2) => String.Compare(i1?.Name, i2?.Name, StringComparison.Ordinal)));
+        Array.Sort(ingredients, (i1, i2) => String.Compare(i1.Name, i2.Name));
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ingredients.Length; i++)
         {

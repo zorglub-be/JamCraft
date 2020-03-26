@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: {fileID: 11400000, guid: 8b5301634273b4991acb58c45f3fc9fd, type: 2}
+  _effect: {fileID: 11400000, guid: d35ce4b621481485f9a582e18af44aff, type: 2}
   _sourceObject: {fileID: 182771421}
   OnEffect:
     m_PersistentCalls:
@@ -801,6 +801,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8636626008764588449, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
+        type: 3}
+      propertyPath: _playerPrefab
+      value: 
+      objectReference: {fileID: 4830670411265575948, guid: 0ae21f8f42f9a485faa611022e18fc57,
+        type: 3}
     - target: {fileID: 8636626008764588451, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
         type: 3}
       propertyPath: m_Name
@@ -2758,6 +2764,7 @@ GameObject:
   - component: {fileID: 1496207787}
   - component: {fileID: 1496207786}
   - component: {fileID: 1496207785}
+  - component: {fileID: 1496207788}
   m_Layer: 5
   m_Name: Continue Game Button
   m_TagString: Untagged
@@ -2828,8 +2835,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469167159}
-        m_MethodName: ContinueFromLastSave
+      - m_Target: {fileID: 1496207788}
+        m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2876,6 +2883,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496207783}
   m_CullTransparentMesh: 0
+--- !u!114 &1496207788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496207783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effect: {fileID: 11400000, guid: fe51862014e824cd3a069c15dab9fb06, type: 2}
+  _sourceObject: {fileID: 1496207783}
+  OnEffect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1624788899
 GameObject:
   m_ObjectHideFlags: 0

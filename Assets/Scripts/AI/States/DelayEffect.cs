@@ -9,7 +9,11 @@ public class DelayEffect : GameEffect
     public async override void Execute(GameObject source, Action callback = null)
     {
         var token = GameState.Instance.CancellationToken;
-        await Task.Delay((int)(delay * 1000), token);
+        var wait = WaitForSeconds(delay);
+        await wait;
+        if (token.IsCancellationRequested)
+            return;
         callback?.Invoke();
     }
+    
 }

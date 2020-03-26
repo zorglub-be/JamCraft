@@ -5,7 +5,7 @@ public class PlayerSpawnPoint : MonoBehaviour
 {
     private void Start()
     {
-        FindObjectOfType<Player>().transform.position = transform.position;
+        GameState.Instance.Player.transform.position = transform.position;
     }
 
     private void OnDrawGizmos()

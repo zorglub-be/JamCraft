@@ -59,4 +59,11 @@ public class ItemStack
             Decrement();
         return true;
     }
+
+    public void Clear()
+    {
+        Decrement(_count);
+        OnCountChange = null;
+        _item = null;
+    }
 }

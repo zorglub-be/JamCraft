@@ -36,7 +36,7 @@ public class GameEffectSequence : GameEffect
             var allFinished = false;
             while (!allFinished)
             {
-                await Task.Delay(1,token);
+                await Task.Yield();
                 if (token.IsCancellationRequested)
                     return;
                 for (int i = 0; i < sequencers.Length; i++)
@@ -73,7 +73,8 @@ public class GameEffectSequence : GameEffect
             {
                 _sequenceElement.effect.Execute(_source, () => _finished = true);
                 var token = GameState.Instance.CancellationToken;
-                await Task.Delay((int) (_sequenceElement.waitForSeconds * 1000), token);
+                var wait = WaitForSeconds(_sequenceElement.waitForSeconds);
+                await wait;
                 if (token.IsCancellationRequested)
                     return;
                 _callback?.Invoke();
@@ -90,7 +91,17 @@ public class GameEffectSequence : GameEffect
             _sequenceElement.effect.Execute(_source, () => _finished = true);
             _callback?.Invoke();
         }
-        
+        private async Task WaitForSeconds(float duration)
+        {
+            var token = GameState.Instance.CancellationToken;
+            var startTime = Time.time;
+            while (Time.time - startTime < duration)
+            {
+                await Task.Yield();
+                if (token.IsCancellationRequested)
+                    return;
+            }
+        }        
     }
     
     [Serializable]

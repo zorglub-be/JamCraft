@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
-  m_Name: Death Sequence
+  m_Name: SoundTest
   m_EditorClassIdentifier: 
-  _waitForAllFinished: 1
+  _waitForAllFinished: 0
   _disableInputDuringSequence: 1
   _sequence:
-  - effect: {fileID: 11400000, guid: dc0a5ba1611e945908a3a20fd902bcf7, type: 2}
+  - effect: {fileID: 11400000, guid: 4b343f35651864a978ed81aaefe3419e, type: 2}
     waitForSeconds: 0
     waitForFinish: 1
-  - effect: {fileID: 11400000, guid: 8cd0c7a92bb8baa4ba82b5b0ead83488, type: 2}
-    waitForSeconds: 0
-    waitForFinish: 1
-  - effect: {fileID: 11400000, guid: 22beddeb1b8cb4f9bbb236d2234f6c79, type: 2}
+  - effect: {fileID: 11400000, guid: 4b343f35651864a978ed81aaefe3419e, type: 2}
     waitForSeconds: 0
     waitForFinish: 1
