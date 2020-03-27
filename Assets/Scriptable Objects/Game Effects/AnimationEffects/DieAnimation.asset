@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DieAnimation
   m_EditorClassIdentifier: 
   _animatorState: Death
+  _animationDuration: 1
   _layerIndex: 0

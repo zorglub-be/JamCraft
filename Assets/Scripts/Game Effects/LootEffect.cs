@@ -11,7 +11,7 @@ public class LootEffect : GameEffect
     [SerializeField] private Item _item;
     public Item Item => _item;
 
-    public override void Execute(GameObject source, Action callback=null)
+    public override void Execute(GameObject source, Action callback=null, CancellationTokenSource tokenSource = null)
     {
         if (_item.Sound != null)
             GameState.Instance.AudioSource.PlayOneShot(_item.Sound);

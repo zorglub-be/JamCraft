@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BowAnimation
   m_EditorClassIdentifier: 
   _animatorState: Bow
+  _animationDuration: 0.6
   _layerIndex: 0

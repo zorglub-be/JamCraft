@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Effects/Dash")]
@@ -9,7 +10,7 @@ public class DashEffect : GameEffect
     [SerializeField] private float _collisionRadius;
     [SerializeField] private bool _clipNarrowObstacles;
 
-    public override void Execute(GameObject source, Action callback = null)
+    public override void Execute(GameObject source, Action callback = null, CancellationTokenSource tokenSource = null)
     {
         //if the source is moving, dash in its current movement direction
         var rb = source.GetComponentInChildren<Rigidbody2D>();

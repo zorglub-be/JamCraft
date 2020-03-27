@@ -8,7 +8,7 @@ public class AbilityGainEffect : GameEffect
     [SerializeField] private Item _newAbility;
     [SerializeField] private bool _isSPecial;
     [SerializeField] private AbilitySlotType _slotType;
-    public override void Execute(GameObject user, Action callback = null)
+    public override void Execute(GameObject user, Action callback = null, CancellationTokenSource tokenSource = null)
     {
         //this should grant the player a new ability. What an ability is and how the player gets it is tbd
         var abilitiesManager = user.GetComponent<AbilitiesManager>();

@@ -21,6 +21,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
     public IntEvent OnDamaged => _onDamaged;
     public IntEvent OnHealed => _onHealed;
     public UnityEvent OnKilled => _onKilled;
+    public int MaximumHealth => _maxHealth;
 
     void OnEnable()
     {
@@ -59,6 +60,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
         }
         var actualHealing = Mathf.Min(_maxHealth - _currentHealth, value);
         _currentHealth += actualHealing;
+        OnChanged?.Invoke();
         OnHealed?.Invoke(actualHealing);
     }
 
@@ -74,5 +76,11 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
     public void Kill()
     {
         OnKilled?.Invoke();
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        _maxHealth += amount;
+        OnChanged.Invoke();
     }
 }

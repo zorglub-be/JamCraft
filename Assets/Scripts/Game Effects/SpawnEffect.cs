@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,7 +16,7 @@ public class SpawnEffect : GameEffect
     [Tooltip("Sets the spawned object's layer to the source layer")]
     [SerializeField] private bool _copyLayer = true;
 
-    public override void Execute(GameObject source, Action callback=null)
+    public override void Execute(GameObject source, Action callback=null, CancellationTokenSource tokenSource = null)
     {
         GameObject toSpawn;
         GameObject spawnedObject = null;

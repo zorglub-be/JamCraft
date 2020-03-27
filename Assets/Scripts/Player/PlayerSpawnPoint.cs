@@ -6,6 +6,7 @@ public class PlayerSpawnPoint : MonoBehaviour
     private void Start()
     {
         GameState.Instance.Player.transform.position = transform.position;
+        GameState.Instance.Player.GetComponent<AbilitiesManager>().InitReferences();
     }
 
     private void OnDrawGizmos()

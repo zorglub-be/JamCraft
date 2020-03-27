@@ -12,20 +12,21 @@ public class ParticlesEffect : GameEffect
     [SerializeField] private float _duration;
 
 
-    public override void Execute(GameObject source, Action callback=null)
+    public override void Execute(GameObject source, Action callback=null, CancellationTokenSource tokenSource = null)
     {
         var particleSystems = source.GetComponentsInChildren<ParticleSystem>(false);
         var system = particleSystems.FirstOrDefault(sys => sys.name == _particlesName);
         if (ReferenceEquals(system, null))
             return;
-        EmitForSeconds(system, _duration, callback);
+        EmitForSeconds(system, _duration, callback, tokenSource);
     }
-    private async void EmitForSeconds(ParticleSystem particles, float duration, Action callback)
+    private async void EmitForSeconds(ParticleSystem particles, float duration, Action callback,
+        CancellationTokenSource tokenSource)
     {
         var token = GameState.Instance.CancellationToken;
         var emission = particles.emission;
         emission.enabled = true;
-        var wait = WaitForSeconds(duration);
+        var wait = WaitForSeconds(duration, tokenSource);
         await wait;
         emission.enabled = false;
         if (token.IsCancellationRequested)

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4063350191450365160}
   - component: {fileID: 3926404540506897810}
   - component: {fileID: 8113582734898625161}
+  - component: {fileID: 1148958271}
+  - component: {fileID: 1148958274}
   m_Layer: 0
   m_Name: Exit Door (Right Wall)
   m_TagString: Untagged
@@ -125,3 +127,52 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
   m_Radius: 1.2
+--- !u!114 &1148958271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077980103578478122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54e7be6cc64aab84bbbc3e0f98f93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _withTags: []
+  _ignoreFriends: 0
+  _ignoreFoes: 0
+  OnTriggerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1148958274}
+        m_MethodName: TryUnlock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1148958274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077980103578478122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa6a07a6ddbd4bb788974376b6ecd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockSound: {fileID: 8300000, guid: 3e95fa45b9ff342e8b28c021e409d4e3, type: 3}
+  _key: {fileID: 11400000, guid: f60fa48d90c8a44f29d14c12ce9600e0, type: 2}

@@ -14,6 +14,10 @@ public class GameEffectComponent : MonoBehaviour
     {
         _effect.Execute(_sourceObject, () => OnEffect?.Invoke());
     }
+    public void Execute(GameObject target)
+    {
+        _effect.Execute(target, () => OnEffect?.Invoke());
+    }
 
     public void OnValidate()
     {

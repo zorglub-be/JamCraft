@@ -30,6 +30,11 @@ public class ChaserAi : AiManager
             UpdateSpawnersRotation();
     }
 
+    private void OnDisable()
+    {
+        _stateMachine.SetState(_idle);
+    }
+
     void UpdateSpawnersRotation()
     {
         if (_projectileSpawners.Length == 0 || ReferenceEquals(Target, null))

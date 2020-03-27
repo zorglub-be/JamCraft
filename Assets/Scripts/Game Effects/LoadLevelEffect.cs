@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +18,7 @@ public class LoadLevelEffect : GameEffect
         All,
     }
 
-    public async override void Execute(GameObject source, Action callback = null)
+    public async override void Execute(GameObject source, Action callback = null, CancellationTokenSource tokenSource = null)
     {
         Time.timeScale = 0;
         GameState.Instance.Loading = true;

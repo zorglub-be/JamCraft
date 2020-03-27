@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class AttackState : IState
@@ -7,6 +8,7 @@ public class AttackState : IState
     private GameObject _gameObject;
     private float _attackDelay;
     public DelayEffect _delayEffect;
+    private CancellationTokenSource _cancellationTokenSource;
 
     public bool Finished => _finished;
 
@@ -28,25 +30,27 @@ public class AttackState : IState
 
     public void OnEnter()
     {
+        _cancellationTokenSource = new CancellationTokenSource();
+        var tokenSource = CancellationTokenSource.CreateLinkedTokenSource(_cancellationTokenSource.Token, GameState.Instance.CancellationToken);
         _finished = false;
         if (_attackDelay > 0)
-            _delayEffect.Execute(_gameObject, ExecuteEffects);
+            _delayEffect.Execute(_gameObject, () => ExecuteEffects(tokenSource), tokenSource);
         else
-            ExecuteEffects();
+            ExecuteEffects(tokenSource);
     }
 
-    public void ExecuteEffects()
+    public void ExecuteEffects(CancellationTokenSource tokenSource)
     {
         foreach (var effect in _effects)
         {
-            effect.Execute(_gameObject, () => _finished = true);
+            effect.Execute(_gameObject, () => _finished = true, tokenSource);
         }
         
     }
 
     public void OnExit()
     {
-        //nothing to do here
+        _cancellationTokenSource.Cancel();
     }
 
 }

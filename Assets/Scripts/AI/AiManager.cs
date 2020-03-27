@@ -2,7 +2,7 @@
 
 public abstract class AiManager : MonoBehaviour
 {
-    private StateMachine _stateMachine;
+    protected StateMachine _stateMachine;
     protected abstract void Tick();
     protected abstract void Initialize();
     protected abstract void InitializeStateMachine(out StateMachine newStateMachine);

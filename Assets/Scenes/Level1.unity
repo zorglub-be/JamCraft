@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7644,7 +7644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036d7ef8c2c904e4aba6ceca91d0d403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneSetupAsset: {fileID: 11400000, guid: 7e422a20e7c8048d3bcc0e6e3240526e, type: 2}
 --- !u!1 &1010813658
 GameObject:
   m_ObjectHideFlags: 0
@@ -7777,65 +7776,6 @@ Transform:
   m_Father: {fileID: 1237704815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1062801660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1414563996933325738, guid: 08faf5ae879cf96438fe47eceed680a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 2215846139140059151}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1062801661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062801660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad54e7be6cc64aab84bbbc3e0f98f93f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _withTags:
-  - Player
-  _ignoreFriends: 0
-  _ignoreFoes: 0
-  OnTriggerEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1062801662}
-        m_MethodName: Execute
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnTriggerStay:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTriggerExit:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1062801662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062801660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effect: {fileID: 11400000, guid: 87fba7a36484d4518bc9d2da78ce014f, type: 2}
-  _sourceObject: {fileID: 1062801660}
-  OnEffect:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1106921704
 GameObject:
   m_ObjectHideFlags: 0

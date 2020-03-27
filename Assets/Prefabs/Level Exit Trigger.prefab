@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7235362424612479044}
   - component: {fileID: 8886090884606142855}
-  - component: {fileID: 2215846139140059153}
+  - component: {fileID: 1062801661}
+  - component: {fileID: 1062801662}
   m_Layer: 0
   m_Name: Level Exit Trigger
   m_TagString: Untagged
@@ -58,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 5}
   m_EdgeRadius: 0
---- !u!114 &2215846139140059153
+--- !u!114 &1062801661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +68,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1414563996933325738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16ec27711019f44694b386b93f047c8, type: 3}
+  m_Script: {fileID: 11500000, guid: ad54e7be6cc64aab84bbbc3e0f98f93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelToLoad: 8
+  _withTags:
+  - Player
+  _ignoreFriends: 0
+  _ignoreFoes: 0
+  OnTriggerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1062801662}
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1062801662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414563996933325738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effect: {fileID: 11400000, guid: 87fba7a36484d4518bc9d2da78ce014f, type: 2}
+  _sourceObject: {fileID: 1414563996933325738}
+  OnEffect:
+    m_PersistentCalls:
+      m_Calls: []

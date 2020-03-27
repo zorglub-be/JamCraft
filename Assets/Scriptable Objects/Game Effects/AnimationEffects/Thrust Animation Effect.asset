@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Thrust Animation Effect
   m_EditorClassIdentifier: 
   _animatorState: Thrust
+  _animationDuration: 0.5
   _layerIndex: 0

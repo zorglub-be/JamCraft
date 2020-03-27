@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class NeoInput
@@ -65,8 +66,17 @@ public static class NeoInput
         {"Craft", NeoKeyCode.Craft},
         {"Drop Item", NeoKeyCode.Drop},
     };
-    
-    
+
+    public static NeoKeyCode[] KeyToNeoKeyCodes(KeyCode key)
+    {
+        List<NeoKeyCode> codes = new List<NeoKeyCode>(5);
+        foreach (var item in keyCodesMap)
+        {
+            if(item.Value.Contains(key))
+                codes.Add(item.Key);
+        }
+        return codes.ToArray();
+    }
 
     public static float GetAxis(AxisCode axisCode)
     {

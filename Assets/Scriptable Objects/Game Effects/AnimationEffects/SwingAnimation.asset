@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SwingAnimation
   m_EditorClassIdentifier: 
   _animatorState: Swing
+  _animationDuration: 0.5
   _layerIndex: 0
