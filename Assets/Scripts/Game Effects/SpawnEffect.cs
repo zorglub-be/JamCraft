@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "Game Effects/Spawn Object")]
 public class SpawnEffect : GameEffect

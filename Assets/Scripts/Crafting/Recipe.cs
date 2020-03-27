@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(menuName = "Crafting/Recipe")]
 public class Recipe : ScriptableObject

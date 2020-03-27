@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Effects/Emit Particles")]

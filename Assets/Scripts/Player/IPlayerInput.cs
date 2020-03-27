@@ -1,6 +1,4 @@
-﻿using System;
-
-public interface IPlayerInput
+﻿public interface IPlayerInput
 {
     float Vertical { get; }
     float Horizontal { get; }

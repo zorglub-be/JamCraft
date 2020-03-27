@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 [CreateAssetMenu(menuName = "Item")]
 public class Item : ScriptableObject, IItem

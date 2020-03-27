@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
 {

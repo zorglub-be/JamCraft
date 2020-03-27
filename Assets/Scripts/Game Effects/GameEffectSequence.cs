@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Effects/Effect Sequence")]
