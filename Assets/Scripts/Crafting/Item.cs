@@ -1,5 +1,7 @@
 using System;
+using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Item")]
 public class Item : ScriptableObject, IItem
@@ -12,8 +14,8 @@ public class Item : ScriptableObject, IItem
     [SerializeField] private bool _isConsumable = default;
     [SerializeField] private bool _isUsable = default;
     [SerializeField] private GameEffect _useEffect = default;
+    [FormerlySerializedAs("_requireItem")] [SerializeField] private Item _requiredItem = null;
     [SerializeField] private AudioClip _sound;
-
     
     //Properties
     public string Name => _name;
@@ -21,7 +23,18 @@ public class Item : ScriptableObject, IItem
     public Sprite Sprite => _sprite;
     public AudioClip Sound => _sound;
     public bool IsReady => RemainingCooldown == 0f;
-    public float RemainingCooldown => Mathf.Max(0f,  _useDelay - (Time.time - _lastUseTime));
+    public float RemainingCooldown
+    {
+        get
+        {
+            if (!_isListeningToRequiredItem)
+                CheckRequiredItem();
+            if (_hasRequiredItem == false)
+                return 1;
+            return Mathf.Max(0f, _useDelay - (Time.time - _lastUseTime));
+        }
+    }
+
     public float Cooldown => _useDelay;
     public int MaxStack => _maxStack;
     public bool IsConsumable => _isConsumable;
@@ -32,6 +45,8 @@ public class Item : ScriptableObject, IItem
 
     // Privates
     private float _lastUseTime;
+    private bool _hasRequiredItem;
+    private bool _isListeningToRequiredItem;
 
     public void OnEnable()
     {
@@ -42,6 +57,8 @@ public class Item : ScriptableObject, IItem
     {
         if (IsUsable == false || IsReady == false)
             return false;
+        if (_requiredItem && _requiredItem._isConsumable)
+            GameState.Instance.Inventory.TryRemove(_requiredItem);
         _useEffect.Execute(user);
         PlaySound();
         _lastUseTime = Time.time;
@@ -55,6 +72,16 @@ public class Item : ScriptableObject, IItem
             GameState.Instance.AudioSource.PlayOneShot(_sound);
     }
 
+    private void CheckRequiredItem()
+    {
+        if (!_isListeningToRequiredItem)
+        {
+            GameState.Instance.Inventory.OnChange += CheckRequiredItem;
+            _isListeningToRequiredItem = true;
+        }
+        _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) < 0;
+
+    }
     private void OnValidate()
     {
         if (_name.Length == 0)

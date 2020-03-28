@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class PlayerSpawnPoint : MonoBehaviour
 {
     private void Start()
     {
+        var camera = GameState.Instance.Player.GetComponentInChildren<CinemachineVirtualCamera>();
+        camera.enabled = false;
         GameState.Instance.Player.transform.position = transform.position;
-        GameState.Instance.Player.GetComponent<AbilitiesManager>().InitReferences();
+        camera.enabled = true;
     }
 
     private void OnDrawGizmos()

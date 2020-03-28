@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class ChaserAi : AiManager
 {
     [SerializeField] private LayerMask _detectedLayers;
+    [SerializeField] private string[] _detectedTags;
     [SerializeField] private GameEffect[] _attackEffects;
     [SerializeField] private float _detectionRange;
     [SerializeField] private float _attackRange;
@@ -14,7 +16,7 @@ public class ChaserAi : AiManager
     private ChaseState _chase;
     private AttackState _attack;
     private SpawnPoint[] _projectileSpawners;
-    private Collider2D[] _hitResults = new Collider2D[1];
+    private Collider2D[] _hitResults = new Collider2D[30];
 
     private bool _detected;
     private GameObject _target;
@@ -50,9 +52,36 @@ public class ChaserAi : AiManager
     {
         if (Physics2D.OverlapCircleNonAlloc(_transform.position, _detectionRange, _hitResults, _detectedLayers) > 0)
         {
-            _detected = true;
-            _target = _hitResults[0].attachedRigidbody.gameObject;
-            return;
+            GameObject newTarget = _target;
+            for (int i = 0; i < _hitResults.Length; i++)
+            {
+                //we've looked at all hits in the array
+                if (_hitResults[i] == null)
+                    break;
+                if (_hitResults[i].isTrigger)
+                    continue;
+                var obj = _hitResults[i]?.attachedRigidbody.gameObject;
+                if (obj && _detectedTags.Contains(obj.tag))
+                {
+                    _detected = true;
+                    newTarget = obj;
+                    //If we didn't have a target yet, that one will do
+                    if (_target == null)
+                    {
+                        _target = newTarget;
+                        return;
+                    }
+                    //If it's already our target, no need to change targets
+                    if (newTarget == _target)
+                        return;
+                    //This is a potential target, let's look if there's others
+                }
+                if (newTarget != null)
+                {
+                    _target = newTarget;
+                    return;
+                }
+            }
         }
         _detected = false;
         _target = null;

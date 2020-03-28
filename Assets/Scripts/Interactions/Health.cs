@@ -14,6 +14,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
     [SerializeField] private IntEvent _onDamaged;
     [SerializeField] private IntEvent _onHealed;
     [SerializeField] private UnityEvent _onKilled;
+    [SerializeField] private int _maxHealthCap = 20;
     public UnityEvent OnChanged => _onChanged;
     public IntEvent OnDamaged => _onDamaged;
     public IntEvent OnHealed => _onHealed;
@@ -77,7 +78,21 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
 
     public void IncreaseMaxHealth(int amount)
     {
-        _maxHealth += amount;
-        OnChanged.Invoke();
+        if (_maxHealth < _maxHealthCap)
+        {
+            _maxHealth += amount;
+            OnChanged.Invoke();
+        }
+    }
+
+    public void SetMaxHealth(int value)
+    {
+        if (value == _maxHealth)
+            return;
+        _maxHealth = Mathf.Clamp(value, 0, _maxHealthCap);
+        _currentHealth = Mathf.Min(_currentHealth, _maxHealth);
+        OnChanged?.Invoke();
+        if(_currentHealth == 0)
+            Kill();
     }
 }

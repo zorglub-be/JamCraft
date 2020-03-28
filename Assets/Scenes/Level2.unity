@@ -7390,12 +7390,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1196323124 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4878505227891787251, guid: 2d328dfc89b5540ff97651734f69eec0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2727335280925137155}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1207806280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9001,31 +8995,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: IncreaseMaxHealth
       objectReference: {fileID: 0}
-    - target: {fileID: 5420160902151458006, guid: 2d328dfc89b5540ff97651734f69eec0,
-        type: 3}
-      propertyPath: OnTriggerEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5420160902151458006, guid: 2d328dfc89b5540ff97651734f69eec0,
-        type: 3}
-      propertyPath: OnTriggerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1196323124}
-    - target: {fileID: 5420160902151458006, guid: 2d328dfc89b5540ff97651734f69eec0,
-        type: 3}
-      propertyPath: OnTriggerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 5420160902151458006, guid: 2d328dfc89b5540ff97651734f69eec0,
-        type: 3}
-      propertyPath: OnTriggerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5420160902151458006, guid: 2d328dfc89b5540ff97651734f69eec0,
-        type: 3}
-      propertyPath: OnTriggerEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1196323127, guid: 2d328dfc89b5540ff97651734f69eec0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d328dfc89b5540ff97651734f69eec0, type: 3}

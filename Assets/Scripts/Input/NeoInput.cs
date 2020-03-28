@@ -20,7 +20,7 @@ public static class NeoInput
         {NeoKeyCode.PrimaryAttack, new []{KeyCode.J, KeyCode.Joystick1Button1}}, // Cross
         {NeoKeyCode.SecondaryAttack, new []{KeyCode.K, KeyCode.Joystick1Button0}}, // Square
         {NeoKeyCode.SpecialAttack, new []{KeyCode.L, KeyCode.Joystick1Button3}}, // Triangle
-        {NeoKeyCode.Interact, new []{KeyCode.Return, KeyCode.Joystick1Button2}}, // Circle
+        {NeoKeyCode.Interact, new []{KeyCode.Space, KeyCode.Joystick1Button2}}, // Circle
         {NeoKeyCode.NextPrimary, new []{KeyCode.Q, KeyCode.Joystick1Button4}}, //L1
         {NeoKeyCode.PreviousPrimary, new []{KeyCode.Z, KeyCode.Joystick1Button6}}, //L2
         {NeoKeyCode.NextSecondary, new []{KeyCode.E, KeyCode.Joystick1Button5}}, //R1
@@ -31,7 +31,7 @@ public static class NeoInput
         {NeoKeyCode.ToggleInventory, new []{KeyCode.I, KeyCode.Joystick1Button11}}, //R3
         {NeoKeyCode.Use, new []{KeyCode.J, KeyCode.Joystick1Button1}}, // Cross
         {NeoKeyCode.Select, new []{KeyCode.Space, KeyCode.Joystick1Button0}}, // Square
-        {NeoKeyCode.Drop, new []{KeyCode.Space, KeyCode.Joystick1Button2}}, // Circle
+        {NeoKeyCode.Drop, new []{KeyCode.Backspace, KeyCode.Joystick1Button2}}, // Circle
         {NeoKeyCode.Craft, new []{KeyCode.Return, KeyCode.Joystick1Button3}}, // Triangle
     };
 

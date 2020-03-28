@@ -316,6 +316,8 @@ public class Inventory : ScriptableObject, IEnumerable<ItemStack>
     {
         for (int i = 0; i < _items.Length; i++)
         {
+            if (_items[i] == null)
+                continue; 
             if (_items[i].Item == item && _items[i].Count > 0)
                 return i;
         }

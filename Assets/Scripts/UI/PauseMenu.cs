@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -21,5 +22,14 @@ public class PauseMenu : MonoBehaviour
         public void QuitGame()
         {
             Application.Quit();
+        }
+
+        private void OnDisable()
+        {
+            //Todo: this is dirty, need to improve
+            if (SceneManager.GetSceneByName("KeybindingsMenu").isLoaded)
+                SceneManager.UnloadSceneAsync("KeybindingsMenu");
+            if (SceneManager.GetSceneByName("SettingsMenu").isLoaded)
+                SceneManager.UnloadSceneAsync("SettingsMenu");
         }
 }

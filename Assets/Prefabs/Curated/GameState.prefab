@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistent: 1
+  _playerPrefab: {fileID: 0}
   _inventory: {fileID: 11400000, guid: 079657080820e43368317bb068b931d8, type: 2}
   _audioSource: {fileID: 8636626008764588448}
   _layerRelationships:
@@ -55,7 +56,15 @@ MonoBehaviour:
   - layerName: Enemies
     friendlyLayers:
       serializedVersion: 2
-      m_Bits: 1537
+      m_Bits: 7681
+  - layerName: Empire
+    friendlyLayers:
+      serializedVersion: 2
+      m_Bits: 3585
+  - layerName: Rebels
+    friendlyLayers:
+      serializedVersion: 2
+      m_Bits: 5633
 --- !u!82 &8636626008764588448
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class StateMachine
 {
@@ -30,7 +31,7 @@ public class StateMachine
 
         _currentState?.OnExit();
         _currentState = state;
-//        Debug.Log($"Change to state {state}"); 
+        Debug.Log($"Change to state {state}"); 
         _currentState.OnEnter();
         OnStateChanged?.Invoke(_currentState);
     }

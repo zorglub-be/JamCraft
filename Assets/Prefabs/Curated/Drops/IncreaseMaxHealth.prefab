@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 3845407473642122154}
   - component: {fileID: 1196323129}
   - component: {fileID: 1196323125}
-  - component: {fileID: 1196323127}
   m_Layer: 0
   m_Name: IncreaseMaxHealth
   m_TagString: Untagged
@@ -195,9 +194,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3845407473642122154}
-        m_MethodName: Execute
-        m_Mode: 1
+      - m_Target: {fileID: 4878505227891787251}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -269,20 +268,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1196323127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4878505227891787251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f626bb6781fcb43d3aacf59d8b89e0b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _effect: {fileID: 11400000, guid: 22beddeb1b8cb4f9bbb236d2234f6c79, type: 2}
-  _sourceObject: {fileID: 4878505227891787251}
-  OnEffect:
-    m_PersistentCalls:
-      m_Calls: []

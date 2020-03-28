@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ObjectsToggler : MonoBehaviour
 {
@@ -6,10 +8,20 @@ public class ObjectsToggler : MonoBehaviour
     [SerializeField] private bool _toggled;
     [SerializeField] private AudioClip _toggledOnSound;
     [SerializeField] private AudioClip _toggledOffSound;
-    
-    
+    [FormerlySerializedAs("_enabled")] [SerializeField] private bool canToggle = true;
+
+    public bool CanToggle
+    {
+        get => canToggle;
+        set => canToggle = value;
+    }
+
+    [ContextMenu("Toggle")]
     public void ToggleAll()
     {
+        if (CanToggle == false)
+            return;
+            
         _toggled = !_toggled;
         var clip = _toggled ? _toggledOnSound : _toggledOffSound;
         if (clip)

@@ -62,13 +62,15 @@
             var loading = new LoadLevel();
             var play = new Play();
             var pause = new Pause();
+            var menu = new Menu();
             
             
-            _stateMachine.SetState(play);
+            _stateMachine.SetState(menu);
             
             _stateMachine.AddAnyStateChange(loading, () => Loading == true);
-            _stateMachine.AddStateChange(loading, play, () => Loading == false);
-            _stateMachine.AddStateChange(play, pause, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
+            _stateMachine.AddStateChange(loading, play, () => Loading == false && _player != null);
+            _stateMachine.AddStateChange(loading, menu, () => Loading == false && _player == null);
+            _stateMachine.AddStateChange(play, pause, ()=> Time.timeScale > 0 &&  NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
             _stateMachine.AddStateChange(pause, play, ()=> NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Pause));
             _stateMachine.AddStateChange(play, pause, ()=> Paused);
             _stateMachine.AddStateChange(pause, play, ()=> Paused == false);
@@ -90,6 +92,7 @@
             Inventory.FillFrom(_gameSave.Inventory);
             _player = Instantiate(_playerPrefab).gameObject;
             _player.GetComponent<Health>().SetHealth(_gameSave.CurrentHealth);
+            _player.GetComponent<Health>().SetMaxHealth(_gameSave.CurrentHealth);
             var abilitiesManager = _player.GetComponent<AbilitiesManager>();
             abilitiesManager.Abilities = _gameSave.Abilities;
             abilitiesManager.SelectedPrimaryIndex = _gameSave.SelectedPrimary;
@@ -180,6 +183,7 @@
     public class GameSave
     {
         public int CurrentHealth { get; }
+        public int MaxHealth { get; }
         public Item[] Abilities { get; }
         public int SelectedPrimary { get; }
         public int SelectedSecondary { get; }
@@ -189,6 +193,7 @@
         public GameSave(GameObject player, Inventory inventory, LoadLevelEffect currentLevelLoader)
         {
             CurrentHealth = player.GetComponent<Health>().CurrentHealth;
+            CurrentHealth = player.GetComponent<Health>().MaximumHealth;
             var abilitiesManager = player.GetComponent<AbilitiesManager>();
             Abilities = player.GetComponent<AbilitiesManager>().Abilities;
             SelectedPrimary = abilitiesManager.SelectedPrimaryIndex;

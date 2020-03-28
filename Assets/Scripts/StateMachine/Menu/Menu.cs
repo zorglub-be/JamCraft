@@ -9,8 +9,6 @@ public class Menu : IState
  
     public void OnEnter()
     {
-        PlayLevel.LevelToLoad = null;
-        SceneManager.LoadSceneAsync("MainMenu");
     }
  
     public void OnExit()

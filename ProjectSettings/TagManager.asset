@@ -7,6 +7,8 @@ TagManager:
   - Camera
   - HUD
   - Inventory
+  - Empire
+  - Rebel
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Player
   - Enemies
   - Props
-  - 
-  - 
+  - Empire
+  - Rebels
   - 
   - 
   - 
