@@ -51,14 +51,17 @@ public class Item : ScriptableObject, IItem
     public void OnEnable()
     {
         _lastUseTime = Time.time -_useDelay;
+        _isListeningToRequiredItem = false;
     }
 
     public bool TryUse(GameObject user)
     {
+        _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) >= 0;
         if (IsUsable == false || IsReady == false)
             return false;
         if (_requiredItem && _requiredItem._isConsumable)
             GameState.Instance.Inventory.TryRemove(_requiredItem);
+        _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) >= 0;
         _useEffect.Execute(user);
         PlaySound();
         _lastUseTime = Time.time;
@@ -79,8 +82,7 @@ public class Item : ScriptableObject, IItem
             GameState.Instance.Inventory.OnChange += CheckRequiredItem;
             _isListeningToRequiredItem = true;
         }
-        _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) < 0;
-
+        _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) >= 0;
     }
     private void OnValidate()
     {

@@ -53,6 +53,11 @@ PrefabInstance:
       propertyPath: _aimedAttacks
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _attackDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 115833469428866105, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: m_Layer
