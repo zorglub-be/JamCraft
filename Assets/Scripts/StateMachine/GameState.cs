@@ -180,33 +180,6 @@
         }
     }
 
-    public class GameSave
-    {
-        public int CurrentHealth { get; }
-        public int MaxHealth { get; }
-        public Item[] Abilities { get; }
-        public int SelectedPrimary { get; }
-        public int SelectedSecondary { get; }
-        public ItemStack[] Inventory { get;}
-        public LoadLevelEffect LevelLoader { get;}
-
-        public GameSave(GameObject player, Inventory inventory, LoadLevelEffect currentLevelLoader)
-        {
-            CurrentHealth = player.GetComponent<Health>().CurrentHealth;
-            CurrentHealth = player.GetComponent<Health>().MaximumHealth;
-            var abilitiesManager = player.GetComponent<AbilitiesManager>();
-            Abilities = player.GetComponent<AbilitiesManager>().Abilities;
-            SelectedPrimary = abilitiesManager.SelectedPrimaryIndex;
-            SelectedSecondary = abilitiesManager.SelectedSecondaryIndex;
-            Inventory = new ItemStack[inventory.Length];
-            for (int i = 0; i < inventory.Length; i++)
-            {
-                Inventory[i] = inventory[i];
-            }
-            LevelLoader = currentLevelLoader;
-        }
-    }
-
     [Serializable]
     public struct LayerFriends    
     {    

@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
-        SceneManager.LoadScene("SettingsMenu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("KeybindingsMenu", LoadSceneMode.Additive);
     }
 
     public void DisplayCredits()

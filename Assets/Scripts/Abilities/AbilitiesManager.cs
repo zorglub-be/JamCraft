@@ -121,9 +121,7 @@ public class AbilitiesManager : MonoBehaviour
             break;
         }
 
-        SetSpecial(null);
-        var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
-        specialRecipe?.Execute(gameObject);
+        UpdateSpecial();
     }
     private void PreviousAbility(int currentIndex, Action<int> abilitySetter)
     {
@@ -139,9 +137,17 @@ public class AbilitiesManager : MonoBehaviour
             break;
         }
 
+        UpdateSpecial();
+    }
+
+    private void UpdateSpecial()
+    {
         SetSpecial(null);
-        var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
-        specialRecipe?.Execute(gameObject);
+        if (_primaryAbility != null && _secondaryAbility != null)
+        {
+            var specialRecipe = _recipeBook.GetRecipe(_primaryAbility, _secondaryAbility);
+            specialRecipe?.Execute(gameObject);
+        }
     }
 
     public void Unlock(Item ability, int index)

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -11,7 +10,7 @@ public class PauseMenu : MonoBehaviour
 
         public void OpenSettingsMenu()
         {
-            SceneManager.LoadScene("SettingsMenu", LoadSceneMode.Additive);
+            SceneManager.LoadScene("KeybindingsMenu", LoadSceneMode.Additive);
         }
         public void OpenMainMenu()
         {
@@ -29,7 +28,5 @@ public class PauseMenu : MonoBehaviour
             //Todo: this is dirty, need to improve
             if (SceneManager.GetSceneByName("KeybindingsMenu").isLoaded)
                 SceneManager.UnloadSceneAsync("KeybindingsMenu");
-            if (SceneManager.GetSceneByName("SettingsMenu").isLoaded)
-                SceneManager.UnloadSceneAsync("SettingsMenu");
         }
 }

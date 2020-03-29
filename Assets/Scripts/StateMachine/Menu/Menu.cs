@@ -1,5 +1,3 @@
-using UnityEngine.SceneManagement;
-
 public class Menu : IState
 {
     public void Tick()
