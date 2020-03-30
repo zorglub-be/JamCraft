@@ -7,6 +7,8 @@ public class TriggerEvent : MonoBehaviour
     [SerializeField] private string[] _withTags;    
     [SerializeField] private bool _ignoreFriends;    
     [SerializeField] private bool _ignoreFoes;
+    [SerializeField] private bool _ignoreTriggers;    
+    [SerializeField] private bool _ignoreColliders;
     public GameObjectEvent OnTriggerEntered;
     public GameObjectEvent OnTriggerStay;
     public GameObjectEvent OnTriggerExit;
@@ -36,6 +38,8 @@ public class TriggerEvent : MonoBehaviour
 
     private void HandleTrigger(Collider2D other, GameObjectEvent callback, HashSet<GameObject> alreadyColliding)
     {
+        if(ShouldIgnoreColliderType(other))
+            return;
         var obj = other?.attachedRigidbody?.gameObject;
         if (obj == null)
             obj = other.gameObject;
@@ -45,7 +49,15 @@ public class TriggerEvent : MonoBehaviour
             callback?.Invoke(obj);
         }
     }
-
+    private bool ShouldIgnoreColliderType(Collider2D other)
+    {
+        
+        if (_ignoreTriggers && other.isTrigger)
+        {
+            return true;
+        }
+        return _ignoreColliders && other.isTrigger == false;
+    }
     private bool ShouldIgnore(GameObject other, HashSet<GameObject> alreadyColliding)
     {
         if (_ignoreFoes || _ignoreFriends)

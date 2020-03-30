@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: _detectedTags.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
@@ -42,6 +42,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _detectedTags.Array.data[0]
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _detectedTags.Array.data[1]
+      value: Decoy
+      objectReference: {fileID: 0}
+    - target: {fileID: -5053554206993657043, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: _aimedAttacks
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 115833469428866105, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}

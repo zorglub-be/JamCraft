@@ -24,7 +24,7 @@ public class Flamable : MonoBehaviour
 
     public void Burn(int tickDamage, int duration)
     {
-        if (_isBurning == false)
+        if (_isBurning == false && enabled)
             StartCoroutine(BurnCoroutine(tickDamage, duration));
     }
 

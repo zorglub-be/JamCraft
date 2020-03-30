@@ -145,7 +145,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Side Idle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -223,7 +223,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Side Walk
+  m_Name: Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -301,7 +301,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Side Thrust
+  m_Name: Thrust
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -431,7 +431,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Side Swing
+  m_Name: Swing
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -495,7 +495,7 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 144, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102206726544749602}
-    m_Position: {x: 240, y: 204, z: 0}
+    m_Position: {x: 240, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102044041044340854}
     m_Position: {x: 456, y: 204, z: 0}

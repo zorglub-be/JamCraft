@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
@@ -15,15 +16,37 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
     [SerializeField] private IntEvent _onHealed;
     [SerializeField] private UnityEvent _onKilled;
     [SerializeField] private int _maxHealthCap = 20;
+    [SerializeField] private float _damageImmunityTime = .8f;
     public UnityEvent OnChanged => _onChanged;
+    public UnityEvent OnImmunityStart;
+    public UnityEvent OnImmunityStop;
     public IntEvent OnDamaged => _onDamaged;
     public IntEvent OnHealed => _onHealed;
     public UnityEvent OnKilled => _onKilled;
     public int MaximumHealth => _maxHealth;
 
+    private bool _isImune = false;
+    
+
     void OnEnable()
     {
         _currentHealth = _maxHealth;
+        StopAllCoroutines();
+    }
+
+    void StartImmunityTimer()
+    {
+        StartCoroutine(ImunityCoroutine());
+    }
+
+    private IEnumerator ImunityCoroutine()
+    {
+        _isImune = true;
+        OnImmunityStart?.Invoke();
+        yield return new WaitForSeconds(_damageImmunityTime);
+        _isImune = false;
+        OnImmunityStop?.Invoke();
+
     }
 
     [ContextMenu("Test Damage")]
@@ -34,7 +57,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
     
     public void TakeDamage(int value)
     {
-        if (_currentHealth <= 0 || value == 0)
+        if (_isImune || _currentHealth <= 0 || value == 0)
             return;
         if (value < 0)
         {
@@ -42,6 +65,8 @@ public class Health : MonoBehaviour, IDamageable, IHealable, IKillable
         }
         var actualDamage = Mathf.Min(_currentHealth, value);
         _currentHealth -= actualDamage;
+        if (actualDamage > 0)
+            StartImmunityTimer();
         OnDamaged?.Invoke(actualDamage);
         OnChanged?.Invoke();
         if (_currentHealth <= 0)

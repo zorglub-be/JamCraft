@@ -20,5 +20,5 @@ MonoBehaviour:
   _isConsumable: 1
   _isUsable: 0
   _useEffect: {fileID: 0}
-  _requireItem: {fileID: 0}
-  _sound: {fileID: 8300000, guid: af7dabbfa34914af7a413179acf339cb, type: 3}
+  _requiredItem: {fileID: 0}
+  _sound: {fileID: 8300000, guid: 08ec16b7158094271b3a7059dc9c2b7d, type: 3}

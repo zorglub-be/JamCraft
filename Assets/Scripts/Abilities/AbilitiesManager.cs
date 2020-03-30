@@ -159,8 +159,7 @@ public class AbilitiesManager : MonoBehaviour
         }
         if (SelectedPrimaryIndex < 0)
             SetPrimary(index);
-        else if (SelectedSecondaryIndex < 0)
-            SetSecondary(index);
+        SetSecondary(index);
     }
 
     [ContextMenu("Next Primary")]

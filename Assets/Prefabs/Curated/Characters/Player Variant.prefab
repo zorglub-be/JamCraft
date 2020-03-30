@@ -85,6 +85,93 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!114 &2039556979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036287270762185193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fa8553501cb4138bc54eb64835f26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: {fileID: 11400000, guid: 079657080820e43368317bb068b931d8, type: 2}
+--- !u!114 &2961036451241630269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036287270762185193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ebebdfbbb8443abb8dc27d288e2904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3668718025333831952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036287270762185193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f62b62e34ff4afa89ccc084941872e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _availableRecipes:
+  - {fileID: 11400000, guid: c8b2eed6180054bc7903b51789475bfc, type: 2}
+  - {fileID: 11400000, guid: 6ea86de890e5940dcb83ba226f51a3e5, type: 2}
+  - {fileID: 11400000, guid: 304e39fd100414565a3ab1c2de3e652f, type: 2}
+  - {fileID: 11400000, guid: e59e303ba6a3a4aa88177aa805ffd674, type: 2}
+  - {fileID: 11400000, guid: 380d32bdcdb184695b80783d6f9f09bc, type: 2}
+  - {fileID: 11400000, guid: fdaed2873a5ec4356b334be6e67f5b19, type: 2}
+  - {fileID: 11400000, guid: df72f51d6a0224ba5b4dec18123a303c, type: 2}
+--- !u!114 &4830670411265575948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036287270762185193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab777e9c12d9a4e089c12f3ee5dec5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6921382636929636037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036287270762185193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947a7f1665a4c42e7b66b9169892dc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recipeBook: {fileID: 3668718025333831952}
+  _primaryAbilityUI: {fileID: 0}
+  _secondaryAbilityUI: {fileID: 0}
+  _specialAbilityUI: {fileID: 0}
+  _abilities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _abilitySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3935289581684476100
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3935289581684476100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -61.13934, y: -30.181433, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6040233221292688189}
@@ -302,92 +389,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 382758512978526758}
---- !u!114 &2039556979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036287270762185193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fa8553501cb4138bc54eb64835f26f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inventory: {fileID: 11400000, guid: 079657080820e43368317bb068b931d8, type: 2}
---- !u!114 &2961036451241630269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036287270762185193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97ebebdfbbb8443abb8dc27d288e2904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3668718025333831952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036287270762185193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f62b62e34ff4afa89ccc084941872e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _availableRecipes:
-  - {fileID: 11400000, guid: c8b2eed6180054bc7903b51789475bfc, type: 2}
-  - {fileID: 11400000, guid: 6ea86de890e5940dcb83ba226f51a3e5, type: 2}
-  - {fileID: 11400000, guid: 304e39fd100414565a3ab1c2de3e652f, type: 2}
-  - {fileID: 11400000, guid: e59e303ba6a3a4aa88177aa805ffd674, type: 2}
-  - {fileID: 11400000, guid: 380d32bdcdb184695b80783d6f9f09bc, type: 2}
-  - {fileID: 11400000, guid: fdaed2873a5ec4356b334be6e67f5b19, type: 2}
---- !u!114 &4830670411265575948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036287270762185193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab777e9c12d9a4e089c12f3ee5dec5b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6921382636929636037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036287270762185193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947a7f1665a4c42e7b66b9169892dc69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _recipeBook: {fileID: 3668718025333831952}
-  _primaryAbilityUI: {fileID: 0}
-  _secondaryAbilityUI: {fileID: 0}
-  _specialAbilityUI: {fileID: 0}
-  _abilities:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _abilitySlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &2639032858616110206
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5b1deec7d54fe8bbfc13631c8cd40a, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: b37660aec259743529773b78bbbce01e, type: 3}
+  m_Name: Loot Unlit Torch
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: ca6817d7137b44a91aa5151f256a4a2c, type: 3}
+  _item: {fileID: 11400000, guid: c013f03b962694e7fb97d139a121fc68, type: 2}
+  _effectType: 0
+  _amount: 1

@@ -9,6 +9,7 @@ TagManager:
   - Inventory
   - Empire
   - Rebel
+  - Decoy
   layers:
   - Default
   - TransparentFX

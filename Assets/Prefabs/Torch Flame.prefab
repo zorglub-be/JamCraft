@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: a34ae0320b4a3bf9436464b41f2f5fb81d79b757affa4575000000000bfa734adb37b2ec5f2141aa17bccf7f8bb19b81
+  m_ApplyToSortingLayers: a34ae0320b4a3bf9436464b41f2f5fb81d79b757affa4575000000000bfa734adb37b2ec5f2141aa17bccf7f8bb19b811d0a992e
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -86,6 +86,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 4
+  _minFlickerInterval: 5
+  _maxFlickerInterval: 10
 --- !u!1 &3600740384519140516
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +158,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1201721569
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dfc11891530e9be43b998555296cf145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

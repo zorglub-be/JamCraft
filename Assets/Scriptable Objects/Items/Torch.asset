@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
+  m_Name: Torch
+  m_EditorClassIdentifier: 
+  _name: Torch
+  _icon: {fileID: 21300000, guid: 666b37fa6f81348eda59d3f34c3fb879, type: 3}
+  _sprite: {fileID: 21300000, guid: 666b37fa6f81348eda59d3f34c3fb879, type: 3}
+  _maxStack: 1
+  _useDelay: 0
+  _isConsumable: 1
+  _isUsable: 0
+  _useEffect: {fileID: 0}
+  _requiredItem: {fileID: 0}
+  _sound: {fileID: 8300000, guid: e01336fe36cc34b7e9aacd80984b4b84, type: 3}

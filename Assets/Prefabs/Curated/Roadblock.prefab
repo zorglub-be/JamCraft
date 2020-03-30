@@ -131,8 +131,8 @@ MonoBehaviour:
   - {fileID: 7744879056755743346}
   - {fileID: 7744879055938381593}
   _toggled: 1
-  _toggledOnSound: {fileID: 0}
-  _toggledOffSound: {fileID: 0}
+  _toggledOnSound: {fileID: 8300000, guid: 9c45c6cfe6f754c6385e35c4121db0bf, type: 3}
+  _toggledOffSound: {fileID: 8300000, guid: 9c45c6cfe6f754c6385e35c4121db0bf, type: 3}
   canToggle: 1
 --- !u!1 &7744879056755743346
 GameObject:

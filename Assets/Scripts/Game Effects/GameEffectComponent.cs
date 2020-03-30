@@ -7,6 +7,12 @@ public class GameEffectComponent : MonoBehaviour
     [SerializeField] private GameObject _sourceObject;
     public UnityEvent OnEffect;
 
+    public GameObject SourceObject
+    {
+        get => _sourceObject;
+        set => _sourceObject = value;
+    }
+
     public void Execute()
     {
         _effect.Execute(_sourceObject, () => OnEffect?.Invoke());
