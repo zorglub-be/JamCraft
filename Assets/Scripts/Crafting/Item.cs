@@ -10,9 +10,11 @@ public class Item : ScriptableObject, IItem
     [SerializeField] private Sprite _sprite = default;
     [SerializeField] private int _maxStack = default;
     [SerializeField] private float _useDelay = default;
+    [SerializeField] private Item[] _sharesCooldownWith = default;
     [SerializeField] private bool _isConsumable = default;
     [SerializeField] private bool _isUsable = default;
     [SerializeField] private GameEffect _useEffect = default;
+    [SerializeField] private GameEffect _consumeEffect = default;
     [FormerlySerializedAs("_requireItem")] [SerializeField] private Item _requiredItem = null;
     [SerializeField] private AudioClip _sound;
     
@@ -26,11 +28,18 @@ public class Item : ScriptableObject, IItem
     {
         get
         {
+            var sharedCooldown = 0f;
+            foreach (Item item in _sharesCooldownWith)
+            {
+                sharedCooldown = Mathf.Max(sharedCooldown, item.RemainingCooldown);
+            }
+            if (sharedCooldown >= 1f)
+                return sharedCooldown;
             if (!_isListeningToRequiredItem)
                 CheckRequiredItem();
             if (_hasRequiredItem == false)
                 return 1;
-            return Mathf.Max(0f, _useDelay - (Time.time - _lastUseTime));
+            return Mathf.Max(sharedCooldown, _useDelay - (Time.time - _lastUseTime));
         }
     }
 
@@ -59,13 +68,27 @@ public class Item : ScriptableObject, IItem
         if (IsUsable == false || IsReady == false)
             return false;
         if (_requiredItem && _requiredItem._isConsumable)
-            GameState.Instance.Inventory.TryRemove(_requiredItem);
+            _requiredItem.TryConsume(user);
         _hasRequiredItem = _requiredItem == null || GameState.Instance.Inventory.FirstIndexOf(_requiredItem) >= 0;
         _useEffect.Execute(user);
         PlaySound();
         _lastUseTime = Time.time;
+        for (int i = 0; i < _sharesCooldownWith.Length; i++)
+        {
+            _sharesCooldownWith[i]._lastUseTime = _lastUseTime;
+        }
         OnUse?.Invoke();
         return true;
+    }
+
+    public bool TryConsume(GameObject consumer)
+    {
+        var consumed = false;
+        if (_isConsumable)
+            consumed = GameState.Instance.Inventory.TryRemove(this);
+        if (consumed && _consumeEffect != null)
+            _consumeEffect.Execute(consumer);
+        return consumed;
     }
 
     public void PlaySound()

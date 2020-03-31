@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7cabb183a5b54d83a257804bc89d0a6, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
+  m_Name: Unlock Flame Arrow
   m_EditorClassIdentifier: 
-  _dashDistance: 9
-  _obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 16385
-  _collisionRadius: 0.4
-  _clipNarrowObstacles: 1
-  _debug: 1
+  _newAbility: {fileID: 11400000, guid: 9e7e72e2c9d72438f998464c9adad317, type: 2}
+  _isSPecial: 1
+  _slotType: -1

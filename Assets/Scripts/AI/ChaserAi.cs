@@ -50,10 +50,12 @@ public class ChaserAi : AiManager
     }
     void Detect()
     {
-        if (Physics2D.OverlapCircleNonAlloc(_transform.position, _detectionRange, _hitResults, _detectedLayers) > 0)
+        var targetsCount =
+            Physics2D.OverlapCircleNonAlloc(_transform.position, _detectionRange, _hitResults, _detectedLayers);
+        if ( targetsCount > 0)
         {
             GameObject newTarget = _target;
-            for (int i = 0; i < _hitResults.Length; i++)
+            for (int i = 0; i < targetsCount; i++)
             {
                 //we've looked at all hits in the array
                 if (_hitResults[i] == null)

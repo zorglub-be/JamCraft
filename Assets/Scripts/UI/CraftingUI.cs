@@ -24,6 +24,8 @@ public class CraftingUI: MonoBehaviour
 
     public void AddItem(int itemIndex)
     {
+        if (GameState.Instance.Inventory[itemIndex].Count <= 0)
+            return;
         var playSound = false;
         if (_leftItemIndex < 0)
         {
@@ -32,6 +34,9 @@ public class CraftingUI: MonoBehaviour
         }
         else if (_rightItemIndex < 0)
         {
+            //if we add the same item twice we want to be sure we have more than just 1 in the inventory
+            if (itemIndex == _leftItemIndex && GameState.Instance.Inventory[itemIndex].Count < 2)
+                return;
             _rightItemIndex = itemIndex;
             playSound = true;
         }
@@ -64,10 +69,8 @@ public class CraftingUI: MonoBehaviour
     {
         if (ReferenceEquals(_activeRecipe, null) == false)
         {
-            if (Inventory[_leftItemIndex].Item.IsConsumable)
-                Inventory.TryRemoveAt(_leftItemIndex, 1);
-            if (Inventory[_rightItemIndex].Item.IsConsumable)
-                Inventory.TryRemoveAt(_rightItemIndex, 1);
+            Inventory[_leftItemIndex].Item.TryConsume(GameState.Instance.Player);
+            Inventory[_rightItemIndex].Item.TryConsume(GameState.Instance.Player);
             _activeRecipe.Execute(GameState.Instance.Player);
         }
         Clear();

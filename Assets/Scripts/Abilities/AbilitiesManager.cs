@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RecipeBook))]
@@ -14,6 +15,8 @@ public class AbilitiesManager : MonoBehaviour
     [SerializeField] private Image _specialAbilityUI;
     [SerializeField] private Item[] _abilities;
     [SerializeField] private AbilitySlot[] _abilitySlots;
+
+    public UnityEvent OnChange;
 
     private Sprite _defaultSpecialSprite;
 
@@ -152,7 +155,7 @@ public class AbilitiesManager : MonoBehaviour
 
     public void Unlock(Item ability, int index)
     {
-        if (_abilities[index] == null)
+        if (_abilities[index] == null || _abilities[index] != ability)
         {
             _abilities[index] = ability;
             _abilitySlots[index].SetItem(ability);
@@ -200,26 +203,34 @@ public class AbilitiesManager : MonoBehaviour
     {
         if (newIndex < 0)
             return;
+        var changed = selectedIndex != newIndex;
         if (otherSelectedIndex != selectedIndex && selectedIndex >= 0)
             _abilitySlots[selectedIndex].Selected = false;
         selectedIndex = newIndex;
         _abilitySlots[newIndex].Selected = true;
         activeAbility = _abilities[newIndex];
         abilityImage.sprite = activeAbility.Icon;
+        if (changed)
+            OnChange?.Invoke();
     }
 
     public void SetSpecial(Item ability)
     {
+        bool changed;
         if (ReferenceEquals(ability, null) == true)
         {
+            changed = _specialAbility != null;
             _specialAbility = null;
             _specialAbilityUI.sprite = _defaultSpecialSprite;
         }
         else
         {
+            changed = _specialAbility != ability;
             _specialAbility = ability;
             _specialAbilityUI.sprite = ability.Icon;
         }
+        if (changed)
+            OnChange.Invoke();
     }
 
     public void UsePrimary()
@@ -242,4 +253,8 @@ public class AbilitiesManager : MonoBehaviour
         if (ReferenceEquals(ability, null) == false) ability.TryUse(GameState.Instance.Player);
     }
 
+    public bool IsSelected(Item itemToTrack)
+    {
+        return (_primaryAbility == itemToTrack || _secondaryAbility == itemToTrack);
+    }
 }

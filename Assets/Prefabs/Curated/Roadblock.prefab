@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7744879055938381594}
   - component: {fileID: 7744879055938381595}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7744879056049872928}
   - component: {fileID: 7744879056049872929}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Roadblock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7744879056755743347}
   - component: {fileID: 7744879056755743357}
   - component: {fileID: 7744879056755743356}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}

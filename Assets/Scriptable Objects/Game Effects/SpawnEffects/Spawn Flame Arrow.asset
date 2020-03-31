@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77448e68d1da42f49e95615879c0e4e0, type: 3}
-  m_Name: Flaming Arrow Ability
+  m_Script: {fileID: 11500000, guid: 21c4f25483934802a15526ed8f5bd8c5, type: 3}
+  m_Name: Spawn Flame Arrow
   m_EditorClassIdentifier: 
-  _newAbility: {fileID: 11400000, guid: 9e7e72e2c9d72438f998464c9adad317, type: 2}
-  _isSPecial: 1
-  _slotType: -1
+  _useLootComponent: 0
+  _useSpawnPoint: 1
+  _objectToSpawn: {fileID: 1945937761345667062, guid: f3a8cd0ba748e45339b8e5c7086c2484,
+    type: 3}
+  _copyLayer: 1

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3037f6750e2a4ffc867c48ec02208498, type: 3}
-  m_Name: Torch
+  m_Name: Torch-Unlit
   m_EditorClassIdentifier: 
-  _name: Torch
+  _name: Torch-Unlit
   _icon: {fileID: 21300000, guid: 666b37fa6f81348eda59d3f34c3fb879, type: 3}
   _sprite: {fileID: 21300000, guid: 666b37fa6f81348eda59d3f34c3fb879, type: 3}
   _maxStack: 1

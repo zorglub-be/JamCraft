@@ -36,14 +36,14 @@ public class TriggerEvent : MonoBehaviour
         HandleTrigger(other, OnTriggerExit, _alreadyExited);
     }
 
-    private void HandleTrigger(Collider2D other, GameObjectEvent callback, HashSet<GameObject> alreadyColliding)
+    private void HandleTrigger(Collider2D otherCollider, GameObjectEvent callback, HashSet<GameObject> alreadyColliding)
     {
-        if(ShouldIgnoreColliderType(other))
+        if(ShouldIgnoreColliderType(otherCollider))
             return;
-        var obj = other?.attachedRigidbody?.gameObject;
+        var obj = otherCollider?.attachedRigidbody?.gameObject;
         if (obj == null)
-            obj = other.gameObject;
-        if (ShouldIgnore(obj, alreadyColliding) == false)
+            obj = otherCollider.gameObject;
+        if (ShouldIgnore(otherCollider, obj, alreadyColliding) == false)
         {
             alreadyColliding.Add(obj);
             callback?.Invoke(obj);
@@ -58,11 +58,13 @@ public class TriggerEvent : MonoBehaviour
         }
         return _ignoreColliders && other.isTrigger == false;
     }
-    private bool ShouldIgnore(GameObject other, HashSet<GameObject> alreadyColliding)
+    private bool ShouldIgnore(Collider2D otherCollider, GameObject other, HashSet<GameObject> alreadyColliding)
     {
         if (_ignoreFoes || _ignoreFriends)
         {
-            var isFriend = GameState.Instance.AreFriendly(gameObject, other);
+            //we check if the collider is friendly so some colliders on an object can potentially not trigger while
+            //others can (avoids detection triggers from enemy layers to set off unwanted behaviours)
+            var isFriend = GameState.Instance.AreFriendly(gameObject, otherCollider.gameObject);
             if (isFriend && _ignoreFriends || !isFriend && _ignoreFoes)
                 return true;
         }

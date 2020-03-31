@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d03894eea5b43dc9993e883e98bc32b, type: 3}
-  m_Name: Flaming Bow Sequence
+  m_Name: Flame Arrow Sequence
   m_EditorClassIdentifier: 
   _waitForAllFinished: 1
   _disableInputDuringSequence: 1

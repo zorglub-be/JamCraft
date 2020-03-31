@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 626e538742d734c13bd8fa93c2333157, type: 3}
-  m_Name: Flaming Arrow
+  m_Name: Flame Arrow Recipe
   m_EditorClassIdentifier: 
-  _name: Flaming Arrow
-  _icon: {fileID: 21300000, guid: c51afa706b02a044694b30f33f81d239, type: 3}
+  _name: Flame Arrow
+  _icon: {fileID: 6751720123593552093, guid: ad00624eff63c4cbfa85a998da91ad17, type: 3}
   _ingredients:
   - {fileID: 11400000, guid: cc4907edabf5b4f458df53e5f83daf05, type: 2}
   - {fileID: 11400000, guid: 94a212598b7e24979954a8d0ff54c689, type: 2}

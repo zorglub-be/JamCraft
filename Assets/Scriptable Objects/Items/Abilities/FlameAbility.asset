@@ -17,7 +17,10 @@ MonoBehaviour:
   _sprite: {fileID: 2427499001674924628, guid: 00aa19433142b4414892ce48d0e9ad0c, type: 3}
   _maxStack: 1
   _useDelay: 1
+  _sharesCooldownWith: []
   _isConsumable: 0
   _isUsable: 1
   _useEffect: {fileID: 11400000, guid: 1554a97949b7e422799ce8bd886efc9f, type: 2}
+  _consumeEffect: {fileID: 0}
+  _requiredItem: {fileID: 11400000, guid: 58fa216b280804d80aa603d10188046a, type: 2}
   _sound: {fileID: 8300000, guid: c5acdc3766fd4422991e391d9a6aaaa6, type: 3}

@@ -6,6 +6,15 @@ using UnityEngine;
 public abstract class GameEffect : ScriptableObject, IGameEffect
 {
     public abstract void Execute(GameObject source, Action callback = null, CancellationTokenSource tokenSource = null);
+
+    public void ExecuteUnchecked(GameObject source)
+    {
+        Execute(source, null, null);        
+    }
+    public void ExecuteUncheckedNoSource()
+    {
+        Execute(null, null, null);        
+    }
     protected async Task WaitForSeconds(float duration, CancellationTokenSource tokenSource = null)
     {
 
