@@ -28358,8 +28358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e729d0cdba113641b2fea778f5f7eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootItem: {fileID: 9110360129263393146, guid: c28aa06b8f7304ea7a5d4e131db204bb,
-    type: 3}
+  lootItem: {fileID: 0}
 --- !u!114 &1501789687436176899
 MonoBehaviour:
   m_ObjectHideFlags: 0

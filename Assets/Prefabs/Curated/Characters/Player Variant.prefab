@@ -533,6 +533,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1942699269173562731, guid: 4fb29fc685cc34f078c299cc761d2de9,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1994567723861738705, guid: 4fb29fc685cc34f078c299cc761d2de9,
         type: 3}
       propertyPath: OnEffect.m_PersistentCalls.m_Calls.Array.size

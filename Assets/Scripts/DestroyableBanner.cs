@@ -6,14 +6,14 @@ public class DestroyableBanner : MonoBehaviour
 
     private AudioSource _source;
 
-    private void Awake()
+    private void Start()
     {
-        _source = GetComponent<AudioSource>();
+        _source = GameState.Instance.AudioSource;
     }
 
     public void Destroy()
     {
         _source.PlayOneShot(bannerSwish, 1f);
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

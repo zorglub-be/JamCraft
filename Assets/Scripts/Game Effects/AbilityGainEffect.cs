@@ -11,7 +11,7 @@ public class AbilityGainEffect : GameEffect
     public override void Execute(GameObject user, Action callback = null, CancellationTokenSource tokenSource = null)
     {
         //this should grant the player a new ability. What an ability is and how the player gets it is tbd
-        var abilitiesManager = user.GetComponent<AbilitiesManager>();
+        var abilitiesManager = GameState.Instance.Player.GetComponent<AbilitiesManager>();
         if (_isSPecial)
             abilitiesManager?.SetSpecial(_newAbility);
         else

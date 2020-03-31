@@ -17,8 +17,10 @@ public class Pause : IState
 
     public void OnExit()
     {
-        SceneManager.UnloadSceneAsync("PauseMenu");
         GameState.Instance.Paused = false;
         Time.timeScale = 1f;
+        //we check if it is loaded before exiting in case exit is caused by pause being unloaded by another source
+        if (SceneManager.GetSceneByName("PauseMenu").isLoaded)
+            SceneManager.UnloadSceneAsync("PauseMenu");
     }
 }

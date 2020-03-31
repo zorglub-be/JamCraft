@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -801,12 +801,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8636626008764588448, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8636626008764588449, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
         type: 3}
       propertyPath: _playerPrefab
       value: 
       objectReference: {fileID: 4830670411265575948, guid: 0ae21f8f42f9a485faa611022e18fc57,
         type: 3}
+    - target: {fileID: 8636626008764588449, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
+        type: 3}
+      propertyPath: _musicSource
+      value: 
+      objectReference: {fileID: 220790536}
     - target: {fileID: 8636626008764588451, guid: 978d9adc7f2d741a3bec4dfdaf1f67ea,
         type: 3}
       propertyPath: m_Name
@@ -886,7 +896,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dd7c0279d9dd44fc1943c2a25e159dcf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

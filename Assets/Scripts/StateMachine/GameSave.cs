@@ -25,6 +25,6 @@ public class GameSave
             var stack = inventory[i];
             Inventory[i] = stack == null ? null : new ItemStack(stack.Item, stack.Count);
         }
-        LevelLoader = currentLevelLoader;
+        LevelLoader = currentLevelLoader.Clone();
     }
 }

@@ -9,6 +9,7 @@
         [SerializeField] private Player _playerPrefab;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioSource _musicSource;
         [SerializeField] private LayerFriends[] _layerRelationships;
 
         // Private fields
@@ -62,7 +63,7 @@
             var loading = new LoadLevel();
             var play = new Play();
             var pause = new Pause();
-            var menu = new Menu();
+            var menu = new Menu(_musicSource);
             
             
             _stateMachine.SetState(menu);

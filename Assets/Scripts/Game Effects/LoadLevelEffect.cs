@@ -18,6 +18,14 @@ public class LoadLevelEffect : GameEffect
         All,
     }
 
+    public LoadLevelEffect Clone()
+    {
+        var loadLevelEffect = CreateInstance<LoadLevelEffect>();
+        loadLevelEffect._sceneNames = new string[_sceneNames.Length];
+        Array.Copy(_sceneNames, loadLevelEffect._sceneNames, _sceneNames.Length);
+        loadLevelEffect._unloadMode = _unloadMode;
+        return loadLevelEffect;
+    }
     public async override void Execute(GameObject source, Action callback = null, CancellationTokenSource tokenSource = null)
     {
         Time.timeScale = 0;

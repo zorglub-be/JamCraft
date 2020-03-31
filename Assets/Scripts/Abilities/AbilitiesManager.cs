@@ -107,7 +107,7 @@ public class AbilitiesManager : MonoBehaviour
         if (SelectedPrimaryIndex >= 0)
             SetPrimary(SelectedPrimaryIndex);
         if (SelectedSecondaryIndex >= 0)
-            SetPrimary(SelectedSecondaryIndex);
+            SetSecondary(SelectedSecondaryIndex);
         _initialized = true;
     }
 

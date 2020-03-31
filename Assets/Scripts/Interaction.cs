@@ -9,7 +9,7 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Interact))
+        if (Time.timeScale > 0f && NeoInput.GetKeyDown(NeoInput.NeoKeyCode.Interact))
         {
             if (_requiredItem)
             {

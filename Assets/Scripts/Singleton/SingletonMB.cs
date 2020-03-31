@@ -14,6 +14,7 @@ public abstract class SingletonMB<T> : MonoBehaviour where T:SingletonMB<T>
             Debug.LogErrorFormat(this, "An instance of <b><color=red>{0}</color></b> already exists on the scene.\r\n" +
                                        "The new instance was automatically destroyed.", typeof(T));
             Destroy(this);
+            return;
         }
         if (isPersistent)
             DontDestroyOnLoad(this);
